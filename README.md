@@ -13,10 +13,10 @@
 - **Using GitHub website :**
   - Use the `deployment` tab in the site’s GitHub home page.
   - Click on the link available in the `github-pages` box located below the text of the `latest` deployment date of the site.
-  - If you don't find the link, click here to go to the site: https://github.com/KSR0/TD1_FORK_PtitCuisto/
+  - If you don't find the link, click here to go to the site : https://github.com/KSR0/TD1_FORK_PtitCuisto/
   
 ## Authors
 Project developed by :
-- Nicolas Peyregne(KSR0)
-- Axel Bayon(axelbayon)
-- Leny Meziere(AtlasV4)
+- Nicolas Peyregne (KSR0)
+- Axel Bayon (axelbayon)
+- Leny Meziere (AtlasV4)
