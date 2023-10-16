@@ -8,12 +8,10 @@
 
 ## How to use it ?
 - **Using `git clone` :**
-  - Clone the project using the `git clone` command.
-  - Open `index.html`.
-- **Using GitHub website :**
-  - Use the `deployment` tab in the site’s GitHub home page.
-  - Click on the link available in the `github-pages` box located below the text of the `latest` deployment date of the site.
-  - If you don't find the link, click here to go to the site : https://github.com/KSR0/TD1_FORK_PtitCuisto/
+  - Create a folder on your computer to store the files of the site.
+  - Enter in the created folder, with the mouse, right click and click on `Git Bash Here` .
+  - Clone the project using the `git clone` command and the link of the project (https://github.com/KSR0/TD1_FORK_PtitCuisto.git).
+  - Open the `index.php` files in your web browser.
   
 ## Authors
 Project developed by :
