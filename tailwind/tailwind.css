@@ -534,12 +534,12 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.m-5 {
-  margin: 1.25rem;
-}
-
 .m-1 {
   margin: 0.25rem;
+}
+
+.m-5 {
+  margin: 1.25rem;
 }
 
 .mx-auto {
@@ -547,20 +547,12 @@ video {
   margin-right: auto;
 }
 
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
-}
-
 .mb-5 {
   margin-bottom: 1.25rem;
 }
 
-.h-32 {
-  height: 8rem;
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .h-72 {
@@ -580,22 +572,12 @@ video {
   text-align: center;
 }
 
-.font-permanent_marker {
-  font-family: Permanent Marker, cursive;
-}
-
 .font-pacifico {
   font-family: Pacifico, cursive;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.font-permanent_marker {
+  font-family: Permanent Marker, cursive;
 }
 
 .text-2xl {
@@ -608,17 +590,12 @@ video {
   line-height: 1;
 }
 
-.text-charte_bleu_fonce {
-  --tw-text-opacity: 1;
-  color: rgb(42 57 144 / var(--tw-text-opacity));
-}
-
 .text-charte_bleu_clair {
   --tw-text-opacity: 1;
   color: rgb(120 144 205 / var(--tw-text-opacity));
 }
 
-.text-charte_blanc {
+.text-charte_bleu_fonce {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(42 57 144 / var(--tw-text-opacity));
 }
