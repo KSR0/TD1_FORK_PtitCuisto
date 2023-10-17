@@ -9,6 +9,10 @@ module.exports = {
       'charte_blanc': '#ffffff',
       'charte_gris': '#999999',
       'charte_bleu_clair': '#7890cd',
+    },
+    fontFamily: {
+      'permanent_marker': ['Permanent Marker', 'cursive'],
+      'pacifico': ['Pacifico', 'cursive'],
     }
   },
   plugins: [],
