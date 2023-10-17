@@ -8,6 +8,6 @@
     </head>
 
     <body>
-        <h1 class="bg-green-500">PHP - Site du P'tit Cuisto !</h1>
+        <h1 class="text-center text-charte_bleu_fonce">PHP - Site du P'tit Cuisto !</h1>
     </body>
 </html>
