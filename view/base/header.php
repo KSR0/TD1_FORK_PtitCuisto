@@ -1,1 +1,1 @@
-<img class="object-scale-down w-64 m-5" src="img/Logo.png" alt="Logo du site" title="Logo P'tit Cuito !">
+<img class="object-scale-down w-64 m-5" src="../../img/Logo.png" alt="Logo du site" title="Logo P'tit Cuito !">
