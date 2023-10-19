@@ -16,7 +16,7 @@
 
     </head>
 
-    <body> <!-- class="font-pacifico text-2xl m-1" -->
+    <body class="font-pacifico text-2xl m-1">
 	    <?php 
 		    require_once('base/header.php');?>
             <?= $content?>
