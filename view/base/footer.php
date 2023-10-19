@@ -1,0 +1,1 @@
+<p class="text-xl text-center text-charte_bleu_clair">@Axel Bayon - Leny Meziere - Nicolas Peyregne</p>
