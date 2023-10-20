@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>P'tit Cuisto</title>
         <link rel="stylesheet" href="../../tailwind/tailwind.css">
+        <link rel="icon" type="image/x-icon" href="../../img/Edito.png">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +19,15 @@
 
     <body class="font-pacifico text-2xl m-1">
 	    <?php 
-		    require_once('base/header.php');?>
+		    require_once('base/header.php');
+        ?>
+
+        <main>
             <?= $content?>
-            <?php require_once('base/footer.php');
+        </main>
+            
+        <?php 
+            require_once('base/footer.php');
 	    ?>
     </body>
 </html>

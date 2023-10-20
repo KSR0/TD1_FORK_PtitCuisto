@@ -1,0 +1,5 @@
+/*
+function nom_fonction() {
+
+}
+*/

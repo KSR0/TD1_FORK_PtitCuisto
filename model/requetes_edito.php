@@ -1,5 +1,5 @@
 <?php
-    require_once 'includes/connexionBDD.php';
+    require_once '../../includes/connexionBDD.php';
 
     function /*nom de la fonction*/($bdd) {
         $requete = "" ; /*mettre la requête SQL entre les ""*/
