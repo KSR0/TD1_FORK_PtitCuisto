@@ -1,3 +1,7 @@
+function Openbar() {
+    document.querySelector('.sidebar').classList.toggle('left-[-300px]')
+}
+
 function bouton_detail_recette() {
     window.location.href = 'detail_recette.php';
 }

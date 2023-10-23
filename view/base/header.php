@@ -6,6 +6,7 @@
 <script src="../../controller/base/script_header.js"></script>
 
 
+
 <!-- Code pour la navbar -->
 <nav class="font-permanent_marker">
     <span class="absolute text-charte_blanc text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
@@ -97,11 +98,7 @@
         document.querySelector('#submenu').classList.toggle('hidden')
         document.querySelector('#arrow').classList.toggle('rotate-0')
     }
-    dropDown()
-
-    function Openbar() {
-        document.querySelector('.sidebar').classList.toggle('left-[-300px]')
-    }
+    dropDown();
 </script>
 
 
