@@ -1,31 +1,37 @@
 function bouton_edito() {
-  window.location.href = 'edito.php';
+    window.location.href = 'edito.php';
 }
 
 function bouton_recette() {
-  window.location.href = 'recette.php';
+    window.location.href = 'recette.php';
 }
 
 function bouton_detail_recette() {
-  window.location.href = 'detail_recette.php';
+    window.location.href = 'detail_recette.php';
 }
 
 function bouton_creation_recette() {
-  window.location.href = 'creation_recette.php';
+    window.location.href = 'creation_recette.php';
 }
 
 function bouton_modification_recette() {
-  window.location.href = 'modification_recette.php';
+    window.location.href = 'modification_recette.php';
 }
 
 function bouton_filtre() {
-  window.location.href = 'filtre.php';
+    window.location.href = 'filtre.php';
 }
 
 function bouton_connexion_creation_compte() {
-  window.location.href = 'connexion_creation_compte.php';
+    window.location.href = 'connexion_creation_compte.php';
 }
 
 function bouton_modification_compte() {
-  window.location.href = 'modification_compte.php';
+    window.location.href = 'modification_compte.php';
+}
+
+const navLinks = document.querySelector('.nav-links')
+function menu_mobile(e){
+    e.name = e.name === 'menu' ? 'close' : 'menu'
+    navLinks.classList.toggle('top-[9%]')
 }
