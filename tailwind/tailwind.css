@@ -656,6 +656,10 @@ video {
   gap: 2rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -854,6 +858,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:gap-6 {
+    gap: 1.5rem;
+  }
+
   .md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
