@@ -1,3 +1,8 @@
+<?php
+    // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
+    require_once '../../model/base/requetes_header.php';
+?>
+
 <script src="../../controller/base/script_header.js"></script>
 
 <header class="bg-white">

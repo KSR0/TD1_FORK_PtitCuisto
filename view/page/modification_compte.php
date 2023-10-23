@@ -1,6 +1,6 @@
 <?php ob_start();
     // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
-    require_once '../../model/requetes_modification_compte.php';
+    require_once '../../model/page/requetes_modification_compte.php';
 ?>
 
 <script src="../../controller/page/script_modification_compte.js"></script>
