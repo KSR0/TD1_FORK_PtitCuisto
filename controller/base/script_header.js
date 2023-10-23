@@ -31,7 +31,7 @@ function bouton_modification_compte() {
 }
 
 const navLinks = document.querySelector('.nav-links')
-function menu_mobile(e){
+function menu_deroulant(e){
     e.name = e.name === 'menu' ? 'close' : 'menu'
     navLinks.classList.toggle('top-[9%]')
 }
