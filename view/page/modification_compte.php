@@ -5,8 +5,8 @@
 
 <script src="../../controller/page/script_modification_compte.js"></script>
 
-<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifier son compte</h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Page permettant de modifier son compte</p>
+<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifier mon compte</h1>
+<p class="text-3xl text-center text-charte_bleu_clair">Page permettant la modification de mon compte</p>
 
 <?php
     // Appel de la fonction de la requête SQL permettant d'afficher les utilisateurs
