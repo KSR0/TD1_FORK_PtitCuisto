@@ -1,7 +1,12 @@
+<?php
+    // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
+    require_once '../../model/base/requetes_header.php';
+?>
+
 <script src="../../controller/base/script_header.js"></script>
 
 <header class="bg-white">
-    <nav class="flex justify-between items-center w-[92%]  mx-auto">
+    <nav class="text-charte_bleu_fonce font-permanent_marker flex justify-between items-center w-[92%]  mx-auto">
 
         <div>
             <img class="h-14 pl-1 p-2 cursor-pointer" src="../../img/Logo.png" alt="...">
@@ -11,24 +16,31 @@
             class="nav-links duration-500 sm:static absolute bg-white sm:min-h-fit min-h-[30vh] left-0 top-[-100%] sm:w-auto  w-full flex items-center px-5">
             <ul class="flex sm:flex-row flex-col sm:items-center sm:gap-[4vw] gap-8">
                 <li>
-                    <a class="hover:text-gray-500" href="edito.php">Accueil</a>
+                    <a class="hover:text-gray-500" href="#">Accueil</a>
                 </li>
                 <li>
-                    <a class="hover:text-gray-500" href="recette.php">Recettes</a>
+                    <a class="hover:text-gray-500" href="#">Recettes</a>
                 </li>
                 <li>
-                    <a class="hover:text-gray-500" href="filtre.php">Filtres</a>
+                    <a class="hover:text-gray-500" href="#">Filtres</a>
                 </li>
             </ul>
         </div>
 
         <div class="flex items-center gap-1 sm:gap-6">
             <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Se connecter</button>
-            <ion-icon onclick="onToggleMenu(this)" name="menu" class="ml-0 text-3xl cursor-pointer sm:hidden"></ion-icon>
+            <ion-icon onclick="menu_deroulant(this)" name="menu" class="text-3xl cursor-pointer sm:hidden"></ion-icon>
         </div>
-
     </nav>
 </header>
+
+<script>
+const navLinks = document.querySelector('.nav-links')
+function menu_deroulant(e){
+    e.name = e.name === 'menu' ? 'close' : 'menu'
+    navLinks.classList.toggle('top-[9%]')
+}
+</script>
 
     <!-- Permet de passer d'une page à une autre facilement pour faire des tests sans passer par le menu -->
     <div class="text-center mb-4">

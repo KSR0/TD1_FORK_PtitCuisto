@@ -1,6 +1,6 @@
 <?php ob_start();
     // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
-    require_once '../../model/requetes_filtre.php';
+    require_once '../../model/page/requetes_filtre.php';
 ?>
 
 <script src="../../controller/page/script_filtre.js"></script>

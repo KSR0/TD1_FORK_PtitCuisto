@@ -1,6 +1,6 @@
 <?php ob_start();
     // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
-    require_once '../../model/requetes_edito.php';
+    require_once '../../model/page/requetes_edito.php';
 ?>
 
 <script src="../../controller/page/script_edito.js"></script>
