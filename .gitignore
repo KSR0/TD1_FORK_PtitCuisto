@@ -10,3 +10,4 @@ MLD/MLR2.SQL
 
 view/test.html
 .dcignore
+node_modules
