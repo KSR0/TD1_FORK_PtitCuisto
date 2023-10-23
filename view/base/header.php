@@ -29,6 +29,14 @@
     </nav>
 </header>
 
+<script>
+const navLinks = document.querySelector('.nav-links')
+function menu_deroulant(e){
+    e.name = e.name === 'menu' ? 'close' : 'menu'
+    navLinks.classList.toggle('top-[9%]')
+}
+</script>
+
     <!-- Permet de passer d'une page à une autre facilement pour faire des tests sans passer par le menu -->
     <div class="text-center mb-4">
     
