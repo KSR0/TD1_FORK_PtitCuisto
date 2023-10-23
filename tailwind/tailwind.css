@@ -620,12 +620,20 @@ video {
   min-height: 30vh;
 }
 
+.min-h-\[60vh\] {
+  min-height: 60vh;
+}
+
 .w-\[92\%\] {
   width: 92%;
 }
 
 .w-full {
   width: 100%;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .max-w-screen-xl {
@@ -744,6 +752,10 @@ video {
   font-family: Permanent Marker, cursive;
 }
 
+.font-\[Poppins\] {
+  font-family: Poppins;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -858,8 +870,37 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:static {
+    position: static;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:min-h-fit {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+
+  .md\:w-auto {
+    width: auto;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
   .md\:gap-6 {
     gap: 1.5rem;
+  }
+
+  .md\:gap-\[4vw\] {
+    gap: 4vw;
   }
 
   .md\:py-8 {
