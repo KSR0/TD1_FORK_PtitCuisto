@@ -1,7 +1,9 @@
 <?php
     // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
     require_once '../../model/base/requetes_header.php';
-    require_once 'modal_cat.php'
+    require_once 'modal_cat.php';
+    require_once 'modal_titre.php';
+    require_once 'modal_ingr.php';
 ?>
 
 <script src="../../controller/base/script_header.js"></script>
@@ -65,17 +67,20 @@
 
                     <div id="categorie" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
-                        <button class="modal-open text-[15px] ml-4 text-gray-200">Catégorie</button>
+                        <button class="modal-open1 text-[15px] ml-4 text-gray-200">Catégorie</button>
+                        <script> openmodal(1) </script>
                     </div>
 
                     <div id="titre" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-search"></i>
-                        <span class="text-[15px] ml-4 text-gray-200">Titre</span>
+                        <button class="modal-open2 text-[15px] ml-4 text-gray-200">Titre</button>
+                        <script> openmodal(2) </script>
                     </div>
 
                     <div id="ingredient" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-cart"></i>
-                        <span class="text-[15px] ml-4 text-gray-200">Ingrédient(s)</span>
+                        <button class="modal-open3 text-[15px] ml-4 text-gray-200">Ingrédient(s)</button>
+                        <script> openmodal(3) </script>
                     </div>
 
                 </div>
@@ -101,43 +106,6 @@
     }
     dropDown();
 
-    let openmodal = document.querySelectorAll('.modal-open')
-    for (let i = 0; i < openmodal.length; i++) {
-      openmodal[i].addEventListener('click', function(event){
-    	event.preventDefault()
-    	toggleModal()
-      })
-    }
-    
-    let closemodal = document.querySelectorAll('.modal-close')
-    for (let i = 0; i < closemodal.length; i++) {
-      closemodal[i].addEventListener('click', toggleModal)
-    }
-    
-    document.onkeydown = function(evt) {
-      evt = evt || window.Event
-      let isEscape = false
-      if ("key" in evt) {
-    	isEscape = (evt.key === "Escape" || evt.key === "Esc")
-      } else {
-    	isEscape = (evt.keyCode === 27)
-      }
-      if (isEscape && document.body.classList.contains('modal-active')) {
-    	toggleModal()
-      }
-    };
-    
-    
-    function toggleModal () {
-      const body = document.querySelector('body')
-      const modal = document.querySelector('.modal')
-      modal.classList.toggle('opacity-0')
-      modal.classList.toggle('pointer-events-none')
-      body.classList.toggle('modal-active')
-    }
-    
-    const overlay = document.querySelector('#modal-test')
-    overlay.addEventListener('click', toggleModal)
 </script>
 
 
