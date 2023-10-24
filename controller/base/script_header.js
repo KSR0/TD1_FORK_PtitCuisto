@@ -22,18 +22,19 @@ function bouton_modification_compte() {
     window.location.href = 'modification_compte.php';
 }
 
-function openmodal(numero) {
-    let openmodal = document.querySelectorAll(`.modal-open${numero}`)
-    for (let i = 0; i < openmodal.length; i++) {
-      openmodal[i].addEventListener('click', function(event){
+
+function ouvrir_modale(numero) {
+    let ouvrir_modale = document.querySelectorAll(`.modal-open${numero}`)
+    for (let i = 0; i < ouvrir_modale.length; i++) {
+      ouvrir_modale[i].addEventListener('click', function(event){
     	event.preventDefault()
     	toggleModal()
       })
     }
     
-    let closemodal = document.querySelectorAll(`.modal${numero}-close`)
-    for (let i = 0; i < closemodal.length; i++) {
-      closemodal[i].addEventListener('click', toggleModal)
+    let fermer_modale = document.querySelectorAll(`.modal${numero}-close`)
+    for (let i = 0; i < fermer_modale.length; i++) {
+      fermer_modale[i].addEventListener('click', toggleModal)
     }
     
     document.onkeydown = function(evt) {

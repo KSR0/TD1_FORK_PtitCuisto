@@ -1,9 +1,9 @@
 <?php
     // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
     require_once '../../model/base/requetes_header.php';
-    require_once 'modal_cat.php';
+    require_once 'modal_categorie.php';
     require_once 'modal_titre.php';
-    require_once 'modal_ingr.php';
+    require_once 'modal_ingredients.php';
 ?>
 
 <script src="../../controller/base/script_header.js"></script>
@@ -68,19 +68,19 @@
                     <div id="categorie" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
                         <button class="modal-open1 text-[15px] ml-4 text-gray-200">Catégorie</button>
-                        <script> openmodal(1) </script>
+                        <script> ouvrir_modale(1) </script>
                     </div>
 
                     <div id="titre" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-search"></i>
                         <button class="modal-open2 text-[15px] ml-4 text-gray-200">Titre</button>
-                        <script> openmodal(2) </script>
+                        <script> ouvrir_modale(2) </script>
                     </div>
 
                     <div id="ingredient" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-cart"></i>
                         <button class="modal-open3 text-[15px] ml-4 text-gray-200">Ingrédient(s)</button>
-                        <script> openmodal(3) </script>
+                        <script> ouvrir_modale(3) </script>
                     </div>
 
                 </div>
