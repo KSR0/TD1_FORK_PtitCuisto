@@ -21,9 +21,3 @@ function bouton_mon_compte() {
 function bouton_modification_compte() {
     window.location.href = 'modification_compte.php';
 }
-
-let titre = document.getElementById("#titre");
-
-titre.addEventListener("click", () => {
-    
-})
