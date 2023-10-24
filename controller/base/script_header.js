@@ -23,7 +23,7 @@ function bouton_modification_compte() {
 }
 
 
-function ouvrir_modale(numero) {
+function ouvrir_modale(numero) {a
     let ouvrir_modale = document.querySelectorAll(`.modal-open${numero}`)
     for (let i = 0; i < ouvrir_modale.length; i++) {
       ouvrir_modale[i].addEventListener('click', function(event){
