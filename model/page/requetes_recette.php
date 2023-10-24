@@ -2,7 +2,7 @@
     require_once '../../includes/connexionBDD.php';
 
     function recupererToutesLesRecettes($bdd) {
-        $requeteRecette = "SELECT REC_IMAGE, REC_TITRE, CAT_INTITULE, REC_RESUME, TAG_INTITULE FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_TAGS USING(TAG_ID) ORDER BY rec_date_crea DESC LIMIT 11" ; /*mettre la requête SQL entre les ""*/
+        $requeteRecette = "SELECT REC_IMAGE, REC_TITRE, CAT_INTITULE, REC_RESUME, TAG_INTITULE FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_TAGS USING(TAG_ID) ORDER BY rec_date_crea DESC LIMIT 10" ; /*mettre la requête SQL entre les ""*/
         $reqServeurRecette = $bdd->prepare($requeteRecette);
         $reqServeurRecette->execute();
         $nom_variableRecette = $reqServeurRecette->fetchAll(); /*changer le nom_variable en fonction de ce que tu veux afficher*/
