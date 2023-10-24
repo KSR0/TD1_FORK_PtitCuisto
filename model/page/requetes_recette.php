@@ -22,7 +22,7 @@
             foreach($nom_variableTags as $nom_table_sql_tags) {
                 echo '#' . $nom_table_sql_tags["TAG_INTITULE"] . ' ';
             }
-            echo "<br>";
+            echo "<hr class='border-2 border-black'><br>";
         }
     }
     //ALTER TABLE FORK_RECETTE ADD CONSTRAINT FORK_RECETTE_TAGS_FK FOREIGN KEY (TAG_ID) REFERENCES FORK_TAGS(TAG_ID);
