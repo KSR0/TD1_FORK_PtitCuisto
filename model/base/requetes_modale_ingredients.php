@@ -1,8 +1,8 @@
 <?php
     require_once '../../includes/connexionBDD.php';
 
-    function /*nom de la fonction*/($bdd) {
-        $requete = "" ; /*mettre la requête SQL entre les ""*/
+    function recupIngredients($bdd) {
+        $requete = "SELECT * FROM FORK_RECETTE WHERE" ; /*mettre la requête SQL entre les ""*/
         $reqServeur = $bdd->prepare($requete);
         $reqServeur->execute();
         $nom_variable = $reqServeur->fetchAll(); /*changer le nom_variable en fonction de ce que tu veux afficher*/

@@ -1,12 +1,16 @@
 <?php
     // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
     require_once '../../model/base/requetes_header.php';
-    require_once 'modal_categorie.php';
-    require_once 'modal_titre.php';
-    require_once 'modal_ingredients.php';
+    require_once '../../model/base/requetes_modale_categorie.php';
+    require_once '../../model/base/requetes_modale_titre.php';
+    require_once '../../model/base/requetes_modale_ingredients.php';
+    require_once 'modale_categorie.php';
+    require_once 'modale_titre.php';
+    require_once 'modale_ingredients.php';
 ?>
 
 <script src="../../controller/base/script_header.js"></script>
+<script src="../../controller/base/script_modales.js"></script>
 
 
 
@@ -68,7 +72,7 @@
                     <div id="categorie" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
                         <button class="modal-open1 text-[15px] ml-4 text-gray-200">Catégorie</button>
-                        <script> ouvrir_modale(1) </script>
+                        <script>ouvrir_modale(1) </script>
                     </div>
 
                     <div id="titre" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
@@ -90,7 +94,7 @@
                 <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer border-2 bg-charte_bleu_fonce">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span class="text-[15px] ml-4 text-gray-200">
-                        <a href="connexion_creation_compte.php">Se connecter</a>
+                        <a href="connexion_compte.php">Se connecter</a>
                     </span>
                 </div>
                 
@@ -120,6 +124,9 @@
 
     <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
     onclick="bouton_modification_recette()">Modifier ma recette</button>
+
+    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
+    onclick="bouton_creation_compte()">Création d'un compte</button>
 
     <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
     onclick="bouton_mon_compte()">Mon compte</button>
