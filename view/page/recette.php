@@ -11,6 +11,7 @@
 <?php
     // Appel de la fonction de la requête SQL permettant d'afficher les utilisateurs
     //*nom de la fonction*/($bdd); // Changer le nom de la fonction par le nom de la fonction utilisée dans le requête_BDD correspondant 
+    recupererToutesLesRecettes($bdd);
 ?>
 
 <?php $content = ob_get_clean();
