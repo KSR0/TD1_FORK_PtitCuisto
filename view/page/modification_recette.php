@@ -5,8 +5,8 @@
 
 <script src="../../controller/page/script_modification_recette.js"></script>
 
-<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modification d'une recette</h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Page permettant de modifier une recette.</p>
+<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifier ma recette</h1>
+<p class="text-3xl text-center text-charte_bleu_clair">Page permettant la modification de ma recette selectionnée.</p>
 
 <?php
     // Appel de la fonction de la requête SQL permettant d'afficher les utilisateurs
