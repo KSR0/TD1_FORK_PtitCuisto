@@ -14,7 +14,7 @@
             $reqServeurTags->execute();
             $nom_variableTags = $reqServeurTags->fetchAll();
             echo 
-            "<a href='" . $nom_table_sql_recette["REC_IMAGE"] . "'>" . "<img src='" . $nom_table_sql_recette["REC_IMAGE"] . "' alt='Image recette " . $nom_table_sql_recette['REC_TITRE'] . "' width='500px'/></a>" . "<br>" .
+            "<a href='" . $nom_table_sql_recette["REC_IMAGE"] . "'>" . "<img src='" . $nom_table_sql_recette["REC_IMAGE"] . "' alt='Image recette " . $nom_table_sql_recette["REC_TITRE"] . "' width='500px'/></a>" . "<br>" .
             strtoupper($nom_table_sql_recette["REC_TITRE"]) . "<br>" .
             "Categorie : " . $nom_table_sql_recette["CAT_INTITULE"] . "<br>" .
             "Resumé : " . $nom_table_sql_recette["REC_RESUME"] . "<br>" . 
