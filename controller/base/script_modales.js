@@ -42,3 +42,15 @@ function ouvrir_modale(numero) {
     const overlay = document.querySelector(`#modal${numero}-test`)
     overlay.addEventListener('click', toggleModal)
 }
+
+function bouton_recherche_par_categorie() {
+  window.location.href = 'filtre_categorie.php';
+}
+
+function bouton_recherche_par_titre() {
+  window.location.href = 'filtre_titre.php';
+}
+
+function bouton_recherche_par_ingredients() {
+  window.location.href = 'filtre_ingredients.php';
+}
