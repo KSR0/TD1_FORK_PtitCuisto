@@ -71,19 +71,19 @@
 
                     <div id="categorie" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
-                        <button class="modal-open1 text-[15px] ml-4 text-gray-200">Catégorie</button>
+                        <button data-modal-target="staticModal" data-modal-toggle="staticModal" class="modal-open1 text-[15px] ml-4 text-gray-200">Catégorie</button>
                         <script>ouvrir_modale(1) </script>
                     </div>
 
                     <div id="titre" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-search"></i>
-                        <button class="modal-open2 text-[15px] ml-4 text-gray-200">Titre</button>
+                        <button data-modal-target="staticModal" data-modal-toggle="staticModal" class="modal-open2 text-[15px] ml-4 text-gray-200">Titre</button>
                         <script> ouvrir_modale(2) </script>
                     </div>
 
                     <div id="ingredient" class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-charte_bleu_fonce">
                         <i class="bi bi-cart"></i>
-                        <button class="modal-open3 text-[15px] ml-4 text-gray-200">Ingrédient(s)</button>
+                        <button data-modal-target="staticModal" data-modal-toggle="staticModal" class="modal-open3 text-[15px] ml-4 text-gray-200">Ingrédient(s)</button>
                         <script> ouvrir_modale(3) </script>
                     </div>
 
