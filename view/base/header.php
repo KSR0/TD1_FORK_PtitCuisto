@@ -16,19 +16,19 @@
 
 <!-- Code pour la navbar -->
 <nav class="font-permanent_marker">
-    <span class="absolute text-charte_blanc text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+    <div onclick="Openbar()" class="bouton_menu_mobile cursor-pointer absolute text-charte_blanc text-4xl top-5 left-4" >
         <i class="bi bi-filter-left px-2 bg-charte_bleu_clair rounded-md" title="Ouvrir le menu"></i>
-    </span>
+    </div>
 
     <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-charte_bleu_clair shadow h-screen">
 
         <div class="text-gray-100 text-xl">
 
             <div class="p-2.5 mt-1 flex items-center rounded-md ">
-                <button onclick="bouton_edito()" class="element_liens cursor-pointer mx-auto">
+                <p onclick="bouton_edito()" class="logo_menu cursor-pointer mx-auto">
                     <img class="h-20 pl-1 p-2" src="../../img/Logo.png" alt="Logo du site" title="Aller à l'accueil">
-                </button>
-                <i class="bi bi-x cursor-pointer lg:hidden" title="Fermer le menu" onclick="Openbar()"></i>
+                </p>
+                <i onclick="Openbar()" class="cursor-pointer bi bi-x lg:hidden" title="Fermer le menu"></i>
             </div>
 
             <hr class="my-2 text-charte_blanc">
@@ -51,7 +51,7 @@
                     <p class="text-[15px] ml-4 text-gray-200">Recettes</p>
                 </div>
 
-                <div onclick="dropDown()" class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="dropDown()" class="element_menu_deroulant cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-funnel-fill"></i>
 
                     <div class="flex justify-between w-full items-center">
@@ -65,19 +65,19 @@
 
                 <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
 
-                    <div onclick="desactiver_liens(); fond_clair()" id="categorie" class="element_menu cursor-pointer modal-open1 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_sous_menu(); desactiver_sous_menu_deroulant(); desactiver_bouton_mobile(); desactiver_logo_menu(); fond_clair(); fond_clair_deroulant(); fond_clair_logo()" id="categorie" class="element_menu cursor-pointer modal-open1 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Catégorie</p>
                         <script>ouvrir_modale(1)</script>
                     </div>
 
-                    <div onclick="desactiver_liens(); fond_clair()" id="titre" class="element_menu cursor-pointer modal-open2 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_sous_menu(); desactiver_sous_menu_deroulant(); desactiver_bouton_mobile(); desactiver_logo_menu(); fond_clair(); fond_clair_deroulant(); fond_clair_logo()" id="titre" class="element_menu cursor-pointer modal-open2 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-search"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Titre</p>
                         <script>ouvrir_modale(2)</script>
                     </div>
 
-                    <div onclick="desactiver_liens(); fond_clair()" id="ingredient" class="element_menu cursor-pointer modal-open3 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_sous_menu(); desactiver_sous_menu_deroulant(); desactiver_bouton_mobile(); desactiver_logo_menu(); fond_clair(); fond_clair_deroulant(); fond_clair_logo()" id="ingredient" class="element_menu cursor-pointer modal-open3 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-cart"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Ingrédient(s)</p>
                         <script>ouvrir_modale(3)</script>
