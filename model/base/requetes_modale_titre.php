@@ -1,5 +1,5 @@
 <?php
-    require_once '../../includes/connexionBDD.php';
+    require_once '../../../includes/connexionBDD.php';
 
     function recupTitre($bdd) {
         $requete = "SELECT * FROM FORK_RECETTE WHERE" ; /*mettre la requête SQL entre les ""*/

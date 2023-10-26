@@ -14,8 +14,8 @@
 ?>
 
 <!-- Appel des fichiers où sont rédigées les fonctions JS -->
-<script src="../../js/page/script_header.js"></script>
-<script src="../../js/page/script_modales.js"></script>
+<script src="../../js/base/script_header.js"></script>
+<script src="../../js/base/script_modales.js"></script>
 
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
