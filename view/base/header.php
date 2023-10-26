@@ -25,7 +25,7 @@
         <div class="text-gray-100 text-xl">
 
             <div class="p-2.5 mt-1 flex items-center rounded-md ">
-                <button onclick="bouton_edito()" class="bouton cursor-pointer mx-auto">
+                <button onclick="bouton_edito()" class="element_liens cursor-pointer mx-auto">
                     <img class="h-20 pl-1 p-2" src="../../img/Logo.png" alt="Logo du site" title="Aller à l'accueil">
                 </button>
                 <i class="bi bi-x cursor-pointer lg:hidden" title="Fermer le menu" onclick="Openbar()"></i>
@@ -41,17 +41,17 @@
 
                 <hr class="my-2 mt-3 text-charte_blanc">
 
-                <div class="lien_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_edito()" class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-house-door-fill"></i>
-                    <button onclick="bouton_edito()" class="bouton cursor-pointer text-[15px] ml-4 text-gray-200">Accueil</button>
+                    <p class="text-[15px] ml-4 text-gray-200">Accueil</p>
                 </div>
 
-                <div class="lien_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_recette()" class="element_liens cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-bookmark-fill"></i>
-                    <button onclick="bouton_recette()" class="bouton cursor-pointer text-[15px] ml-4 text-gray-200">Recettes</button>
+                    <p class="text-[15px] ml-4 text-gray-200">Recettes</p>
                 </div>
 
-                <div class="lien_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div class="element_liens p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-funnel-fill"></i>
 
                     <div class="flex cursor-pointer justify-between w-full items-center" onclick="dropDown()">
@@ -65,21 +65,21 @@
 
                 <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
 
-                    <div id="categorie" class="lien_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_liens(); fond_clair()" id="categorie" class="element_liens cursor-pointer modal-open1 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
-                        <button onclick="desactiver_boutons(); fond_clair()" data-modal-target="staticModal" data-modal-toggle="staticModal" class="bouton cursor-pointer modal-open1 text-[15px] ml-4 text-gray-200">Catégorie</button>
+                        <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Catégorie</p>
                         <script>ouvrir_modale(1)</script>
                     </div>
 
-                    <div id="titre" class="lien_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_liens(); fond_clair()" id="titre" class="element_liens cursor-pointer modal-open2 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-search"></i>
-                        <button onclick="desactiver_boutons(); fond_clair()" onclick="fond_clair()" data-modal-target="staticModal" data-modal-toggle="staticModal" class="bouton cursor-pointer modal-open2 text-[15px] ml-4 text-gray-200">Titre</button>
+                        <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Titre</p>
                         <script>ouvrir_modale(2)</script>
                     </div>
 
-                    <div id="ingredient" class="lien_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_liens(); fond_clair()" id="ingredient" class="element_liens cursor-pointer modal-open3 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-cart"></i>
-                        <button onclick="desactiver_boutons(); fond_clair()" onclick="fond_clair()" data-modal-target="staticModal" data-modal-toggle="staticModal" class="bouton cursor-pointer modal-open3 text-[15px] ml-4 text-gray-200">Ingrédient(s)</button>
+                        <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Ingrédient(s)</p>
                         <script>ouvrir_modale(3)</script>
                     </div>
 
@@ -87,9 +87,9 @@
 
                 <hr class="my-4 text-gray-600">
 
-                <div class="lien_menu p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_connexion_compte()" class="element_liens cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
                     <i class="bi bi-box-arrow-in-right"></i>
-                    <button onclick="bouton_connexion_compte()" onclick="desactiver_boutons()" class="bouton cursor-pointer modal-open2 text-[15px] ml-4 text-gray-200">Se connecter</button>
+                    <p class="modal-open2 text-[15px] ml-4 text-gray-200">Se connecter</p>
                 </div>
                 
             </div>
@@ -102,8 +102,7 @@
         document.querySelector('#submenu').classList.toggle('hidden')
         document.querySelector('#arrow').classList.toggle('rotate-0')
     }
-    dropDown();
-
+    dropDown()
 </script>
 
 

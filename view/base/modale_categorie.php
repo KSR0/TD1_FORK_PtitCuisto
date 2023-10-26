@@ -8,7 +8,7 @@
                 <p class="text-2xl font-bold">Filtre par catégorie</p>
 
                 <div class="modal1-close cursor-pointer z-50">
-                    <button onclick="activer_boutons(); fond_fonce()">
+                    <button onclick="activer_liens(); fond_fonce()">
                         <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                             <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
                         </svg>
@@ -44,7 +44,7 @@
             </form>
 
             <div class="flex justify-end pt-2 mt-4">
-                <button onclick="activer_boutons(); fond_fonce()" class="modal1-close px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Fermer</button>
+                <button onclick="activer_liens(); fond_fonce()" class="modal1-close px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Fermer</button>
                 <input type="submit" onclick="bouton_recherche_par_categorie()" class="cursor-pointer modal1-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">
             </div>
         </div>
