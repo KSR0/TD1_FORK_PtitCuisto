@@ -1,18 +1,24 @@
 <?php
-    // Appel du fichier où sont rédigées les requêtes SQL sous forme de fonctions
-    require_once '../../model/base/requetes_header.php';
-    require_once '../../model/base/requetes_modale_categorie.php';
-    require_once '../../model/base/requetes_modale_titre.php';
-    require_once '../../model/base/requetes_modale_ingredients.php';
+    // Appel des fichiers où sont rédigées ou managées les requêtes SQL
+    require_once '../../../controller/base/manager_header.php';
+
+    require_once '../../../model/base/requetes_header.php';
+    require_once '../../../model/base/requetes_modale_categorie.php';
+    require_once '../../../model/base/requetes_modale_titre.php';
+    require_once '../../../model/base/requetes_modale_ingredients.php';
+
+    // Appel des fichiers où sont rédigé le code pour afficher les modales
     require_once 'modale_categorie.php';
     require_once 'modale_titre.php';
     require_once 'modale_ingredients.php';
 ?>
 
-<script src="../../controller/base/script_header.js"></script>
-<script src="../../controller/base/script_modales.js"></script>
+<!-- Appel des fichiers où sont rédigées les fonctions JS -->
+<script src="../../js/page/script_header.js"></script>
+<script src="../../js/page/script_modales.js"></script>
 
 
+<!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
 <!-- Code pour la navbar -->
 <nav class="font-permanent_marker">
@@ -26,7 +32,7 @@
 
             <div class="p-2.5 mt-1 flex items-center rounded-md ">
                 <p onclick="bouton_edito()" class="logo_menu cursor-pointer mx-auto">
-                    <img class="h-20 pl-1 p-2" src="../../img/Logo.png" alt="Logo du site" title="Aller à l'accueil">
+                    <img class="h-20 pl-1 p-2" src="../../../img/Logo.png" alt="Logo du site" title="Aller à l'accueil">
                 </p>
                 <i onclick="Openbar()" class="cursor-pointer bi bi-x lg:hidden" title="Fermer le menu"></i>
             </div>

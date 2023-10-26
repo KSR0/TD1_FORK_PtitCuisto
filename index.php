@@ -1,3 +1,3 @@
 <?php 
-    header('Location: view/page/edito.php');
+    header('Location: view/php/page/edito.php');
 ?>
