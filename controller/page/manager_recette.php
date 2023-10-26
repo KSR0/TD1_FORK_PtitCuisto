@@ -1,13 +1,17 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        <?php
+            $nombre_fois_btn_clique = 1;
+        ?>
         document.querySelector("#btn").addEventListener("click", function() {
-        let div = createElement("div"); 
-        div.innerHTML = <?php
-            recupererToutesLesRecettes($bdd);    
-        ?>;
-        // rajouter l'element dans la page, le mettre enfant a une  div
-    }
-    )
+            document.querySelector("#recettes").innerHTML = `<?php recupererToutesLesRecettes($bdd, $nombre_fois_btn_clique); ?>`;
+            
+            <?php
+                $nombre_fois_btn_clique += 1;
+            ?>;
+            console.log(<?php echo $nombre_fois_btn_clique?>);
+        })
     });
+
     
 </script>

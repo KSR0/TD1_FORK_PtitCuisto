@@ -11,11 +11,13 @@
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
 <h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Liste des recettes</h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Page affichant la liste des recettes publiées.</p>
+<p class="text-3xl text-center text-charte_bleu_clair">Page affichant la liste des recettes publiées.</p><br>
 
-<?php
-    require_once '../../../controller/page/manager_recette.php';   
-?>
+<div id="recettes">
+    <?php
+        require_once '../../../controller/page/manager_recette.php';
+    ?>
+</div>
 
 <hr class='border-2 border-black'><br>
 

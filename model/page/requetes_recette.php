@@ -1,10 +1,10 @@
 <?php
     require_once '../../../includes/connexionBDD.php';
 
-    function recupererToutesLesRecettes($bdd) {
-        //$limit_min = 0;
-        //$limit_max = $limit_min + 10;
-        $requeteRecette = "SELECT REC_IMAGE, REC_TITRE, CAT_INTITULE, REC_RESUME, TAG_INTITULE FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_TAGS USING(TAG_ID) ORDER BY rec_date_crea DESC LIMIT 0, 10" ;
+    function recupererToutesLesRecettes($bdd, $nb_enregistrement) {
+        $requeteRecette = "
+            SELECT REC_IMAGE, REC_TITRE, CAT_INTITULE, REC_RESUME, TAG_INTITULE FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_TAGS USING(TAG_ID) ORDER BY rec_date_crea DESC LIMIT 0, $nb_enregistrement;
+        ";
         $reqServeurRecette = $bdd->prepare($requeteRecette);
         $reqServeurRecette->execute();
         $nom_variableRecette = $reqServeurRecette->fetchAll(); /*changer le nom_variable en fonction de ce que tu veux afficher*/
@@ -26,4 +26,6 @@
             }
         }
     }
+
+
 ?>
