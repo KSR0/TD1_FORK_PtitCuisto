@@ -43,6 +43,7 @@ function desactiver_liens() {
     for (var i = 0; i < div.length; i++) {
         div[i].disabled = true;
         div[i].style.cursor = 'default';
+        div[i].onclick = null;
     }
 }
   
@@ -51,6 +52,9 @@ function activer_liens() {
     for (var i = 0; i < div.length; i++) {
         div[i].disabled = false;
         div[i].style.cursor = 'pointer';
+        div[i].onclick = function() {
+            dropDown(this);
+        };
     }
 }
 

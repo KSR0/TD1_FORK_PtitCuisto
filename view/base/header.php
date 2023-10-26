@@ -46,15 +46,15 @@
                     <p class="text-[15px] ml-4 text-gray-200">Accueil</p>
                 </div>
 
-                <div onclick="bouton_recette()" class="element_liens cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_recette()" class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-bookmark-fill"></i>
                     <p class="text-[15px] ml-4 text-gray-200">Recettes</p>
                 </div>
 
-                <div class="element_liens p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="dropDown()" class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-funnel-fill"></i>
 
-                    <div class="flex cursor-pointer justify-between w-full items-center" onclick="dropDown()">
+                    <div class="flex justify-between w-full items-center">
                         <span class="text-[15px] ml-4 text-gray-200">Filtres</span>
                         <span class="text-sm rotate-180" id="arrow">
                             <i class="bi bi-caret-down-fill"></i>
@@ -65,19 +65,19 @@
 
                 <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
 
-                    <div onclick="desactiver_liens(); fond_clair()" id="categorie" class="element_liens cursor-pointer modal-open1 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_liens(); fond_clair()" id="categorie" class="element_menu cursor-pointer modal-open1 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Catégorie</p>
                         <script>ouvrir_modale(1)</script>
                     </div>
 
-                    <div onclick="desactiver_liens(); fond_clair()" id="titre" class="element_liens cursor-pointer modal-open2 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_liens(); fond_clair()" id="titre" class="element_menu cursor-pointer modal-open2 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-search"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Titre</p>
                         <script>ouvrir_modale(2)</script>
                     </div>
 
-                    <div onclick="desactiver_liens(); fond_clair()" id="ingredient" class="element_liens cursor-pointer modal-open3 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_liens(); fond_clair()" id="ingredient" class="element_menu cursor-pointer modal-open3 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-cart"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Ingrédient(s)</p>
                         <script>ouvrir_modale(3)</script>
@@ -87,7 +87,7 @@
 
                 <hr class="my-4 text-gray-600">
 
-                <div onclick="bouton_connexion_compte()" class="element_liens cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_connexion_compte()" class="element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <p class="modal-open2 text-[15px] ml-4 text-gray-200">Se connecter</p>
                 </div>
