@@ -1,6 +1,5 @@
 <?php ob_start();
     // Appel des fichiers où sont rédigées ou managées les requêtes SQL
-    require_once '../../../controller/page/manager_recette.php';
 
     require_once '../../../model/page/requetes_recette.php';
 ?>
@@ -15,10 +14,18 @@
 <p class="text-3xl text-center text-charte_bleu_clair">Page affichant la liste des recettes publiées.</p>
 
 <?php
-    // Appel de la fonction de la requête SQL permettant d'afficher les utilisateurs
-    //*nom de la fonction*/($bdd); // Changer le nom de la fonction par le nom de la fonction utilisée dans le requête_BDD correspondant 
-    recupererToutesLesRecettes($bdd);
+    require_once '../../../controller/page/manager_recette.php';   
 ?>
 
+<hr class='border-2 border-black'><br>
+
+
+<div class="mx-auto text-center">
+    <button id="btn" class="text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2">
+        Plus
+    </button>
+</div>
+
 <?php $content = ob_get_clean();
-require_once('../template.php'); ?>
+require_once('../template.php');
+?>
