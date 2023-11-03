@@ -18,7 +18,6 @@
 
             
             <form>
-                <label for="choix"> Choisissez une catégorie</label>
                 <ul>
                     <li> <input type="radio" name="categorie" id="entree"> Entrée </li>
                     <li> <input type="radio" name="categorie" id="plat"> Plat </li>
