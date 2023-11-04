@@ -1,3 +1,8 @@
+<?php
+    require_once '../../../includes/connexionBDD.php';
+    require_once '../../../model/base/requetes_modale_ingredients.php';
+?>
+
 <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="lg:pl-80 modal3 opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
     <div id="modal3-test" class="modal3-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>                                
     <div class="modal3-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
@@ -17,19 +22,24 @@
             </div>
 
             
-            <form>
-                <label for="choix"> Choisissez une catégorie</label>
-                <ul>
-                    <li> <input type="radio" name="categorie" id="entree"> Entrée </li>
-                    <li> <input type="radio" name="categorie" id="plat"> Plat </li>
-                    <li> <input type="radio" name="categorie" id="dessert"> Dessert </li>
-                </ul>
+            <form action="filtre_ingredients.php" method="post">
+                <h3 class="mb-4 font-semibold text-gray-900">Choix des ingrédients</h3>
+
+                <select id="ingredients" name="selection_ingredient" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="selection_base">--Choisissez un ingrédient--</option>
+                    <?php
+                        $ingredients = recupIngredients($bdd);
+                        foreach ($ingredients as $ingredient) {
+                            echo "<option value='$ingredient'>$ingredient</option>";
+                        }
+                    ?> 
+                </select>
+
+
+                <div class="flex justify-end pt-2 mt-4">
+                    <button type="submit" name="submit" id="rechercher" class="cursor-pointer modal3-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"> Rechercher </button>
+                </div>
             </form>
-            
-            <div class="flex justify-end pt-2">
-                <button class="modal3-close px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Fermer</button>
-                <button onclick="bouton_recherche_par_ingredients()" class="modal3-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Rechercher</button>
-            </div>
         </div>
     </div>
 </div>

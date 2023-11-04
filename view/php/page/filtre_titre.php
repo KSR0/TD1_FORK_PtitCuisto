@@ -11,12 +11,11 @@
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
-<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Liste des recettes filtrée par titre</h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Page affichant la liste des recettes publiées ayant pour titre :</p>
-
 <?php
-    // Appel de la fonction de la requête SQL permettant d'afficher les utilisateurs
-    //*nom de la fonction*/($bdd); // Changer le nom de la fonction par le nom de la fonction utilisée dans le requête_BDD correspondant 
+    echo "<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Liste des recettes filtrée par titre </h1>
+    <p class='text-3xl text-center text-charte_bleu_clair'>Page affichant la liste des recettes publiées ayant pour titre : " . $_POST['titre'] . "</p>";
+
+    recupRecettesTitre($bdd);
 ?>
 
 <?php $content = ob_get_clean();

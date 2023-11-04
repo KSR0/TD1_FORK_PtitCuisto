@@ -17,36 +17,35 @@
             </div>
 
             
-            <form>   
+            <form action="filtre_categorie.php" method="post">   
                 <h3 class="mb-4 font-semibold text-gray-900">Choix des catégories</h3>
                 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r"> 
                         <div class="flex items-center pl-3">
-                            <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                            <input id="horizontal-list-radio-license" type="radio" value="1" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                             <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-900">Entrée </label>
                         </div>
                     </li>
 
                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                         <div class="flex items-center pl-3">
-                            <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                            <input id="horizontal-list-radio-id" type="radio" value="2" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                             <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-gray-900">Plat</label>
                         </div>
                     </li>
 
                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                         <div class="flex items-center pl-3">
-                            <input id="horizontal-list-radio-millitary" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                            <input id="horizontal-list-radio-millitary" type="radio" value="3" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                             <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-gray-900">Dessert</label>
                         </div>
                     </li>
                 </ul>
-            </form>
 
-            <div class="flex justify-end pt-2 mt-4">
-                <button onclick="activer_sous_menu(); activer_sous_menu_deroulant(); activer_bouton_mobile(); activer_logo_menu(); fond_fonce(); fond_fonce_deroulant()" class="modal1-close px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Fermer</button>
-                <input type="submit" onclick="bouton_recherche_par_categorie()" class="cursor-pointer modal1-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">
-            </div>
+                <div class="flex justify-end pt-2 mt-4">
+                    <input type="submit" name="submit" class="cursor-pointer modal1-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">
+                </div>
+            </form>
         </div>
     </div>
 </div>
