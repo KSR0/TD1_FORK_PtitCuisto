@@ -51,3 +51,13 @@ function bouton_recherche_par_titre() {
 function bouton_recherche_par_ingredients() {
   window.location.href = 'filtre_ingredients.php';
 }
+
+function autoCompletion() {
+  const searchInput = document.getElementById('search');
+  const suggestionList = document.getElementById('suggestions');
+
+  searchInput.addEventListener('input', function() {
+      const searchTerm = searchInput.value;
+      suggestionList.innerHTML = ''; 
+  });
+}

@@ -41,6 +41,10 @@
                         </div>
                     </li>
                 </ul>
+
+                <div class="flex justify-end pt-2 mt-4">
+                    <input type="submit" name="submit" class="cursor-pointer modal1-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">
+                </div>
             </form>
 
             <div class="flex justify-end pt-2 mt-4">
