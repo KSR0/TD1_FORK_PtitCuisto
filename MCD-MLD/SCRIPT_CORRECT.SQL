@@ -1,255 +1,288 @@
-DROP DATABASE IF EXISTS MLR2;
+-- -----------------------------------------------------------------------------
+--             Génération d'une base de données pour
+--                      Oracle Version 10g
+--                        (6/11/2023 17:52:22)
+-- -----------------------------------------------------------------------------
+--      Nom de la base : MLR2
+--      Projet : Espace de travail
+--      Auteur : WD_User
+--      Date de dernière modification : 6/11/2023 17:36:15
+-- -----------------------------------------------------------------------------
 
-CREATE DATABASE IF NOT EXISTS MLR2;
-USE MLR2;
-# -----------------------------------------------------------------------------
-#       TABLE : TAGS
-# -----------------------------------------------------------------------------
+DROP TABLE TAGS CASCADE CONSTRAINTS;
 
-CREATE TABLE IF NOT EXISTS TAGS
- (
-   TAG_ID DB_LONG(4) NOT NULL  ,
-   TAG_INTITULE DB_TEXT, 255 NULL  
-   , PRIMARY KEY (TAG_ID) 
- ) 
- comment = "";
+DROP TABLE STATUT CASCADE CONSTRAINTS;
 
-# -----------------------------------------------------------------------------
-#       TABLE : STATUT
-# -----------------------------------------------------------------------------
+DROP TABLE TYPE CASCADE CONSTRAINTS;
 
-CREATE TABLE IF NOT EXISTS STATUT
- (
-   STA_ID DB_LONG(4) NOT NULL  ,
-   STA_INTITULE DB_TEXT, 255 NULL  
-   , PRIMARY KEY (STA_ID) 
- ) 
- comment = "";
+DROP TABLE RECETTE CASCADE CONSTRAINTS;
 
-# -----------------------------------------------------------------------------
-#       TABLE : TYPE
-# -----------------------------------------------------------------------------
+DROP TABLE UTILISATEUR CASCADE CONSTRAINTS;
 
-CREATE TABLE IF NOT EXISTS TYPE
- (
-   TYP_ID DB_LONG(4) NOT NULL  ,
-   TYP_INTITULE DB_TEXT, 255 NULL  
-   , PRIMARY KEY (TYP_ID) 
- ) 
- comment = "";
+DROP TABLE CATEGORIE CASCADE CONSTRAINTS;
 
-# -----------------------------------------------------------------------------
-#       TABLE : RECETTE
-# -----------------------------------------------------------------------------
+DROP TABLE INGREDIENT CASCADE CONSTRAINTS;
 
-CREATE TABLE IF NOT EXISTS RECETTE
- (
-   REC_ID DB_LONG(4) NOT NULL  ,
-   CAT_ID DB_LONG(4) NOT NULL  ,
-   USER_ID DB_LONG(4) NOT NULL  ,
-   REC_TITRE DB_TEXT, 255 NULL  ,
-   REC_CONTENU DB_TEXT, 255 NULL  ,
-   REC_RESUME DB_TEXT, 255 NULL  ,
-   REC_CATEGORIE DB_TEXT, 255 NULL  ,
-   REC_DATE_INS DB_DATE(8) NULL  ,
-   REC_IMAGE DB_TEXT, 255 NULL  ,
-   REC_DATE_CREA DB_DATE(8) NULL  ,
-   REC_DATE_MODIF DB_DATE(8) NULL  ,
-   REC_AUTEUR DB_TEXT, 255 NULL  
-   , PRIMARY KEY (REC_ID) 
- ) 
- comment = "";
+DROP TABLE COMMENTAIRES CASCADE CONSTRAINTS;
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE RECETTE
-# -----------------------------------------------------------------------------
+DROP TABLE MENTIONNER CASCADE CONSTRAINTS;
 
+DROP TABLE CONTENIR CASCADE CONSTRAINTS;
+
+-- -----------------------------------------------------------------------------
+--       CREATION DE LA BASE 
+-- -----------------------------------------------------------------------------
+
+CREATE DATABASE MLR2;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : TAGS
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE TAGS
+   (
+    TAG_ID DB_LONG(4)  NOT NULL,
+    TAG_INTITULE DB_TEXT, 255  NULL
+,   CONSTRAINT PK_TAGS PRIMARY KEY (TAG_ID)  
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : STATUT
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE STATUT
+   (
+    STA_ID DB_LONG(4)  NOT NULL,
+    STA_INTITULE DB_TEXT, 255  NULL
+,   CONSTRAINT PK_STATUT PRIMARY KEY (STA_ID)  
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : TYPE
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE TYPE
+   (
+    TYP_ID DB_LONG(4)  NOT NULL,
+    TYP_INTITULE DB_TEXT, 255  NULL
+,   CONSTRAINT PK_TYPE PRIMARY KEY (TYP_ID)  
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : RECETTE
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE RECETTE
+   (
+    REC_ID DB_LONG(4)  NOT NULL,
+    CAT_ID DB_LONG(4)  NOT NULL,
+    USER_ID DB_LONG(4)  NOT NULL,
+    REC_TITRE DB_TEXT, 255  NULL,
+    REC_CONTENU DB_TEXT, 255  NULL,
+    REC_RESUME DB_TEXT, 255  NULL,
+    REC_CATEGORIE DB_TEXT, 255  NULL,
+    REC_DATE_INS DB_DATE(8)  NULL,
+    REC_IMAGE DB_TEXT, 255  NULL,
+    REC_DATE_CREA DB_DATE(8)  NULL,
+    REC_DATE_MODIF DB_DATE(8)  NULL,
+    REC_AUTEUR DB_TEXT, 255  NULL
+,   CONSTRAINT PK_RECETTE PRIMARY KEY (REC_ID)  
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE RECETTE
+-- -----------------------------------------------------------------------------
 
 CREATE  INDEX I_FK_RECETTE_CATEGORIE
-     ON RECETTE (CAT_ID ASC);
+     ON RECETTE (CAT_ID ASC)
+    ;
 
 CREATE  INDEX I_FK_RECETTE_UTILISATEUR
-     ON RECETTE (USER_ID ASC);
+     ON RECETTE (USER_ID ASC)
+    ;
 
-# -----------------------------------------------------------------------------
-#       TABLE : UTILISATEUR
-# -----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+--       TABLE : UTILISATEUR
+-- -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS UTILISATEUR
- (
-   USER_ID DB_LONG(4) NOT NULL  ,
-   TYP_ID DB_LONG(4) NOT NULL  ,
-   STA_ID DB_LONG(4) NOT NULL  ,
-   USER_PSEUDO DB_TEXT, 255 NOT NULL  ,
-   USER_EMAIL DB_TEXT, 255 NOT NULL  ,
-   USER_PRENOM DB_TEXT, 255 NOT NULL  ,
-   USER_NOM DB_TEXT, 255 NOT NULL  ,
-   USER_DATE_INS DB_DATE(12) NOT NULL  ,
-   USER_MDP DB_TEXT(1000) NOT NULL  
-   , PRIMARY KEY (USER_ID) 
- ) 
- comment = "";
+CREATE TABLE UTILISATEUR
+   (
+    USER_ID DB_LONG(4)  NOT NULL,
+    TYP_ID DB_LONG(4)  NOT NULL,
+    STA_ID DB_LONG(4)  NOT NULL,
+    USER_PSEUDO DB_TEXT, 255  NOT NULL,
+    USER_EMAIL DB_TEXT, 255  NOT NULL,
+    USER_PRENOM DB_TEXT, 255  NOT NULL,
+    USER_NOM DB_TEXT, 255  NOT NULL,
+    USER_DATE_INS DB_DATE(12)  NOT NULL,
+    USER_MDP DB_TEXT(1000)  NOT NULL
+,   CONSTRAINT PK_UTILISATEUR PRIMARY KEY (USER_ID)  
+   ) ;
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE UTILISATEUR
-# -----------------------------------------------------------------------------
-
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE UTILISATEUR
+-- -----------------------------------------------------------------------------
 
 CREATE  INDEX I_FK_UTILISATEUR_TYPE
-     ON UTILISATEUR (TYP_ID ASC);
+     ON UTILISATEUR (TYP_ID ASC)
+    ;
 
 CREATE  INDEX I_FK_UTILISATEUR_STATUT
-     ON UTILISATEUR (STA_ID ASC);
+     ON UTILISATEUR (STA_ID ASC)
+    ;
 
-# -----------------------------------------------------------------------------
-#       TABLE : CATEGORIE
-# -----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+--       TABLE : CATEGORIE
+-- -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS CATEGORIE
- (
-   CAT_ID DB_LONG(4) NOT NULL  ,
-   CAT_INTITULE DB_TEXT, 255 NULL  ,
-   CAT_DESC DB_TEXT, 255 NULL  
-   , PRIMARY KEY (CAT_ID) 
- ) 
- comment = "";
+CREATE TABLE CATEGORIE
+   (
+    CAT_ID DB_LONG(4)  NOT NULL,
+    CAT_INTITULE DB_TEXT, 255  NULL,
+    CAT_DESC DB_TEXT, 255  NULL
+,   CONSTRAINT PK_CATEGORIE PRIMARY KEY (CAT_ID)  
+   ) ;
 
-# -----------------------------------------------------------------------------
-#       TABLE : INGREDIENT
-# -----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+--       TABLE : INGREDIENT
+-- -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS INGREDIENT
- (
-   ING_ID DB_LONG(4) NOT NULL  ,
-   ING_INTITULE DB_TEXT, 255 NULL  ,
-   ING_DESC DB_TEXT, 255 NULL  
-   , PRIMARY KEY (ING_ID) 
- ) 
- comment = "";
+CREATE TABLE INGREDIENT
+   (
+    ING_ID DB_LONG(4)  NOT NULL,
+    ING_INTITULE DB_TEXT, 255  NULL,
+    ING_DESC DB_TEXT, 255  NULL
+,   CONSTRAINT PK_INGREDIENT PRIMARY KEY (ING_ID)  
+   ) ;
 
-# -----------------------------------------------------------------------------
-#       TABLE : COMMENTAIRES
-# -----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+--       TABLE : COMMENTAIRES
+-- -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS COMMENTAIRES
- (
-   COM_ID DB_LONG(4) NOT NULL  ,
-   USER_ID DB_LONG(4) NOT NULL  ,
-   REC_ID DB_LONG(4) NOT NULL  ,
-   COM_DESCRIPTION DB_TEXT, 255 NULL  
-   , PRIMARY KEY (COM_ID) 
- ) 
- comment = "";
+CREATE TABLE COMMENTAIRES
+   (
+    COM_ID DB_LONG(4)  NOT NULL,
+    USER_ID DB_LONG(4)  NOT NULL,
+    REC_ID DB_LONG(4)  NOT NULL,
+    COM_DESCRIPTION DB_TEXT, 255  NULL
+,   CONSTRAINT PK_COMMENTAIRES PRIMARY KEY (COM_ID)  
+   ) ;
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE COMMENTAIRES
-# -----------------------------------------------------------------------------
-
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE COMMENTAIRES
+-- -----------------------------------------------------------------------------
 
 CREATE  INDEX I_FK_COMMENTAIRES_UTILISATEUR
-     ON COMMENTAIRES (USER_ID ASC);
+     ON COMMENTAIRES (USER_ID ASC)
+    ;
 
 CREATE  INDEX I_FK_COMMENTAIRES_RECETTE
-     ON COMMENTAIRES (REC_ID ASC);
+     ON COMMENTAIRES (REC_ID ASC)
+    ;
 
-# -----------------------------------------------------------------------------
-#       TABLE : MENTIONNER
-# -----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+--       TABLE : MENTIONNER
+-- -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS MENTIONNER
- (
-   REC_ID DB_LONG(4) NOT NULL  ,
-   TAG_ID DB_LONG(4) NOT NULL  
-   , PRIMARY KEY (REC_ID,TAG_ID) 
- ) 
- comment = "";
+CREATE TABLE MENTIONNER
+   (
+    REC_ID DB_LONG(4)  NOT NULL,
+    TAG_ID DB_LONG(4)  NOT NULL
+,   CONSTRAINT PK_MENTIONNER PRIMARY KEY (REC_ID, TAG_ID)  
+   ) ;
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE MENTIONNER
-# -----------------------------------------------------------------------------
-
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE MENTIONNER
+-- -----------------------------------------------------------------------------
 
 CREATE  INDEX I_FK_MENTIONNER_RECETTE
-     ON MENTIONNER (REC_ID ASC);
+     ON MENTIONNER (REC_ID ASC)
+    ;
 
 CREATE  INDEX I_FK_MENTIONNER_TAGS
-     ON MENTIONNER (TAG_ID ASC);
+     ON MENTIONNER (TAG_ID ASC)
+    ;
 
-# -----------------------------------------------------------------------------
-#       TABLE : CONTENIR
-# -----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+--       TABLE : CONTENIR
+-- -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS CONTENIR
- (
-   REC_ID DB_LONG(4) NOT NULL  ,
-   ING_ID DB_LONG(4) NOT NULL  
-   , PRIMARY KEY (REC_ID,ING_ID) 
- ) 
- comment = "";
+CREATE TABLE CONTENIR
+   (
+    REC_ID DB_LONG(4)  NOT NULL,
+    ING_ID DB_LONG(4)  NOT NULL
+,   CONSTRAINT PK_CONTENIR PRIMARY KEY (REC_ID, ING_ID)  
+   ) ;
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE CONTENIR
-# -----------------------------------------------------------------------------
-
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE CONTENIR
+-- -----------------------------------------------------------------------------
 
 CREATE  INDEX I_FK_CONTENIR_RECETTE
-     ON CONTENIR (REC_ID ASC);
+     ON CONTENIR (REC_ID ASC)
+    ;
 
 CREATE  INDEX I_FK_CONTENIR_INGREDIENT
-     ON CONTENIR (ING_ID ASC);
+     ON CONTENIR (ING_ID ASC)
+    ;
 
 
-# -----------------------------------------------------------------------------
-#       CREATION DES REFERENCES DE TABLE
-# -----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
+--       CREATION DES REFERENCES DE TABLE
+-- -----------------------------------------------------------------------------
 
 
-ALTER TABLE RECETTE 
-  ADD FOREIGN KEY FK_RECETTE_CATEGORIE (CAT_ID)
-      REFERENCES CATEGORIE (CAT_ID) ;
+ALTER TABLE RECETTE ADD (
+     CONSTRAINT FK_RECETTE_CATEGORIE
+          FOREIGN KEY (CAT_ID)
+               REFERENCES CATEGORIE (CAT_ID))   ;
+
+ALTER TABLE RECETTE ADD (
+     CONSTRAINT FK_RECETTE_UTILISATEUR
+          FOREIGN KEY (USER_ID)
+               REFERENCES UTILISATEUR (USER_ID))   ;
+
+ALTER TABLE UTILISATEUR ADD (
+     CONSTRAINT FK_UTILISATEUR_TYPE
+          FOREIGN KEY (TYP_ID)
+               REFERENCES TYPE (TYP_ID))   ;
+
+ALTER TABLE UTILISATEUR ADD (
+     CONSTRAINT FK_UTILISATEUR_STATUT
+          FOREIGN KEY (STA_ID)
+               REFERENCES STATUT (STA_ID))   ;
+
+ALTER TABLE COMMENTAIRES ADD (
+     CONSTRAINT FK_COMMENTAIRES_UTILISATEUR
+          FOREIGN KEY (USER_ID)
+               REFERENCES UTILISATEUR (USER_ID))   ;
+
+ALTER TABLE COMMENTAIRES ADD (
+     CONSTRAINT FK_COMMENTAIRES_RECETTE
+          FOREIGN KEY (REC_ID)
+               REFERENCES RECETTE (REC_ID))   ;
+
+ALTER TABLE MENTIONNER ADD (
+     CONSTRAINT FK_MENTIONNER_RECETTE
+          FOREIGN KEY (REC_ID)
+               REFERENCES RECETTE (REC_ID))   ;
+
+ALTER TABLE MENTIONNER ADD (
+     CONSTRAINT FK_MENTIONNER_TAGS
+          FOREIGN KEY (TAG_ID)
+               REFERENCES TAGS (TAG_ID))   ;
+
+ALTER TABLE CONTENIR ADD (
+     CONSTRAINT FK_CONTENIR_RECETTE
+          FOREIGN KEY (REC_ID)
+               REFERENCES RECETTE (REC_ID))   ;
+
+ALTER TABLE CONTENIR ADD (
+     CONSTRAINT FK_CONTENIR_INGREDIENT
+          FOREIGN KEY (ING_ID)
+               REFERENCES INGREDIENT (ING_ID))   ;
 
 
-ALTER TABLE RECETTE 
-  ADD FOREIGN KEY FK_RECETTE_UTILISATEUR (USER_ID)
-      REFERENCES UTILISATEUR (USER_ID) ;
-
-
-ALTER TABLE UTILISATEUR 
-  ADD FOREIGN KEY FK_UTILISATEUR_TYPE (TYP_ID)
-      REFERENCES TYPE (TYP_ID) ;
-
-
-ALTER TABLE UTILISATEUR 
-  ADD FOREIGN KEY FK_UTILISATEUR_STATUT (STA_ID)
-      REFERENCES STATUT (STA_ID) ;
-
-
-ALTER TABLE COMMENTAIRES 
-  ADD FOREIGN KEY FK_COMMENTAIRES_UTILISATEUR (USER_ID)
-      REFERENCES UTILISATEUR (USER_ID) ;
-
-
-ALTER TABLE COMMENTAIRES 
-  ADD FOREIGN KEY FK_COMMENTAIRES_RECETTE (REC_ID)
-      REFERENCES RECETTE (REC_ID) ;
-
-
-ALTER TABLE MENTIONNER 
-  ADD FOREIGN KEY FK_MENTIONNER_RECETTE (REC_ID)
-      REFERENCES RECETTE (REC_ID) ;
-
-
-ALTER TABLE MENTIONNER 
-  ADD FOREIGN KEY FK_MENTIONNER_TAGS (TAG_ID)
-      REFERENCES TAGS (TAG_ID) ;
-
-
-ALTER TABLE CONTENIR 
-  ADD FOREIGN KEY FK_CONTENIR_RECETTE (REC_ID)
-      REFERENCES RECETTE (REC_ID) ;
-
-
-ALTER TABLE CONTENIR 
-  ADD FOREIGN KEY FK_CONTENIR_INGREDIENT (ING_ID)
-      REFERENCES INGREDIENT (ING_ID) ;
-
+-- -----------------------------------------------------------------------------
+--                FIN DE GENERATION
+-- -----------------------------------------------------------------------------
