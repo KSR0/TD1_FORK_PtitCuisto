@@ -5,11 +5,8 @@ function Openbar() {
 function ouvrir_modale(numero) {
     let ouvrir_modale = document.querySelectorAll(`.modal-open${numero}`)
     for (let i = 0; i < ouvrir_modale.length; i++) {
-      ouvrir_modale[i].addEventListener('click', function(event){
-    	event.preventDefault()
     	toggleModal()
       Openbar()
-      })
     }
     
     let fermer_modale = document.querySelectorAll(`.modal${numero}-close`)
@@ -38,9 +35,6 @@ function ouvrir_modale(numero) {
       modal.classList.toggle('pointer-events-none')
       body.classList.toggle(`modal${numero}-active`)
     }
-    
-    const overlay = document.querySelector(`#modal${numero}-test`)
-    overlay.addEventListener('click', toggleModal)
 }
 
 function bouton_recherche_par_categorie() {

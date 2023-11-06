@@ -23,7 +23,7 @@
 <!-- Code pour la navbar -->
 <nav class="font-permanent_marker">
 
-    <div onclick="Openbar()" class="bouton_menu_mobile cursor-pointer absolute text-charte_blanc text-4xl top-5 left-4" >
+    <div onclick="Openbar()" class="modif_div bouton_menu_mobile cursor-pointer absolute text-charte_blanc text-4xl top-5 left-4" >
         <i class="bi bi-filter-left px-2 bg-charte_bleu_clair rounded-md" title="Ouvrir le menu"></i>
     </div>
 
@@ -32,7 +32,7 @@
         <div class="text-gray-100 text-xl">
 
             <div class="p-2.5 mt-1 flex items-center rounded-md ">
-                <p onclick="bouton_edito()" class="logo_menu cursor-pointer mx-auto">
+                <p onclick="bouton_edito()" class="modif_div cursor-pointer mx-auto">
                     <img class="h-20 pl-1 p-2" src="../../../img/Logo.png" alt="Logo du site" title="Aller à l'accueil">
                 </p>
                 <i onclick="Openbar()" class="cursor-pointer bi bi-x lg:hidden" title="Fermer le menu"></i>
@@ -48,17 +48,17 @@
 
                 <hr class="my-2 mt-3 text-charte_blanc">
 
-                <div onclick="bouton_edito()" class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_edito()" class="modif_div modif_div_couleur cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-house-door-fill"></i>
                     <p class="text-[15px] ml-4 text-gray-200">Accueil</p>
                 </div>
 
-                <div onclick="bouton_recette()" class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_recette()" class="modif_div modif_div_couleur cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-bookmark-fill"></i>
                     <p class="text-[15px] ml-4 text-gray-200">Recettes</p>
                 </div>
 
-                <div onclick="dropDown()" class="element_menu_deroulant cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                <div onclick="dropDown()" class="modif_div modif_div_couleur filtre_deroulant cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                     <i class="bi bi-funnel-fill"></i>
 
                     <div class="flex justify-between w-full items-center">
@@ -74,48 +74,30 @@
 
                     <hr class="my-2 mt-3 text-charte_blanc">
 
-                    <div onclick="desactiver_sous_menu(); desactiver_sous_menu_deroulant(); desactiver_bouton_mobile(); desactiver_logo_menu(); fond_clair(); fond_clair_deroulant(); fond_clair_logo()" id="categorie" class="element_menu cursor-pointer modal-open1 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_div(); fond_clair(); ouvrir_modale(1)" id="categorie" class="modale_categorie modif_div modif_div_couleur cursor-pointer modal-open1 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-book"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Catégorie</p>
-                        <script>
-                            var div = document.getElementsByClassName('element_menu');
-                            if (!div.disabled) {
-                                ouvrir_modale(1);
-                            }
-                        </script>
                     </div>
 
                     <hr class="my-2 mt-3 text-charte_blanc">
 
-                    <div onclick="desactiver_sous_menu(); desactiver_sous_menu_deroulant(); desactiver_bouton_mobile(); desactiver_logo_menu(); fond_clair(); fond_clair_deroulant(); fond_clair_logo()" id="titre" class="element_menu cursor-pointer modal-open2 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_div(); fond_clair(); ouvrir_modale(2)" id="titre" class="modif_div modif_div_couleur modale_titre cursor-pointer modal-open2 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-search"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Titre</p>
-                        <script>
-                            var div = document.getElementsByClassName('element_menu');
-                            if (!div.disabled) {
-                                ouvrir_modale(2);
-                            }
-                        </script>
                     </div>
 
                     <hr class="my-2 mt-3 text-charte_blanc">
 
-                    <div onclick="desactiver_sous_menu(); desactiver_sous_menu_deroulant(); desactiver_bouton_mobile(); desactiver_logo_menu(); fond_clair(); fond_clair_deroulant(); fond_clair_logo()" id="ingredient" class="element_menu cursor-pointer modal-open3 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
+                    <div onclick="desactiver_div(); fond_clair(); ouvrir_modale(3)" id="ingredient" class="modif_div modif_div_couleur modale_ingredients cursor-pointer modal-open3 p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-cart"></i>
                         <p data-modal-target="staticModal" data-modal-toggle="staticModal" class="text-[15px] ml-4 text-gray-200">Ingrédient(s)</p>
-                        <script>
-                            var div = document.getElementsByClassName('element_menu');
-                            if (!div.disabled) {
-                                ouvrir_modale(3);
-                            }
-                        </script>
                     </div>
 
                 </div>
 
                 <hr class="my-4 text-gray-600">
 
-                <div onclick="bouton_connexion_compte()" class="element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                <div onclick="bouton_connexion_compte()" class="modif_div modif_div_couleur cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <p class="modal-open2 text-[15px] ml-4 text-gray-200">Se connecter</p>
                 </div>

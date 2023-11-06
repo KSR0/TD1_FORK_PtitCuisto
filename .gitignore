@@ -1,3 +1,4 @@
 all_secret_variables.env
 tailwind/tailwind.css
 .dcignore
+includes/connexionBDD.php

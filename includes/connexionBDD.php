@@ -9,7 +9,8 @@ $db_password = parse_ini_file('../../../all_secret_variables.env')["DB_PASSWORD"
 
 // Test de connexion
 try {
-    $bdd = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=' . $db_encode, $db_username, $db_password);
+    //$bdd = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=' . $db_encode, $db_username, $db_password);
+    $bdd = new PDO('mysql:host=localhost;dbname=bayon222_1;charset=utf8', 'root');
 }
 
 // Gestion des erreurs

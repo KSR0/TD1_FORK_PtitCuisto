@@ -8,7 +8,7 @@
             <h1 class="text-charte_bleu_fonce font-permanent_marker pr-3 pb-3 text-4xl font-bold text-center leading-tight">Recherche par catégorie</h1>
 
                 <div class="modal1-close cursor-pointer z-50">
-                    <button onclick="activer_sous_menu(); activer_sous_menu_deroulant(); activer_bouton_mobile(); activer_logo_menu(); fond_fonce(); fond_fonce_deroulant()">
+                    <button onclick="activer_div(); activer_filtre_deroulant(); activer_bouton_mobile(); fond_fonce(); activer_modale_categorie(); activer_modale_titre(); activer_modale_ingredients()">
                         <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                             <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
                         </svg>
@@ -44,7 +44,7 @@
             </form>
 
             <div class="flex justify-end pt-2 mt-4">
-                <button onclick="activer_sous_menu(); activer_sous_menu_deroulant(); activer_bouton_mobile(); activer_logo_menu(); fond_fonce(); fond_fonce_deroulant()" class="modal1-close px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Fermer</button>
+                <button onclick="activer_div(); activer_filtre_deroulant(); activer_bouton_mobile(); fond_fonce(); activer_modale_categorie(); activer_modale_titre(); activer_modale_ingredients()" class="modal1-close px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Fermer</button>
                 <input type="submit" onclick="bouton_recherche_par_categorie()" class="cursor-pointer modal1-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">
             </div>
         </div>
