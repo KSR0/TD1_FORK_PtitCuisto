@@ -2,7 +2,7 @@
     require_once '../../../includes/connexionBDD.php';
 
     function recupRecettesTitre($bdd) {
-        $requete = "SELECT * FROM FORK_RECETTE WHERE REC_TITRE LIKE '%" . $_POST['titre'] . "%'" ; /*mettre la requête SQL entre les ""*/
+        $requete = "SELECT * FROM FORK_RECETTE WHERE REC_TITRE LIKE '%" . $_POST['recette'] . "%'" ; /*mettre la requête SQL entre les ""*/
         $reqServeur = $bdd->prepare($requete);
         $reqServeur->execute();
         $nom_variable = $reqServeur->fetchAll(); /*changer le nom_variable en fonction de ce que tu veux afficher*/

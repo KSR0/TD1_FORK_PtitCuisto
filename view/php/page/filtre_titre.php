@@ -13,7 +13,7 @@
 
 <?php
     echo "<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Liste des recettes filtrée par titre </h1>
-    <p class='text-3xl text-center text-charte_bleu_clair'>Page affichant la liste des recettes publiées ayant pour titre : " . $_POST['titre'] . "</p>";
+    <p class='text-3xl text-center text-charte_bleu_clair'>Page affichant la liste des recettes publiées ayant pour titre : " . $_POST['recette'] . "</p>";
 
     recupRecettesTitre($bdd);
 ?>
