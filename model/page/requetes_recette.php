@@ -1,9 +1,9 @@
 <?php
     require_once '../../../includes/connexionBDD.php';
 
-    function recupererToutesLesRecettes($bdd, $nb_enregistrement) {
+    function recupererToutesLesRecettes($bdd) {
         $requeteRecette = "
-            SELECT REC_IMAGE, REC_TITRE, CAT_INTITULE, REC_RESUME, TAG_INTITULE FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_TAGS USING(TAG_ID) ORDER BY rec_date_crea DESC LIMIT 0, $nb_enregistrement;
+            SELECT REC_ID, REC_IMAGE, REC_TITRE, CAT_INTITULE, REC_RESUME, TAG_INTITULE FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_TAGS USING(TAG_ID) ORDER BY rec_date_crea DESC LIMIT 15;
         ";
         $reqServeurRecette = $bdd->prepare($requeteRecette);
         $reqServeurRecette->execute();
@@ -16,8 +16,8 @@
             $reqServeurTags->execute();
             $nom_variableTags = $reqServeurTags->fetchAll();
             echo 
-            "<a href='" . $nom_table_sql_recette["REC_IMAGE"] . "'>" . "<img src='" . $nom_table_sql_recette["REC_IMAGE"] . "' alt='Image recette " . $nom_table_sql_recette["REC_TITRE"] . "' width='500px'/></a>" . "<br>" .
-            strtoupper($nom_table_sql_recette["REC_TITRE"]) . "<br>" .
+            "<a href='../../../view/php/page/detail_recette.php?idPlat=" . $nom_table_sql_recette['REC_ID'] . "'>" . "<img src='" . $nom_table_sql_recette["REC_IMAGE"] . "' alt='Image recette " . $nom_table_sql_recette["REC_TITRE"] . "' width='500px'/></a>" . "<br>" .
+            "<a href='../../../view/php/page/detail_recette.php?idPlat=" . $nom_table_sql_recette['REC_ID'] . "'>" . strtoupper($nom_table_sql_recette["REC_TITRE"]) . "</a>" . "<br>" .
             "Categorie : " . $nom_table_sql_recette["CAT_INTITULE"] . "<br>" .
             "Resumé : " . $nom_table_sql_recette["REC_RESUME"] . "<br>" . 
             "Tags : ";
