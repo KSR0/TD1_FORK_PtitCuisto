@@ -1,4 +1,8 @@
 <?php ob_start();?>
+<script>
+    let email;
+    let password;
+</script>
 
 <!-- Appel des fichiers où sont rédigées les fonctions JS -->
 
@@ -13,7 +17,7 @@
             <div class="border-2 border-charte_bleu_fonce rounded-lg p-2 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-charte_bleu_fonce font-permanent_marker text-xl font-bold text-center leading-tight md:text-2xl">Se connecter à votre compte</h1>
                 
-                <form class="space-y-4 md:space-y-6" action="#">
+                <form id="loginForm" class="space-y-4 md:space-y-6" action="#">
                     
                     <div>
                         <label for="email" class="text-charte_bleu_clair block mb-2 text-sm font-medium">Entrez votre adresse mail :</label>
@@ -53,9 +57,28 @@
                     </div>
 
                     <div class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
-                        <i class="bi bi-box-arrow-in-right"></i>
-                        <p class="text-[15px] ml-2">Se connecter</p>
+                        <button type="submit" class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <p class="text-[15px] ml-2">Se connecter</p>
+                        </button>
                     </div>
+                    
+                    <script>
+                        document.getElementById("loginForm").addEventListener("submit", function (event) {
+                            event.preventDefault();
+
+                            email = document.getElementById("email").value;
+                            password = document.getElementById("password").value;
+
+                            $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
+                                console.log(data);
+                                let donnes = JSON.parse(data);
+                                window.location.href = "index.php?action=edito&user_pseudo="+donnes.USER_PSEUDO;
+                            });
+
+                            
+                        });   
+                    </script>
 
                     <div class="flex justify-center">
 

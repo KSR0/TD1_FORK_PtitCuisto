@@ -40,6 +40,21 @@ try {
 		else if ($_GET['action'] === 'connexion_compte') {
 			connexion_compte();
 		}
+
+		else if ($_GET['action'] === 'edito') {
+			if (isset($_GET['user_pseudo'])) {
+				if(session_status () == PHP_SESSION_NONE) {
+					session_start();
+				}
+				$_SESSION['user_pseudo'] = $_GET['user_pseudo'];
+				edito();
+			}
+			else {
+				edito();
+			}
+		}
+	
+
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
 		}
