@@ -1,5 +1,0 @@
-/*
-function nom_fonction() {
-
-}
-*/
