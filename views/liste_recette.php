@@ -23,15 +23,27 @@
     function afficherRecettes() {
         let recettes = <?php echo json_encode($recettes) ?>;
         let content = '';
-        for(let i = nbRecetteAfficher; i < nbRecetteAfficher + 10; i++) {
-            if(i < recettes.length && recettes[i].length != 0) {
-                content += "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + "<img src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "' width='500px'/></a>" + "<br>" +
-                        "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a><br>" +
-                        "Categorie : " + recettes[i].cat_intitule + "<br>" +
-                        "Resumé : " + recettes[i].rec_resume + "<br>" + 
-                        "Tags : " + recettes[i].tags_intitule;
-            }
-            else {
+        for (let i = nbRecetteAfficher; i < nbRecetteAfficher + 10; i++) {
+            if (i < recettes.length && recettes[i].length != 0) {
+                content += 
+                    "<div class='border-2 border-charte_bleu_fonce rounded-lg flex p-2 mb-4'>" +
+                        "<div class='w-1/2 mr-2'>" +
+                            "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + 
+                                "<img src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
+                            "</a><br>" +
+                            
+                            "<div class='border-2 border-charte_bleu_fonce rounded-lg bg-charte_bleu_fonce'>" +
+                                "<p> Tags : " + recettes[i].tags_intitule + "</p>" +
+                            "</div>" +
+                        "</div>" +
+
+                        "<div class='text-charte_bleu_clair w-1/2 ml-2'>" +
+                            "<a class='font-permanent_marker' href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a><br><br>" +
+                            "<p>Categorie : " + recettes[i].cat_intitule + "</p><br>" +
+                            "<p>Resumé : <br>" + recettes[i].rec_resume + "</p><br>" +
+                        "</div>" +
+                    "</div>";
+            } else {
                 document.getElementById('btnPlus').style.display = 'none';
             }
         }
