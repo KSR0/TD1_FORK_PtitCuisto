@@ -12,7 +12,7 @@
 </div>
 
 <div class="mx-auto text-center">
-    <button id="btnPlus" onclick="afficherRecettes()" class="text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2">
+    <button id="btnPlus" onclick="afficherRecettes()" class="bg-charte_bleu_clair text-charte_blanc hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2">
         Voir plus de recettes
     </button>
 </div>
@@ -21,35 +21,50 @@
     let divRecettes = document.querySelector('#recettes');
     let nbRecetteAfficher = 0;
     function afficherRecettes() {
-        let recettes = <?php echo json_encode($recettes) ?>;
-        let content = '';
-        for (let i = nbRecetteAfficher; i < nbRecetteAfficher + 10; i++) {
-            if (i < recettes.length && recettes[i].length != 0) {
-                content += 
-                    "<div class='border-2 border-charte_bleu_fonce rounded-lg flex p-2 mb-4'>" +
-                        "<div class='w-1/2 mr-2'>" +
-                            "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + 
-                                "<img src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
-                            "</a><br>" +
-                            
-                            "<div class='border-2 border-charte_bleu_fonce rounded-lg bg-charte_bleu_fonce'>" +
-                                "<p> Tags : " + recettes[i].tags_intitule + "</p>" +
-                            "</div>" +
-                        "</div>" +
+    let recettes = <?php echo json_encode($recettes) ?>;
+    let content = '';
+    for (let i = nbRecetteAfficher; i < nbRecetteAfficher + 10; i++) {
+        if (i < recettes.length && recettes[i].length != 0) {
+            content +=
+                "<div class='border-2 h-fit border-charte_bleu_fonce rounded-lg flex p-2 mb-4 mr-2'>" + 
+                    "<div class='w-1/2 p-2 mr-2'>" +
+                        "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" +
+                            "<img class='border-2 border-charte_bleu_fonce rounded-lg w-full p-2 mr-2' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
+                        "</a><br>";
 
-                        "<div class='text-charte_bleu_clair w-1/2 ml-2'>" +
-                            "<a class='font-permanent_marker' href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a><br><br>" +
-                            "<p>Categorie : " + recettes[i].cat_intitule + "</p><br>" +
-                            "<p>Resumé : <br>" + recettes[i].rec_resume + "</p><br>" +
-                        "</div>" +
+            // Div pour les tags
+            content += "<div class='grid grid-cols-2 gap-2'>"; // Utilisation des classes 'grid' et 'grid-cols-2'
+
+            // Divs pour chaque tag
+            let tags = recettes[i].tags_intitule.split('#');
+            for (let j = 1; j < tags.length; j++) {
+                content +=
+                    "<div class='text-center text-charte_blanc border-2 border-charte_bleu_fonce rounded-lg bg-charte_bleu_clair p-2 mb-2'>" +
+                        "<p>" + tags[j] + "</p>" +
                     "</div>";
-            } else {
-                document.getElementById('btnPlus').style.display = 'none';
             }
+
+            content += 
+                    "</div>";
+
+            content +=
+                    "</div>" +
+
+                    "<div class='text-charte_bleu_clair w-1/2 ml-2'>" +
+                        "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
+                        "<p class='text-3xl'>Categorie : " + recettes[i].cat_intitule + "</p><br>" +
+                        "<p>Resumé : <br>" + recettes[i].rec_resume + "</p><br>" +
+                    "</div>" +
+
+                    "</div>";
+        } else {
+            document.getElementById('btnPlus').style.display = 'none';
         }
-        divRecettes.innerHTML += content;
-        nbRecetteAfficher += 10;
     }
+    divRecettes.innerHTML += content;
+    nbRecetteAfficher += 10;
+}
+
     afficherRecettes();
 </script>
 
