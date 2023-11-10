@@ -152,7 +152,6 @@
     onclick="bouton_modification_compte()">Modifier mon compte</button>
 
     <?php
-    if(session_status )
     if (isset($_SESSION['user_pseudo'])) {
         echo "<p class='text-3xl text-center text-charte_bleu_clair'>Connecté en tant que : ".$_SESSION['user_pseudo']."</p>";
     }
