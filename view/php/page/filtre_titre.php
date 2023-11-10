@@ -16,7 +16,7 @@
     <p class='text-3xl text-center text-charte_bleu_clair'>Page affichant la liste des recettes publiées ayant pour titre : " . $_POST['recette'] . "</p>";
 
     recupRecettesTitre($bdd);
-?>
+?>d
 
 <?php $content = ob_get_clean();
 require_once('../template.php'); ?>
