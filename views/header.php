@@ -126,9 +126,6 @@
 <!-- Permet de passer d'une page à une autre facilement pour faire des tests sans passer par le menu -->
 <div class="text-center lg:pl-80 lg:pt-5 min-[320px]:pt-20 md:pt-20 pr-5 pt-5">
 
-    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
-    onclick="bouton_detail_recette()">Détails de la recette</button>
-
     <a href="index.php?action=creation_recette">
     <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
     >Création d'une recette</button>
