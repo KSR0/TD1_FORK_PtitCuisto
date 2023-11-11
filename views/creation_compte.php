@@ -94,10 +94,10 @@
 
                     </div>
 
-                    <div class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                    <button class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
                         <i class="bi bi-box-arrow-right"></i>
-                        <button type="submit" class="text-[15px] ml-2">S'inscrire</button>
-                    </div>
+                        <p type="submit" class="text-[15px] ml-2">S'inscrire</p>
+                    </button>
 
                     <script>
                         document.getElementById("signupForm").addEventListener("submit", function (event) {
