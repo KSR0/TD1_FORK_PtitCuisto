@@ -3,6 +3,9 @@ module.exports = {
   content: ["views/*.{html,js,php}"],
   theme: {
     extend: {
+      maxHeight: {
+        'div_recette': '590px',
+      }
     },
     textColor: {
       'charte_bleu_fonce': '#2a3990',
