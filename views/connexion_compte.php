@@ -4,7 +4,6 @@
     let password;
 </script>
 
-<!-- Appel des fichiers où sont rédigées les fonctions JS -->
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
@@ -69,12 +68,12 @@
                             password = document.getElementById("password").value;
 
                             $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
-                                let donnes = JSON.parse(data);
-                                if(donnes.error) {
-                                    alert(donnes.error);
+                                let donnees = JSON.parse(data);
+                                if(donnees.error) {
+                                    alert(donnees.error);
                                     return;
                                 }
-                                window.location.href = "index.php?action=edito&user_pseudo="+donnes.USER_PSEUDO+"&user_id="+donnes.USER_ID;
+                                window.location.href = "index.php?action=edito&user_pseudo="+donnees.USER_PSEUDO+"&user_id="+donnees.USER_ID;
                             });
 
                             
@@ -94,11 +93,6 @@
         </div>
     </div>
 </div>
-
-<?php
-    // Appel de la fonction de la requête SQL permettant d'afficher les utilisateurs
-    //*nom de la fonction*/($bdd); // Changer le nom de la fonction par le nom de la fonction utilisée dans le requête_BDD correspondant 
-?>
 
 <?php $content = ob_get_clean();
 require_once('template.php'); ?>

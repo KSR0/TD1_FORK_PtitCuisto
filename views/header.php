@@ -125,7 +125,9 @@
                 <hr class="my-4 text-gray-600">
 
                 <?php 
-                if(isset($_SESSION['user_pseudo']) && strtoupper($_SESSION['user_pseudo']) == "ADMIN") {
+
+                if(isset($_SESSION['user_type'])) {
+                    if(strtoupper($_SESSION['user_type']) == "1") { //POUR LES ADMINS
                         echo "
                             <a href='index.php?action=pannel'>
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
@@ -133,17 +135,21 @@
                                     <p class='text-[15px] ml-4 text-gray-200'>Panneau Admin</p>
                                 </div>
                             </a>";
-
+                    }
+                    else if (strtoupper($_SESSION['user_type']) == "2" || strtoupper($_SESSION['user_type']) == "1") { //POUR LES EDITEURS
                         echo "
-                            <a href='index.php?action=creation_recette'>
-                                <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
-                                    <i class='bi bi-egg-fried'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
-                                </div>
-                            </a>";
+                        <a href='index.php?action=creation_recette'>
+                            <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
+                                <i class='bi bi-egg-fried'></i>
+                                <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
+                            </div>
+                        </a>";
+                    }
+                }                
+                else {
+
                 }
-                else {;
-                }
+                
                 ?>
 
             </div>
