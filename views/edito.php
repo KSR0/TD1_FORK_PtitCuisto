@@ -10,8 +10,7 @@
 <!-- Structure de type flex pour placer deux divs côte à côte -->
 <div class="flex">
     <!-- Première div prenant la moitié de la largeur -->
-    <div id="recettes" class="w-1/2 border-2 border-charte_gris rounded-lg max-h-div_recette py-2 px-4 mb-4 mr-2">
-
+    <div id="recettes" class="w-1/2 border-2 border-charte_gris overflow-y-auto rounded-lg max-h-div_recette py-2 px-4 mb-4 mr-2">
     </div>
 
     <!-- Deuxième div prenant également la moitié de la largeur -->
@@ -23,7 +22,25 @@
     </div>
 </div>
 
+<script>
+    let divRecettes = document.querySelector('#recettes');
+    let nbRecetteAfficher = 3;
+    function afficherTroisRecettes() {
+        let recettes = <?php echo json_encode($recettes) ?>;
+        let content = '';
 
-<?php $content = ob_get_clean();?>
+        for(let i = 0; i < nbRecetteAfficher; i++) {
+            content = "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + "<img src='" + recettes[i].rec_image + "' alt='Image de la recette : " + recettes[i].rec_titre + "' width='500px'/></a>" + "<br>" +
+                    "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a><br>" +
+                    "Categorie : " + recettes[i].cat_intitule + "<br>" +
+                    "Resumé : " + recettes[i].rec_resume + "<br>" + 
+                    "Tags : " + recettes[i].tags_intitule;
+            divRecettes.innerHTML += content;
+        }
+    }
+    afficherTroisRecettes();
+</script>
 
-<?php require_once('template.php'); ?>
+
+<?php $content = ob_get_clean();
+require_once('template.php'); ?>
