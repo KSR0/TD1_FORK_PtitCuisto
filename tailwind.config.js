@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       maxHeight: {
-        'div_recette': '590px',
+        'div_recette': '592px',
         'div_recette_mobile': '1200px',
       }
     },
