@@ -5,6 +5,8 @@
     require_once 'views/modale_ingredients.php';
 ?>
 
+
+
 <!-- Appel des fichiers où sont rédigées les fonctions JS -->
 
 <script>
@@ -112,7 +114,7 @@
                     }
                 ?>
 
-                <?php if(isset($_SESSION['user_id'])) {
+                <?php if(isset($_SESSION['user_pseudo'])) {
                     echo "<a href='index.php?action=edito&deconnexion=true'>
                     <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
                         <i class='bi bi-box-arrow-in-right'></i>
@@ -194,7 +196,7 @@
 
     <?php
     if (isset($_SESSION['user_pseudo'])) {
-        echo "<p class='text-3xl text-center text-charte_bleu_clair'>Connecté en tant que : ".$_SESSION['user_pseudo']."</p>";
+        echo "<p class='text-3xl text-center text-charte_bleu_clair'>Connecté en tant que : ". $_SESSION['user_pseudo'] ."</p>";
     }
     else {
         echo "<p class='text-3xl text-center text-charte_bleu_clair'>Non connecté</p>";

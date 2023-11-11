@@ -1,7 +1,7 @@
 <?php
 	
 session_start();
-echo session_status();
+
 
 require_once('src/controllers/edito.php');
 require_once('src/controllers/liste_recette.php');
@@ -51,7 +51,6 @@ try {
 		}
 
 		else if ($_GET['action'] === 'edito') {
-
 			if (isset($_GET['deconnexion'])) {
 				if(session_status () == PHP_SESSION_ACTIVE) {
 					$_SESSION = array();
@@ -60,7 +59,6 @@ try {
 				}
 				edito();
 			}
-
 			else {
 				edito();
 			}

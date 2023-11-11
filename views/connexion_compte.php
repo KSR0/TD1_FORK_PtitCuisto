@@ -81,16 +81,15 @@
                                         user_id: donnes.USER_ID, 
                                         user_pseudo: donnes.USER_PSEUDO, 
                                         typ_id: donnes.TYP_ID }, 
+
                                         function (response) {
-                                            console.log(response);
                                             if(response) {
-                                                //window.location.href = "index.php?action=edito";
+                                                window.location.href = "index.php";
                                             }
                                             else {
                                                 alert("Erreur lors de la connexion");
                                             }
                                         });
-                                        
                                     }
                             });
                         });    
@@ -109,11 +108,6 @@
         </div>
     </div>
 </div>
-
-<?php
-    // Appel de la fonction de la requête SQL permettant d'afficher les utilisateurs
-    //*nom de la fonction*/($bdd); // Changer le nom de la fonction par le nom de la fonction utilisée dans le requête_BDD correspondant 
-?>
 
 <?php $content = ob_get_clean();
 require_once('template.php'); ?>
