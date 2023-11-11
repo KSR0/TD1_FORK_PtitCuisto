@@ -74,7 +74,7 @@
                                     alert(donnes.error);
                                     return;
                                 }
-                                window.location.href = "index.php?action=edito&user_pseudo="+donnes.USER_PSEUDO+"&user_id="+donnes.USER_ID;
+                                window.location.href = "index.php?action=edito&user_pseudo="+donnes.USER_PSEUDO+"&user_id="+donnes.USER_ID+"&typ_id="+donnes.TYP_ID;
                             });
 
                             

@@ -19,7 +19,7 @@
         $count = $stmtcount->fetch(PDO::FETCH_ASSOC);
         $count = $count["COUNT(*)"];
 
-        $query = "SELECT USER_ID,USER_PSEUDO FROM FORK_UTILISATEUR WHERE USER_EMAIL = ? AND USER_MDP = ?";
+        $query = "SELECT USER_ID,USER_PSEUDO,TYP_ID FROM FORK_UTILISATEUR WHERE USER_EMAIL = ? AND USER_MDP = ?";
         
 
         $stmt = $bdd->prepare($query);
