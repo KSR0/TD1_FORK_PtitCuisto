@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["view/*.{html,js,php}",
-            "view/base/*.{html,js,php}",
-            "view/page/*.{html,js,php}"],
+  content: ["views/*.{html,js,php}"],
   theme: {
     extend: {
+      maxHeight: {
+        'div_recette': '590px',
+      }
     },
     textColor: {
       'charte_bleu_fonce': '#2a3990',
