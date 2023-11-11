@@ -4,6 +4,14 @@
     let password;
 </script>
 
+<?php
+    if (isset($_POST['user_id']) && isset($_POST['user_id']) && isset($_POST['user_id'])) {
+        $_SESSION['user_id'] = $_POST['user_id'];
+        $_SESSION['typ_id'] = $_POST['typ_id'];
+        $_SESSION['user_pseudo'] = $_POST['user_pseudo'];
+    }
+?>
+
 <!-- Appel des fichiers où sont rédigées les fonctions JS -->
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
@@ -68,30 +76,31 @@
                             let email = document.getElementById("email").value;
                             let password = document.getElementById("password").value;
 
+                            /*
                             $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
                                 let donnes = JSON.parse(data);
+                                alert(donnes['user_id']);
+                                $_SESSION['user_id'] = data.user_id;
+                                $_SESSION['typ_id'] = data.user_id;
+                                $_SESSION['user_pseudo'] = data.user_id;
 
                                 if(donnes.error) {
                                     alert(donnes.error);
                                     return;
                                 }
-
-                                else {
-                                    $.post("views/variables_session.php", { 
-                                        user_id: donnes.USER_ID, 
-                                        user_pseudo: donnes.USER_PSEUDO, 
-                                        typ_id: donnes.TYP_ID }, 
-
-                                        function (response) {
-                                            if(response) {
-                                                window.location.href = "index.php";
-                                            }
-                                            else {
-                                                alert("Erreur lors de la connexion");
-                                            }
-                                        });
-                                    }
                             });
+                            */
+
+                            $.ajax
+                                ({ 
+                                    url: 'views/traitement_login.php',  //replace with your own url
+                                    data: {email: email, password: password},
+                                    type: 'POST',
+                                    success: function(result)
+                                    {
+                                        window.location.href = "index.php";
+                                    }
+                                });
                         });    
                     </script>
 

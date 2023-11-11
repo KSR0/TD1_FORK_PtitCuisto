@@ -55,10 +55,8 @@
 
                 <a href="index.php?action=liste_recette">
                     <div class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
-                        
                         <i class="bi bi-bookmark-fill"></i>
                         <p class="text-[15px] ml-4 text-gray-200">Recettes</p>
-                        
                     </div>
                 </a>
 
@@ -128,7 +126,6 @@
 
                 <?php 
                     if(isset($_SESSION['typ_id'])) {
-
                         if($_SESSION['typ_id'] == 1) {
                             echo "
                                 <a href='index.php?action=pannel'>
