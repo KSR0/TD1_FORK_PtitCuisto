@@ -17,7 +17,7 @@
             <div class="border-2 border-charte_bleu_fonce rounded-lg p-2 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-charte_bleu_fonce font-permanent_marker text-xl font-bold text-center leading-tight md:text-2xl">Se connecter à votre compte</h1>
                 
-                <form id="loginForm" class="space-y-4 md:space-y-6" action="#">
+                <form id="loginForm" method="post" class="space-y-4 md:space-y-6" action="#">
                     
                     <div>
                         <label for="email" class="text-charte_bleu_clair block mb-2 text-sm font-medium">Entrez votre adresse mail :</label>
@@ -65,20 +65,35 @@
                         document.getElementById("loginForm").addEventListener("submit", function (event) {
                             event.preventDefault();
 
-                            email = document.getElementById("email").value;
-                            password = document.getElementById("password").value;
+                            let email = document.getElementById("email").value;
+                            let password = document.getElementById("password").value;
 
                             $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
                                 let donnes = JSON.parse(data);
+
                                 if(donnes.error) {
                                     alert(donnes.error);
                                     return;
                                 }
-                                window.location.href = "index.php?action=edito&user_pseudo="+donnes.USER_PSEUDO+"&user_id="+donnes.USER_ID+"&typ_id="+donnes.TYP_ID;
-                            });
 
-                            
-                        });   
+                                else {
+                                    $.post("views/variables_session.php", { 
+                                        user_id: donnes.USER_ID, 
+                                        user_pseudo: donnes.USER_PSEUDO, 
+                                        typ_id: donnes.TYP_ID }, 
+                                        function (response) {
+                                            console.log(response);
+                                            if(response) {
+                                                //window.location.href = "index.php?action=edito";
+                                            }
+                                            else {
+                                                alert("Erreur lors de la connexion");
+                                            }
+                                        });
+                                        
+                                    }
+                            });
+                        });    
                     </script>
 
                     <div class="flex justify-center">
