@@ -10,7 +10,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
-        $password = hash('sha256', $_POST['password']);
+        $password = hash('sha512', $_POST['password']);
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $pseudo = $_POST['pseudo'];

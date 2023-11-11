@@ -11,7 +11,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $email = $_POST['email'];
-        $password = hash('sha256', $_POST['password']);
+        $password = hash('sha512', $_POST['password']);
 
         $count = "SELECT COUNT(*) FROM FORK_UTILISATEUR WHERE USER_EMAIL = ? AND USER_MDP = ?";
         $stmtcount = $bdd->prepare($count);
