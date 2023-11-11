@@ -69,7 +69,6 @@
                             password = document.getElementById("password").value;
 
                             $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
-                                console.log(data);
                                 let donnes = JSON.parse(data);
                                 if(donnes.error) {
                                     alert(donnes.error);

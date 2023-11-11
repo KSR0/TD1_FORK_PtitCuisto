@@ -109,8 +109,16 @@
                             prenom = document.getElementById("prenom").value;
                             pseudo = document.getElementById("pseudo").value;
 
-                            $.post("views/traitement_signup.php", { email: email, password: password, nom: nom, prenom: prenom,pseudo: pseudo}, function () {
-                                window.location.href = "index.php?action=edito";
+                            $.post("views/traitement_signup.php", { email: email, password: password, nom: nom, prenom: prenom,pseudo: pseudo}, function (data) {
+                                let donnescompte = JSON.parse(data);
+                                if(donnescompte.error) {
+                                    alert(donnescompte.error);
+                                    return;
+                                }
+                                else {
+                                    alert(donnescompte.success);
+                                    window.location.href = "index.php?action=edito";
+                                }
                             });
 
                             

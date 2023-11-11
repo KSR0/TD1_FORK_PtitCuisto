@@ -10,6 +10,7 @@ require_once('src/controllers/liste_recette_ingredients.php');
 require_once('src/controllers/details_recette.php');
 require_once('src/controllers/connexion_compte.php');
 require_once('src/controllers/creation_compte.php');
+require_once('src/controllers/pannel.php');
 
 
 try {
@@ -34,6 +35,11 @@ try {
 			
 			
 		}
+
+		else if ($_GET['action'] === 'pannel') {
+			pannel();
+		}
+
 		else if ($_GET['action'] === 'details_recette') {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
 				recette($_GET['id']);
