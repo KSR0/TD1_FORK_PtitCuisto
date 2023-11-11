@@ -10,6 +10,7 @@ require_once('src/controllers/liste_recette_titre.php');
 require_once('src/controllers/liste_recette_ingredients.php');
 require_once('src/controllers/details_recette.php');
 require_once('src/controllers/connexion_compte.php');
+require_once('src/controllers/requete_connexion_compte.php');
 require_once('src/controllers/creation_compte.php');
 require_once('src/controllers/pannel.php');
 
@@ -68,6 +69,11 @@ try {
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
 		}
+
+		else if ($_GET['action'] === 'requete_creation_compte') {
+			requete_creation_compte($_POST);
+		}
+		
 		else {
 			echo "Erreur 404 : la page que vous recherchez n'existe pas.";
 		}

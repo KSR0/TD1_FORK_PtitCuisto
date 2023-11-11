@@ -25,8 +25,7 @@
             <div class="border-2 border-charte_bleu_fonce rounded-lg p-2 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-charte_bleu_fonce font-permanent_marker text-xl font-bold text-center leading-tight md:text-2xl">Se connecter à votre compte</h1>
                 
-                <form id="loginForm" method="post" class="space-y-4 md:space-y-6" action="#">
-                    
+                <form action="index.php?action=requete_connexion_compte" id="loginForm" method="post" class="space-y-4 md:space-y-6">
                     <div>
                         <label for="email" class="text-charte_bleu_clair block mb-2 text-sm font-medium">Entrez votre adresse mail :</label>
                         
@@ -69,7 +68,7 @@
                             <p class="text-[15px] ml-2">Se connecter</p>
                     </button>
                     
-                    <script>
+                    <!-- <script>
                         document.getElementById("loginForm").addEventListener("submit", function (event) {
                             event.preventDefault();
 
@@ -102,7 +101,7 @@
                                     }
                                 });
                         });    
-                    </script>
+                    </script> -->
 
                     <div class="flex justify-center">
 
