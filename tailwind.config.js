@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       maxHeight: {
         'div_recette': '590px',
+        'div_recette_mobile': '1200px',
       }
     },
     textColor: {

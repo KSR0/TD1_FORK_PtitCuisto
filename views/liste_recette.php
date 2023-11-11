@@ -29,8 +29,8 @@
             if (i < recettes.length && recettes[i].length != 0) {
                 content +=
                     "<p class='text-center font-permanent_marker text-charte_bleu_fonce'>Recette n°" + compteur + "/" + (nbRecetteAfficher + 10) + "</p>" +
-                    "<div class='border-2 h-fit border-charte_bleu_fonce rounded-lg max-h-div_recette flex py-2 px-4 mb-4 mr-2'>" + 
-                        "<div class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
+                    "<div class='border-2 border-charte_bleu_fonce rounded-lg max-h-div_recette flex py-2 px-4 mb-4 mr-2'>" + 
+                        "<div id='div_gauche' class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
                             "<a class='text-center' href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" +
                                 "<img class='border-2 border-charte_bleu_fonce rounded-lg h-96 w-full p-2 mr-2' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
                             "</a><br>";

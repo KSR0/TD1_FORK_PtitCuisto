@@ -6,6 +6,7 @@ function recettes() {
 	$recetteRepository = new RecetteRepository();
 	$recettes = $recetteRepository->getRecettes();
 	require('views/liste_recette.php');
+	require('views/edito.php');
 }
 
 ?>
