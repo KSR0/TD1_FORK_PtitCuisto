@@ -42,6 +42,7 @@ try {
 		}
 
 		else if ($_GET['action'] === 'edito') {
+			
 			if (isset($_GET['user_pseudo'])) {
 				if(session_status () == PHP_SESSION_NONE) {
 					session_start();
@@ -49,6 +50,14 @@ try {
 				$_SESSION['user_pseudo'] = $_GET['user_pseudo'];
 				edito();
 			}
+
+			else if(isset($_GET['deconnexion'])) {
+				if(session_status () == PHP_SESSION_ACTIVE) {
+					session_destroy();
+				}
+				edito();
+			}
+
 			else {
 				edito();
 			}

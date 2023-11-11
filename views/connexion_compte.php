@@ -57,10 +57,8 @@
                     </div>
 
                     <div class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
-                        <button type="submit" class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
                             <i class="bi bi-box-arrow-in-right"></i>
-                            <p class="text-[15px] ml-2">Se connecter</p>
-                        </button>
+                            <button class="text-[15px] ml-2">Se connecter</button>
                     </div>
                     
                     <script>
@@ -73,6 +71,10 @@
                             $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
                                 console.log(data);
                                 let donnes = JSON.parse(data);
+                                if(donnes.error) {
+                                    alert(donnes.error);
+                                    return;
+                                }
                                 window.location.href = "index.php?action=edito&user_pseudo="+donnes.USER_PSEUDO;
                             });
 

@@ -9,31 +9,22 @@
     $bdd = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=' . $db_encode, $db_username, $db_password);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
         $email = $_POST['email'];
         $password = hash('sha256', $_POST['password']);
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $pseudo = $_POST['pseudo'];
 
-        $count = "SELECT COUNT(*) FROM FORK_UTILISATEUR WHERE USER_EMAIL = ? AND USER_MDP = ?";
-        $stmtcount = $bdd->prepare($count);
-        $stmtcount->execute([$email, $password]);
-        $count = $stmtcount->fetch(PDO::FETCH_ASSOC);
-        $count = $count["COUNT(*)"];
+        $querymaxid = "SELECT MAX(USER_ID)+1 FROM FORK_UTILISATEUR";
+        $stmtmaxid = $bdd->prepare($querymaxid);
+        $stmtmaxid->execute();
+        $maxid = $stmtmaxid->fetch(PDO::FETCH_ASSOC);
+        $maxid = $maxid["MAX(USER_ID)+1"];
 
-        $query = "SELECT USER_ID,USER_PSEUDO FROM FORK_UTILISATEUR WHERE USER_EMAIL = ? AND USER_MDP = ?";
+        $query = "INSERT INTO FORK_UTILISATEUR (USER_ID, TYP_ID, STA_ID, USER_EMAIL, USER_MDP, USER_NOM, USER_PRENOM, USER_PSEUDO, USER_DATE_INS, USER_DATE_MODF) VALUES (?, 3, 1, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
         
 
         $stmt = $bdd->prepare($query);
-        $stmt->execute([$email, $password]);
-        
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if($count == 1){
-            echo json_encode($user);
-            exit();
-        }
-        else{
-            echo json_encode(['error' => 'Identifiants incorrects']);
-            exit();
-        }
+        $stmt->execute([$maxid,$email, $password, $nom, $prenom, $pseudo]);
     }
 ?>
