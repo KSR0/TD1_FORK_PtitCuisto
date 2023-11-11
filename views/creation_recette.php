@@ -9,11 +9,6 @@
 
 <form action="index.php?action=requete_creation_recette" method="post">
 
-    <div>
-        <label for="pseudo">Votre pseudo : </label>
-        <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" />
-   </div>
-
    <div>
   	<label for="titre">Titre de la recette : </label>
   	<input type="text" id="titre" name="titre" placeholder="Titre" />
