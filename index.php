@@ -51,8 +51,9 @@ try {
 
 		else if ($_GET['action'] === 'edito') {
 
-			if (isset($_GET['user_pseudo'])) {
+			if (isset($_GET['user_pseudo']) && isset($_GET['user_id'])) {
 				$_SESSION['user_pseudo'] = $_GET['user_pseudo'];
+				$_SESSION['user_id'] = $_GET['user_id'];
 				edito();
 			}
 
