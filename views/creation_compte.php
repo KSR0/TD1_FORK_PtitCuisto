@@ -100,28 +100,29 @@
                     </button>
 
                     <script>
-                        document.getElementById("signupForm").addEventListener("submit", function (event) {
-                            event.preventDefault();
+                        document.addEventListener("DOMContentLoaded", function() {
+                            document.getElementById("signupForm").addEventListener("submit", function (event) {
+                                event.preventDefault();
 
-                            email = document.getElementById("email").value;
-                            password = document.getElementById("password").value;
-                            nom = document.getElementById("nom").value;
-                            prenom = document.getElementById("prenom").value;
-                            pseudo = document.getElementById("pseudo").value;
+                                let email = document.getElementById("email").value;
+                                let password = document.getElementById("password").value;
+                                let nom = document.getElementById("nom").value;
+                                let prenom = document.getElementById("prenom").value;
+                                let pseudo = document.getElementById("pseudo").value;
+                                let confirm_password = document.getElementById("confirm-password").value;
 
-                            $.post("views/traitement_signup.php", { email: email, password: password, nom: nom, prenom: prenom,pseudo: pseudo}, function (data) {
-                                let donnescompte = JSON.parse(data);
-                                if(donnescompte.error) {
-                                    alert(donnescompte.error);
-                                    return;
-                                }
-                                else {
-                                    alert(donnescompte.success);
-                                    window.location.href = "index.php?action=edito";
-                                }
+                                $.post("views/traitement_signup.php", { email: email, password: password, confirm_password: confirm_password, nom: nom, prenom: prenom,pseudo: pseudo}, function (data) {
+                                    let donnescompte = JSON.parse(data);
+                                    if(donnescompte.error) {
+                                        alert(donnescompte.error);
+                                        return;
+                                    }
+                                    else {
+                                        alert(donnescompte.success);
+                                        window.location.href = "index.php?action=edito";
+                                    }
+                                });
                             });
-
-                            
                         });   
                     </script>
 

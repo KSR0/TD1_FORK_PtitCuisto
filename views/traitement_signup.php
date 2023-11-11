@@ -10,10 +10,13 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
-        $password = hash('sha512', $_POST['password']);
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $pseudo = $_POST['pseudo'];
+        $passwordhash = hash('sha512', $_POST['password']);
+        $confirm_passwordhash = hash('sha512', $_POST['confirm_password']);
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
 
         $querymaxid = "SELECT MAX(USER_ID)+1 FROM FORK_UTILISATEUR";
         $stmtmaxid = $bdd->prepare($querymaxid);
@@ -41,6 +44,10 @@
             echo json_encode(['error' => 'Pseudo non disponible']);
             exit();
         }
+        else if($password != $confirm_password) {
+            echo json_encode(['error' => 'Les mots de passe ne correspondent pas']);
+            exit();
+        }
         else if($pseudoexiste == 1) {
             echo json_encode(['error' => 'Pseudo non disponible']);
             exit();
@@ -50,7 +57,7 @@
             exit();
         }
         else {
-            $stmt->execute([$maxid,$email, $password, $nom, $prenom, $pseudo]);
+            $stmt->execute([$maxid,$email, $passwordhash, $nom, $prenom, $pseudo]);
             echo json_encode(['success' => 'Compte créé avec succès']);
             exit();
         }
