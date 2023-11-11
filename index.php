@@ -1,7 +1,8 @@
 <?php
-if(session_status () == PHP_SESSION_NONE) {
-	session_start();
-}
+	
+session_start();
+echo session_status();
+
 require_once('src/controllers/edito.php');
 require_once('src/controllers/liste_recette.php');
 require_once('src/controllers/liste_recette_categorie.php');
@@ -51,14 +52,7 @@ try {
 
 		else if ($_GET['action'] === 'edito') {
 
-			if (isset($_GET['user_pseudo']) && isset($_GET['user_id']) && isset($_GET['typ_id'])) {
-				$_SESSION['user_pseudo'] = $_GET['user_pseudo'];
-				$_SESSION['user_id'] = $_GET['user_id'];
-				$_SESSION['typ_id'] = $_GET['typ_id'];
-				edito();
-			}
-
-			else if (isset($_GET['deconnexion'])) {
+			if (isset($_GET['deconnexion'])) {
 				if(session_status () == PHP_SESSION_ACTIVE) {
 					$_SESSION = array();
 					session_destroy();
