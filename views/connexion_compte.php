@@ -1,18 +1,5 @@
 <?php ob_start();?>
-<script>
-    let email;
-    let password;
-</script>
 
-<?php
-    if (isset($_POST['user_id']) && isset($_POST['user_id']) && isset($_POST['user_id'])) {
-        $_SESSION['user_id'] = $_POST['user_id'];
-        $_SESSION['typ_id'] = $_POST['typ_id'];
-        $_SESSION['user_pseudo'] = $_POST['user_pseudo'];
-    }
-?>
-
-<!-- Appel des fichiers où sont rédigées les fonctions JS -->
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 

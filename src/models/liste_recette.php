@@ -17,26 +17,12 @@ class Recette {
 }
 
 class RecetteRepository {
-    public ?PDO $bdd = null;
-
-    public function dbConnect()
-    {
-        $db_host = parse_ini_file('all_secret_variables.env')["DB_HOST"];
-        $db_name = parse_ini_file('all_secret_variables.env')["DB_NAME"];
-        $db_encode = parse_ini_file('all_secret_variables.env')["DB_ENCODE"];
-        $db_username = parse_ini_file('all_secret_variables.env')["DB_USERNAME"];
-        $db_password = parse_ini_file('all_secret_variables.env')["DB_PASSWORD"];
-
-        if ($this->bdd == null) {
-            $this->bdd = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=' . $db_encode, $db_username, $db_password);
-        }
-    }
+    public DatabaseConnection $connection;
 
     public function getRecettes(): array 
     {
-        $this->dbConnect($this);
-        $requeteRecettes = $this->bdd->query(
-            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) ORDER BY rec_date_crea;"
+        $requeteRecettes = $this->connection->getConnection()->query(
+            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) ORDER BY rec_date_crea DESC;"
         );
         $recettes = [];
         while (($row = $requeteRecettes->fetch())) {
@@ -53,7 +39,7 @@ class RecetteRepository {
             $recette->rec_date_modif = $row['REC_DATE_MODIF'];
             $recette->user_pseudo = $row['USER_PSEUDO'];
             
-            $requeteTags = $this->bdd->prepare(
+            $requeteTags = $this->connection->getConnection()->prepare(
                 "SELECT TAG_INTITULE FROM FORK_TAGS JOIN FORK_MENTIONNER USING(TAG_ID) JOIN FORK_RECETTE USING(REC_ID) WHERE REC_ID = ?"
             );
             $requeteTags->execute([$recette->rec_id]);
@@ -67,9 +53,7 @@ class RecetteRepository {
     }
 
     public function getRecette(string $identifiant) {
-        
-        $this->dbConnect($this);
-        $requeteRecette = $this->bdd->prepare(
+        $requeteRecette = $this->connection->getConnection()->prepare(
             "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, TAG_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_MENTIONNER USING(REC_ID) JOIN FORK_TAGS USING(TAG_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE REC_ID = ?"
         );
         $requeteRecette->execute([$identifiant]);
@@ -91,7 +75,7 @@ class RecetteRepository {
             $recette->rec_date_modif = $row['REC_DATE_MODIF'];
             $recette->user_pseudo = $row['USER_PSEUDO'];
 
-            $requeteTags = $this->bdd->prepare(
+            $requeteTags = $this->connection->getConnection()->prepare(
                 "SELECT TAG_INTITULE FROM FORK_TAGS JOIN FORK_MENTIONNER USING(TAG_ID) JOIN FORK_RECETTE USING(REC_ID) WHERE REC_ID = ?"
             );
             $requeteTags->execute([$recette->rec_id]);
@@ -108,8 +92,7 @@ class RecetteRepository {
     }
 
     public function getRecettesCategorie($type_filtre): array {
-        $this->dbConnect($this);
-        $requeteRecettes = $this->bdd->prepare(
+        $requeteRecettes = $this->connection->getConnection()->prepare(
             "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE CAT_INTITULE = ? ORDER BY REC_TITRE ASC;"
         );
         $requeteRecettes->execute([$type_filtre]);
@@ -118,7 +101,6 @@ class RecetteRepository {
         
         
         while (($row = $requeteRecettes->fetch())) {
-            echo 'id' . $row['REC_ID'];
             $recette = new Recette();
             $recette->rec_id = $row['REC_ID'];
             $recette->cat_id = $row['CAT_ID'];
@@ -132,7 +114,7 @@ class RecetteRepository {
             $recette->rec_date_modif = $row['REC_DATE_MODIF'];
             $recette->user_pseudo = $row['USER_PSEUDO'];
             
-            $requeteTags = $this->bdd->prepare(
+            $requeteTags = $this->connection->getConnection()->prepare(
                 "SELECT TAG_INTITULE FROM FORK_TAGS JOIN FORK_MENTIONNER USING(TAG_ID) JOIN FORK_RECETTE USING(REC_ID) WHERE REC_ID = ?"
             );
             $requeteTags->execute([$recette->rec_id]);
@@ -147,8 +129,7 @@ class RecetteRepository {
     }
 
     public function getRecettesTitre($titre) {
-        $this->dbConnect($this);
-        $requeteRecettes = $this->bdd->prepare(
+        $requeteRecettes = $this->connection->getConnection()->prepare(
             "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE REC_TITRE LIKE ? ORDER BY REC_TITRE ASC;"
         );
         $requeteRecettes->execute([$titre]);
@@ -156,7 +137,6 @@ class RecetteRepository {
         $recettes = [];
 
         while (($row = $requeteRecettes->fetch())) {
-            echo 'id' . $row['REC_ID'];
             $recette = new Recette();
             $recette->rec_id = $row['REC_ID'];
             $recette->cat_id = $row['CAT_ID'];
@@ -170,7 +150,7 @@ class RecetteRepository {
             $recette->rec_date_modif = $row['REC_DATE_MODIF'];
             $recette->user_pseudo = $row['USER_PSEUDO'];
             
-            $requeteTags = $this->bdd->prepare(
+            $requeteTags = $this->connection->getConnection()->prepare(
                 "SELECT TAG_INTITULE FROM FORK_TAGS JOIN FORK_MENTIONNER USING(TAG_ID) JOIN FORK_RECETTE USING(REC_ID) WHERE REC_ID = ?"
             );
             $requeteTags->execute([$recette->rec_id]);
@@ -186,8 +166,6 @@ class RecetteRepository {
     }
 
     public function getRecettesIngredients($ingredients) {
-        $this->dbConnect($this);
-    
         $conditions = [];
         $parametres = [];
         $ingredients = explode(',', $ingredients);
@@ -199,7 +177,7 @@ class RecetteRepository {
     
         $conditionCombinee = implode(' AND ', $conditions);
     
-        $requeteRecettes = $this->bdd->prepare(
+        $requeteRecettes = $this->connection->getConnection()->prepare(
             "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO
             FROM FORK_RECETTE
             JOIN FORK_CATEGORIE USING(CAT_ID)
@@ -213,7 +191,6 @@ class RecetteRepository {
         $recettes = [];
     
         while (($row = $requeteRecettes->fetch())) {
-            echo 'id' . $row['REC_ID'];
             $recette = new Recette();
             $recette->rec_id = $row['REC_ID'];
             $recette->cat_id = $row['CAT_ID'];
@@ -227,7 +204,7 @@ class RecetteRepository {
             $recette->rec_date_modif = $row['REC_DATE_MODIF'];
             $recette->user_pseudo = $row['USER_PSEUDO'];
             
-            $requeteTags = $this->bdd->prepare(
+            $requeteTags = $this->connection->getConnection()->prepare(
                 "SELECT TAG_INTITULE FROM FORK_TAGS JOIN FORK_MENTIONNER USING(TAG_ID) JOIN FORK_RECETTE USING(REC_ID) WHERE REC_ID = ?"
             );
             $requeteTags->execute([$recette->rec_id]);
@@ -240,6 +217,77 @@ class RecetteRepository {
     
         return $recettes;
     }
+
+
+    public function createRecette($titre, $contenu, $resume, $tags, $lien_image, $categorie_id) {
+        $requeteNewIdRecette = $this->connection->getConnection()->query("SELECT MAX(rec_id) + 1 as rec_id FROM FORK_RECETTE");
+        $IdRecette = $requeteNewIdRecette->fetch();
+        $IdRecette = $IdRecette['rec_id'];
+        
+        
+        //INSERTION DANS FORK_RECETTE
+        $requeteCreeRecette = $this->connection->getConnection()->prepare(
+            "INSERT INTO FORK_RECETTE(rec_id, cat_id, user_id, rec_titre, 
+            rec_contenu, rec_resume, rec_image, rec_date_crea, rec_date_modif) VALUES (
+                $IdRecette,
+                ?,
+                ?,
+                ?,
+                ?,
+                ?,
+                ?,
+                NOW(),
+                NOW())"
+        );
+
+        $recetteRequestAffectedLines = $requeteCreeRecette->execute([
+            $categorie_id, 
+            $_SESSION['user_id'],
+            $titre, 
+            $contenu, 
+            $resume, 
+            $lien_image
+        ]);
+        
+
+        //INSERTION DANS FORK_TAGS
+        //Transformation de la requete pour insertion dans FORK_TAGS
+        $tagsArray = explode(', ', $tags);
+        $cmpt = 1;
+        $strInsertionTAGS = 'INSERT IGNORE INTO FORK_TAGS(tag_id, tag_intitule) ';
+        foreach ($tagsArray as $tag) {
+            $strInsertionTAGS .= "SELECT MAX(tag_id) + $cmpt, '$tag' FROM FORK_TAGS UNION ";
+            $cmpt++;
+        }
+        $strInsertionTAGS = substr($strInsertionTAGS, 0, -7) . ";";
+
+        //NE FONCTIONNE PAS...
+        //$strInsertionTAGS = $this->connection->getConnection()->quote(substr($strInsertionTAGS, 0, -7));
+        $tagsRequestAffectedLines = $this->connection->getConnection()->query($strInsertionTAGS);
+        
+
+        //RECUPERATION DES ID DES TAGS VENANT D'ETRE CREE OU DEJA EXISTANT
+        $strFetchTags = "SELECT tag_id FROM FORK_TAGS WHERE TAG_INTITULE IN (";
+        foreach ($tagsArray as $tag) {
+            $strFetchTags .= "'$tag', ";
+        }
+        $strFetchTags = substr($strFetchTags, 0, -2) . ");";
+        $requeteFetchNewTags = $this->connection->getConnection()->query($strFetchTags);
+
+        //INSERTION DANS FORK_MENTIONNER
+        $strInsertionMENTIONNER = "INSERT INTO FORK_MENTIONNER(rec_id, tag_id) VALUES ";
+        while (($row = $requeteFetchNewTags->fetch())) {
+            $strInsertionMENTIONNER .= "($IdRecette, " . $row['tag_id'] . "), ";
+        }
+        $strInsertionMENTIONNER = substr($strInsertionMENTIONNER, 0, -2) . ";";
+        $tagsAddedInMENTIONNERAffectedLines = $this->connection->getConnection()->query($strInsertionMENTIONNER);
+        $tagsAddedInMENTIONNERAffectedLines = 1;
+
+
+        return ($recetteRequestAffectedLines > 0 && $tagsAddedInMENTIONNERAffectedLines > 0);
+    }
+
+    
     
 }
 

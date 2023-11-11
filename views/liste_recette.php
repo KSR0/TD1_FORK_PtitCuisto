@@ -25,7 +25,7 @@
         let content = '';
         for(let i = nbRecetteAfficher; i < nbRecetteAfficher + 10; i++) {
             if(i < recettes.length && recettes[i].length != 0) {
-                content += "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + "<img src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "' width='500px'/></a>" + "<br>" +
+                content += "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + "<img src='" + recettes[i].rec_image + "' alt='Image de la recette : " + recettes[i].rec_titre + "' width='500px'/></a>" + "<br>" +
                         "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a><br>" +
                         "Categorie : " + recettes[i].cat_intitule + "<br>" +
                         "Resumé : " + recettes[i].rec_resume + "<br>" + 
