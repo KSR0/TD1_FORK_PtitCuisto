@@ -14,7 +14,7 @@
             <div class="border-2 border-charte_bleu_fonce rounded-lg p-2 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-charte_bleu_fonce font-permanent_marker text-xl font-bold text-center leading-tight md:text-2xl">Créer un compte</h1>
                 
-                <form id="signupForm" class="space-y-4 md:space-y-6" method="post" action="#">
+                <form action="index.php?action=requete_creation_compte" id="signupForm" method="post" class="space-y-4 md:space-y-6">
 
                     <div>
                         <label for="pseudo" class="text-charte_bleu_clair block mb-2 text-sm font-medium">Entrez votre pseudo :</label>
@@ -80,35 +80,7 @@
                         <i class="bi bi-box-arrow-right"></i>
                         <p type="submit" class="text-[15px] ml-2">S'inscrire</p>
                     </button>
-
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            document.getElementById("signupForm").addEventListener("submit", function (event) {
-                                event.preventDefault();
-
-                                let email = document.getElementById("email").value;
-                                let password = document.getElementById("password").value;
-                                let nom = document.getElementById("nom").value;
-                                let prenom = document.getElementById("prenom").value;
-                                let pseudo = document.getElementById("pseudo").value;
-                                let confirm_password = document.getElementById("confirm-password").value;
-
-                                $.post("views/traitement_signup.php", { email: email, password: password, confirm_password: confirm_password, nom: nom, prenom: prenom,pseudo: pseudo}, function (data) {
-                                    let donnescompte = JSON.parse(data);
-                                    if(donnescompte.error) {
-                                        alert(donnescompte.error);
-                                        return;
-                                    }
-                                    else {
-                                        alert(donnescompte.success);
-                                        window.location.href = "index.php?action=edito";
-                                    }
-                                });
-                            });
-                        });   
-                    </script>
-
-
+                    
                     <div class="flex justify-center">
 
                         <div class="flex items-start">

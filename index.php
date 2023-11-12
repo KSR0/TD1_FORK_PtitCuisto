@@ -43,6 +43,9 @@ try {
 		else if ($_GET['action'] === 'requete_connexion_compte') {
 			requete_connexion_compte($_POST);
 		}
+		else if ($_GET['action'] === 'requete_creation_compte') {
+			requete_creation_compte($_POST);
+		}
 		else if ($_GET['action'] === 'edito') {
 			if (isset($_GET['deconnexion'])) {
 				if(session_status () == PHP_SESSION_ACTIVE) {

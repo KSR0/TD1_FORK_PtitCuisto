@@ -37,6 +37,25 @@ function requete_connexion_compte(array $input) {
     
 }
 
+function requete_creation_compte(array $input) {
+    if (!empty($input['pseudo']) && !empty($input['nom']) && !empty($input['prenom']) && !empty($input['email']) && !empty($input['password']) && !empty($input['confirm-password'])) {
+            $pseudo = $input['pseudo'];
+            $nom = $input['nom'];
+            $prenom = $input['prenom'];
+            $email = $input['email'];
+            $password = $input['password'];
+            $confirm_password = $input['confirm-password'];
+
+            $creationCompteRepository = new CompteRepository();
+            $creationCompteRepository->connection = new DatabaseConnection();
+            $result = $creationCompteRepository->userSignUp($pseudo, $nom, $prenom, $email, $password, $confirm_password);
+            
+            header('Location: index.php');
+	} else {
+    	throw new Exception('Les données du formulaire sont invalides.');
+	}
+}
+
 function gerer_compte() {
 	require('views/gerer_compte.php');
 }
