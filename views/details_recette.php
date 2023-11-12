@@ -66,15 +66,14 @@ echo
     ?>
 </div>
 
-<hr class="my-2 mt-3">
-<p class="text-3xl text-charte_bleu_clair">Liste des commentaires</p>
-<div id="commentaires">
+<h2 class="text-4xl text-charte_bleu_fonce font-permanent_marker mb-2">Commentaires</h2>
+<div class="border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2 mb-2" id="commentaires">
     <?php
     foreach ($commentaires as $commentaire) {
     ?>
-        <p><strong><?= htmlspecialchars($commentaire->user_pseudo) ?></strong> le <?= date("d/m/Y à H:i", strtotime($commentaire->com_date_crea)) . " a dit : " ?></p>
-        <p><?= nl2br(htmlspecialchars($commentaire->com_description)) ?></p>
-        <br>
+        <p class="text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc mb-1"><span class="font-permanent_marker"><?= htmlspecialchars($commentaire->user_pseudo) ?></span> a commenté le <?= date("d/m/Y à H:i", strtotime($commentaire->com_date_crea)) . " :" ?></p>
+        <p class="text-2xl"><?= nl2br(htmlspecialchars($commentaire->com_description)) ?></p>
+        <hr class='border border-charte_bleu_fonce my-4 mx-auto'>
     <?php
     }
     ?>
@@ -82,17 +81,22 @@ echo
 
 <?php
     if (isset($_SESSION['user_id'])) {
-        echo "<hr class='my-2 mt-3'>";
-        echo "<p class='text-3xl text-charte_bleu_clair'>Ajouter un commentaire</p>";
-        echo '<form action="index.php?action=requete_creation_commentaire&rec_id=' . $recette->rec_id .  '" method="post">
-        <div>
-           <label for="commentaire">Commentaire</label><br />
-           <textarea id="commentaire" name="commentaire" placeholder="..."></textarea>
-        </div>
-        <div>
-           <input type="submit" class="text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"/>
-        </div>
-     </form>';
+        echo "<hr class='border-2 border-charte_bleu_clair my-6 mx-auto'>" .
+        "<h2 class='text-4xl text-charte_bleu_fonce font-permanent_marker mb-2'>Ajouter un commentaire</h2>" .
+        "<div class='border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2' id='ajout_commentaires'>" .
+            "<form action='index.php?action=requete_creation_commentaire&rec_id=' . $recette->rec_id .  '' method='post'>" .
+                "<div id='contenu' class='text-charte_bleu_clair pt-2 -mb-2 px-4'>" .
+                    "<label class='font-permanent_marker text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc' for='ajout_comm'>Écrivez un commentaire : </label><br>" .
+                    "<div class='mb-2 mt-4'>" .
+                        "<textarea class='text-charte_bleu_gris border border-charte_bleu_fonce rounded-lg p-2 w-full' id='ajout_comm' name='ajout_comm' placeholder='Exemple : Pour avoir essayer de faire votre recette, elle est excellente !'></textarea>" .
+                    "</div>" .
+                "</div>" .
+
+                "<button class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>" .
+                    "<p type='submit'>Publier</p>" .
+                "</button>" .
+            "</form>" .
+        "</div>";
     }
 ?>
 
