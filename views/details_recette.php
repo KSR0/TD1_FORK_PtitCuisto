@@ -84,11 +84,11 @@ echo
         echo "<hr class='border-2 border-charte_bleu_clair my-6 mx-auto'>" .
         "<h2 class='text-4xl text-charte_bleu_fonce font-permanent_marker mb-2'>Ajouter un commentaire</h2>" .
         "<div class='border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2' id='ajout_commentaires'>" .
-            "<form action='index.php?action=requete_creation_commentaire&rec_id=' . $recette->rec_id .  '' method='post'>" .
+            "<form action='index.php?action=requete_creation_commentaire&rec_id=" . $recette->rec_id .  "' method='post'>" .
                 "<div id='contenu' class='text-charte_bleu_clair pt-2 -mb-2'>" .
-                    "<label class='font-permanent_marker text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc' for='ajout_comm'>Écrivez un commentaire : </label><br>" .
+                    "<label class='font-permanent_marker text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc' for='commentaire'>Écrivez un commentaire : </label><br>" .
                     "<div class='mb-2 mt-4'>" .
-                        "<textarea class='text-charte_bleu_gris border border-charte_bleu_fonce rounded-lg p-2 w-full' id='ajout_comm' name='ajout_comm' placeholder='Exemple : Pour avoir essayer de faire votre recette, elle est excellente !'></textarea>" .
+                        "<textarea class='text-charte_bleu_gris border border-charte_bleu_fonce rounded-lg p-2 w-full' id='ajout_comm' name='commentaire' placeholder='Exemple : Pour avoir essayer de faire votre recette, elle est excellente !'></textarea>" .
                     "</div>" .
                 "</div>" .
 
