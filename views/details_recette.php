@@ -12,7 +12,7 @@ echo
             "<div class='flex'>" .
 
                 "<div id='tag_image' class='w-1/2 max-h-div_recette text-center p-2 mr-2'>" .
-                    "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" . $recette->rec_image . "' alt='Image recette " . $recette->rec_titre . "' width='500px'/></a>" . "<br><br>" .
+                    "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" . $recette->rec_image . "' alt='Image recette " . $recette->rec_titre . "' width='500px'/>" . "<br><br>" .
                     "<br>" .
 
                     "<div class='-mt-20 grid grid-cols-2 gap-2'>";
@@ -30,11 +30,22 @@ echo
                     "</div>" .
                 "</div>" .
 
-                "<div id='div_infos' class='text-charte_bleu_clair w-1/2 py-2 px-4 ml-2'>" .
-                    "<p class='text-3xl'><span class='text-4xl font-permanent_marker'>Catégorie : </span><br>" . $recette->cat_intitule . "</p><br>" .
-                    "<p class='text-3xl'><span class='text-4xl font-permanent_marker'>Auteur : </span><br>"  . $recette->user_pseudo . "</p><br>" .
-                    "<p class='text-3xl'><span class='text-4xl font-permanent_marker'>Recette créée le :</span><br>" . $recette->rec_date_crea . "</p><br>" .
-                    "<p class='text-3xl'><span class='text-4xl font-permanent_marker'>Recette modifiée le :</span><br>" . $recette->rec_date_modif . "</p><br>" .
+                "<div id='div_infos' class='text-charte_bleu_clair border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>" .
+                    "<p class='text-3xl'>
+                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>
+                    <br>" . $recette->cat_intitule . "</p><br>" .
+
+                    "<p class='text-3xl'>
+                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Auteur : </span>
+                    <br>"  . $recette->user_pseudo . "</p><br>" .
+
+                    "<p class='text-3xl'>
+                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Recette créée le :</span>
+                    <br>" . $recette->rec_date_crea . "</p><br>" .
+                    
+                    "<p class='text-3xl'>
+                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Recette modifiée le :</span>
+                    <br>" . $recette->rec_date_modif . "</p><br>" .
                 "</div>".
             "</div>".
 
@@ -42,12 +53,12 @@ echo
 
             "<div class='flex'>" .
                 "<div id='resume' class='w-1/2 text-charte_bleu_clair py-2 px-4'>" .
-                    "<p class='text-2xl'><span class='text-3xl font-permanent_marker'>Résumé :</span><br>" . $recette->rec_resume . "</p><br>" . 
+                    "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Résumé :</span><br>" . $recette->rec_resume . "</p><br>" . 
                 "</div>" .
 
                 "<div class='w-1/2 border-l-2 border-charte_bleu_fonce mb-2'>" .
                     "<div id='contenu' class='text-charte_bleu_clair pt-2 px-4'>" .
-                        "<p class='text-2xl'><span class='text-3xl font-permanent_marker'>Contenu :</span><br>" . $recette->rec_contenu . "</p><br>" . 
+                        "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Contenu :</span><br>" . $recette->rec_contenu . "</p><br>" . 
                     "</div>" .
                 "</div>" .
             "</div>" .
