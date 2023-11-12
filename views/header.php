@@ -100,7 +100,7 @@
 
                 </div>
 
-                
+                <hr class="my-2 mt-3 text-charte_blanc">
 
                 <?php 
                 if(!isset($_SESSION['user_id'])) {
@@ -125,8 +125,6 @@
                     </a>";
                 }
                 ?>
-
-                <hr class="my-4 text-gray-600">
 
                 <?php 
                     if(isset($_SESSION['typ_id'])) {
@@ -169,9 +167,8 @@
                     }
 
                     if (isset($_SESSION['user_pseudo'])) {
-                        echo "<hr class='my-4 text-gray-600'>";
                         echo "
-                        <div class='element_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300'>
+                        <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce bg-charte_bleu_clair hover:border-charte_blanc hover:bg-charte_bleu_fonce'>
                             <i class='bi bi-info-square-fill'></i>
                             <p class='text-[15px] ml-4 text-gray-200'>Connecté en tant que : " . $_SESSION['user_pseudo'] . "</p>
                         </div>";

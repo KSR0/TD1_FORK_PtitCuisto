@@ -76,25 +76,7 @@
 
                     </div>
 
-                    <div class="flex items-center justify-between">
-
-                        <div class="flex items-start cursor-pointer hover:underline">
-
-                            <div class="flex items-center h-5">
-                                <input id="terms" aria-describedby="terms" type="checkbox" class="cursor-pointer w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300">
-                            </div>
-
-                            <div class="ml-2 text-sm">
-                                <label for="terms" class="text-charte_gris cursor-pointer" required="">
-                                    J'ai lu et j'accepte <span class="text-charte_bleu_fonce font-semibold">les conditions d'utilisation</span>
-                                </label>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <button class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                    <button class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce">
                         <i class="bi bi-box-arrow-right"></i>
                         <p type="submit" class="text-[15px] ml-2">S'inscrire</p>
                     </button>

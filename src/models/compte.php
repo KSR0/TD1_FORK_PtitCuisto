@@ -44,7 +44,7 @@ class CompteRepository {
         $requeteConnexionCompte->execute([$_SESSION['user_id'], $old_password]);
         
         if ($requeteConnexionCompte->rowCount() != 1) {
-            return throw new Exception('Ancien mot de passe incorrecte');
+            throw new Exception('Ancien mot de passe incorrect');
         }
 
         // SI SON ANCIEN MDP EST CORRECT ON CHANGE SON NVO MDP
@@ -58,7 +58,4 @@ class CompteRepository {
         
         return $requeteUpdateEditeurMdp->rowCount() > 0;
     }
-
-
-
 }

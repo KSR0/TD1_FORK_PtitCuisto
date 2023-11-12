@@ -33,24 +33,7 @@
 
                     </div>
 
-                    <div class="flex items-center justify-between">
-
-                        <div class="flex items-start cursor-pointer hover:underline">
-
-                            <div class="flex items-center h-5">
-                                <input id="remember" aria-describedby="remember" type="checkbox" class="cursor-pointer w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300">
-                            </div>
-
-                            <div class="ml-2 text-sm">
-                                <label for="remember" class="text-charte_gris cursor-pointer">Se souvenir de moi</label>
-                            </div>
-
-                        </div>
-                        <a href="#" class="text-charte_bleu_fonce text-sm font-medium hover:underline">Mot de passe oublié ?</a>
-
-                    </div>
-
-                    <button type="submit" class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                    <button class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce">
                             <i class="bi bi-box-arrow-in-right"></i>
                             <p class="text-[15px] ml-2">Se connecter</p>
                     </button>
