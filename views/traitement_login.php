@@ -10,30 +10,6 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $email = $_POST['email'];
-        $password = hash('sha512', $_POST['password']);
-
-        $count = "SELECT COUNT(*) FROM FORK_UTILISATEUR WHERE USER_EMAIL = ? AND USER_MDP = ?";
-        $stmtcount = $bdd->prepare($count);
-        $stmtcount->execute([$email, $password]);
-        $count = $stmtcount->fetch(PDO::FETCH_ASSOC);
-        $count = $count["COUNT(*)"];
-
-        $query = "SELECT USER_ID,USER_PSEUDO,TYP_ID FROM FORK_UTILISATEUR WHERE USER_EMAIL = ? AND USER_MDP = ?";
         
-
-        $stmt = $bdd->prepare($query);
-        $stmt->execute([$email, $password]);
-        
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if($count == 1){
-            echo json_encode($user);
-            exit();
-        }
-        else{
-            echo json_encode(['error' => 'Identifiants incorrects']);
-            exit();
-        }
     }
 ?>

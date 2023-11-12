@@ -42,8 +42,14 @@ try {
 				recette($_GET['id']);
 			}
 		}
+		else if ($_GET['action'] === 'creation_compte') {
+			creation_compte();
+		}
 		else if ($_GET['action'] === 'connexion_compte') {
 			connexion_compte();
+		}
+		else if ($_GET['action'] === 'requete_connexion_compte') {
+			requete_creation_compte($_POST);
 		}
 		else if ($_GET['action'] === 'edito') {
 			if (isset($_GET['deconnexion'])) {
@@ -52,23 +58,14 @@ try {
 					session_destroy();
 					session_write_close();
 				}
-				edito();
 			}
-			else {
-				edito();
-			}
+			edito();
 		}
 		else if ($_GET['action'] === 'creation_recette') {
 			creation_recette();
 		}
 		else if ($_GET['action'] === 'requete_creation_recette') {
 			requete_creation_recette($_POST);
-		}
-		else if ($_GET['action'] === 'creation_compte') {
-			creation_compte();
-		}
-		else if ($_GET['action'] === 'requete_creation_compte') {
-			requete_creation_compte($_POST);
 		}
 		else {
 			echo "Erreur 404 : la page que vous recherchez n'existe pas.";
