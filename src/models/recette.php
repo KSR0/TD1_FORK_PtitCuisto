@@ -338,19 +338,21 @@ class RecetteRepository {
         return true;
     }
 
-    public function updateRecette($rec_id, $contenu, $resume) {
+    public function updateRecette($rec_id, $contenu, $resume,$categorie_id) {
         $requeteUpdateRecette = $this->connection->getConnection()->prepare(
             "
             UPDATE FORK_RECETTE SET
             REC_CONTENU = ?,
             REC_RESUME = ?,
-            REC_DATE_MODIF = NOW()
+            REC_DATE_MODIF = NOW(),
+            CAT_ID = ?
             WHERE REC_ID = ?;
             "
         );
         $requeteUpdateRecette->execute([
             $contenu,
             $resume,
+            $categorie_id,
             $rec_id
         ]);
         return true;
