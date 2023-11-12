@@ -1,6 +1,6 @@
 <?php
 
-require_once('src/models/liste_recette.php');
+require_once('src/models/recette.php');
 require_once('src/lib/database.php');
 
 function edito() {
