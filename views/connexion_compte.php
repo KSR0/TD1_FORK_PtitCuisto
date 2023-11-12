@@ -1,8 +1,4 @@
 <?php ob_start();?>
-<script>
-    let email;
-    let password;
-</script>
 
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
@@ -16,8 +12,7 @@
             <div class="border-2 border-charte_bleu_fonce rounded-lg p-2 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-charte_bleu_fonce font-permanent_marker text-xl font-bold text-center leading-tight md:text-2xl">Se connecter à votre compte</h1>
                 
-                <form id="loginForm" class="space-y-4 md:space-y-6" action="#">
-                    
+                <form action="index.php?action=requete_connexion_compte" id="loginForm" method="post" class="space-y-4 md:space-y-6">
                     <div>
                         <label for="email" class="text-charte_bleu_clair block mb-2 text-sm font-medium">Entrez votre adresse mail :</label>
                         
@@ -59,27 +54,8 @@
                             <i class="bi bi-box-arrow-in-right"></i>
                             <p class="text-[15px] ml-2">Se connecter</p>
                     </button>
+
                     
-                    <script>
-                        document.getElementById("loginForm").addEventListener("submit", function (event) {
-                            event.preventDefault();
-
-                            email = document.getElementById("email").value;
-                            password = document.getElementById("password").value;
-
-                            $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
-                                let donnees = JSON.parse(data);
-                                if(donnees.error) {
-                                    alert(donnees.error);
-                                    return;
-                                }
-                                window.location.href = "index.php?action=edito&user_pseudo="+donnees.USER_PSEUDO+"&user_id="+donnees.USER_ID;
-                            });
-
-                            
-                        });   
-                    </script>
-
                     <div class="flex justify-center">
 
                         <div class="flex items-start">
