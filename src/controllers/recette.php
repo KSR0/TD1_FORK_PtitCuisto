@@ -106,14 +106,14 @@ function suppression_recette($id) {
     }
 }
 
-function requete_modification_recette($id) {
+function modification_recette($id) {
     $recetteRepository = new RecetteRepository();
     $recetteRepository->connection = new DatabaseConnection();
     $recette = $recetteRepository->getRecette($id);
     require('views/modification_recette.php');
 }
 
-function modification_recette(array $input, $id) {
+function requete_modification_recette(array $input, $id) {
     if (!empty($input['contenu']) && !empty($input['resume'])) {
             $contenu = $input['contenu'];
             $resume = $input['resume'];
@@ -121,7 +121,7 @@ function modification_recette(array $input, $id) {
 
             $recetteRepository = new RecetteRepository();
             $recetteRepository->connection = new DatabaseConnection();
-            $success = $recetteRepository->updateRecette($id,$contenu, $resume, $categorie_id);
+            $success = $recetteRepository->updateRecette($id, $contenu, $resume, $categorie_id);
             if (!$success) {
                 throw new Exception('Impossible de modifier la recette !');
             } else {
