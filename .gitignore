@@ -1,13 +1,4 @@
 all_secret_variables.env
-MLD/Espace de travail.ws
-MLD/Espace de travail.ws.bak
-MLD/MCD1.mcd.bak
-MLD/MCD1.mcd
-MLD/MLR2.mlr
-MLD/MCD.PNG
-MLD/MLD.PNG
-MLD/MLR2.SQL
-
-view/test.html
-.dcignore
+tailwind/tailwind.css
 node_modules
+.dcignore
