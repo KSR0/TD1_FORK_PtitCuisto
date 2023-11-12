@@ -17,7 +17,7 @@ function requete_creation_commentaire($rec_id, $input) {
 	if (!$success) {
 		throw new Exception('Impossible d\'ajouter le commentaire !');
 	} else {
-		header("Location: index.php?action=details_recette&id=$rec_id");
+		header("Location: index.php?action=details_recette&rec_id=$rec_id");
 	}
 }
 

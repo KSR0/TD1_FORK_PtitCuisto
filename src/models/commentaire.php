@@ -55,8 +55,7 @@ class CommentaireRepository {
             $_SESSION['user_id'],
             $array['commentaire']
         ]);
-
-        echo 'value' . $commentaireRequestAffectedLines;
+        
         return $commentaireRequestAffectedLines > 0;
     }
 
