@@ -1,9 +1,18 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+    if (isset($_GET['type_plat'])) {
+        $type_plat = $_GET['type_plat'];
+    }
+    else {
+        $type_plat = 'recette';
+    }
+?>
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
-<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Liste des recettes</h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Page affichant la liste des recettes publiées.</p><br>
+
+
+<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Liste des <?php echo $type_plat . 's' ?></h1>
+<p class="text-3xl text-center text-charte_bleu_clair">Page affichant la liste des <?php echo $type_plat . 's' ?> publiées.</p><br>
 
 <div id="recettes">
         

@@ -21,8 +21,7 @@ class RecetteRepository {
 
     public function getRecettes(): array 
     {
-        $this->dbConnect($this);
-        $requeteRecettes = $this->bdd->query(
+        $requeteRecettes = $this->connection->getConnection()->query(
             "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) ORDER BY rec_date_crea DESC;"
         );
         $recettes = [];

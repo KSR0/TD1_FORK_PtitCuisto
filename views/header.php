@@ -100,16 +100,19 @@
 
                 </div>
 
-                <hr class="my-4 text-gray-600">
+                
 
-                <?php if(!isset($_SESSION['user_id'])) {
-                    echo "<a href='index.php?action=connexion_compte'>
-                            <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
-                                <i class='bi bi-box-arrow-in-right'></i>
-                                <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se connecter</p>
-                            </div>
-                        </a>";
+                <?php 
+                if(!isset($_SESSION['user_id'])) {
+                    if (!(isset($_GET['action']) && $_GET['action'] === 'connexion_compte')) {
+                        echo "<a href='index.php?action=connexion_compte'>
+                                <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
+                                    <i class='bi bi-box-arrow-in-right'></i>
+                                    <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se connecter</p>
+                                </div>
+                            </a>";
                     }
+                }
                 ?>
 
                 <?php if(isset($_SESSION['user_pseudo'])) {
@@ -159,7 +162,7 @@
                         echo "<hr class='my-4 text-gray-600'>";
                         echo "<div class='element_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300'>
                             <i class='bi bi-info-square-fill'></i>
-                            <p class='text-[15px] ml-4 text-gray-200'>" . $_SESSION['user_pseudo'] . "</p>
+                            <p class='text-[15px] ml-4 text-gray-200'>Connecté en tant que : " . $_SESSION['user_pseudo'] . "</p>
                         </div>";
                     }
                 ?>
