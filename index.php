@@ -4,6 +4,7 @@ session_start();
 
 require_once('src/controllers/edito.php');
 require_once('src/controllers/recette.php');
+require_once('src/controllers/commentaire.php');
 require_once('src/controllers/compte.php');
 require_once('src/controllers/pannel.php');
 
@@ -31,6 +32,15 @@ try {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
 				details_recette($_GET['id']);
 			}
+		}
+		else if ($_GET['action'] === 'requete_creation_commentaire') {
+			if ((isset($_GET['com_id']) && $_GET['com_id'] > 0) && (isset($_GET['rec_id']) && $_GET['rec_id'] > 0)) {
+				requete_creation_commentaire($_GET['com_id'], $_GET['rec_id'], $_POST);
+			} else {
+				echo 'Erreur : Pas de commentaire envoyé';
+				die;
+			}
+			
 		}
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
