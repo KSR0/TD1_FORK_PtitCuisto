@@ -35,9 +35,9 @@ echo
                         "<p class='text-3xl'>
                             <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>
                         <br><select class='bg-charte_bleu_clair border-2 border-charte_bleu_fonce rounded-lg p-2' name='categorie' id='categorie'>
-                            <option value='entree'"; if ($recette->cat_id == 1) { echo "selected"; } echo ">Entrée</option>
-                            <option value='plat'"; if ($recette->cat_id == 2) { echo "selected"; } echo ">Plat</option>
-                            <option value='dessert'"; if ($recette->cat_id == 3) { echo "selected"; } echo ">Dessert</option>
+                            <option value='1'"; if ($recette->cat_id == 1) { echo "selected"; } echo ">Entrée</option>
+                            <option value='2'"; if ($recette->cat_id == 2) { echo "selected"; } echo ">Plat</option>
+                            <option value='3'"; if ($recette->cat_id == 3) { echo "selected"; } echo ">Dessert</option>
                         </select></p><br>" .
 
                         "<p class='text-3xl'>
