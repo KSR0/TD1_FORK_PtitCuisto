@@ -66,8 +66,20 @@ function changer_mdp($input) {
 
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();
-	$result = $CompteRepository->editeurChangerMdp($old_password, $new_password);
-	echo $result;
+	$result = $CompteRepository->editeurChangePassword($old_password, $new_password);
+	
+	if ($result != 1) {
+		throw new Exception('Une erreur est survenu');
+	} else {
+		header('Location: index.php?action=edito');
+	}
+}
+
+function supprCompte() {
+	$CompteRepository = new CompteRepository();
+	$CompteRepository->connection = new DatabaseConnection();
+	$result = $CompteRepository->editeurDeleteAccount();
+
 	if ($result != 1) {
 		throw new Exception('Une erreur est survenu');
 	} else {

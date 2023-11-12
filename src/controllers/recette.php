@@ -1,6 +1,7 @@
 <?php
 
 require_once('src/models/recette.php');
+require_once('src/controllers/commentaire.php');
 require_once('src/lib/database.php');
 
 function liste_recettes() {
@@ -10,16 +11,20 @@ function liste_recettes() {
 	require('views/liste_recette.php');
 }
 
-function details_recette(string $identifier) {
+function details_recette(string $rec_id) {
 	$recetteRepository = new RecetteRepository();
 	$recetteRepository->connection = new DatabaseConnection();
-	$recette = $recetteRepository->getRecette($identifier);
+	$recette = $recetteRepository->getRecette($rec_id);
+
+	$commentaires = liste_commentaires($rec_id);
 	if ($recette != false) {
 		require('views/details_recette.php');
 	}
 	else {
 		echo "Cette recette n'existe pas";
 	}
+
+	
 }
 
 function recettes_categorie($type_plat) {
@@ -80,7 +85,7 @@ function requete_creation_recette(array $input) {
             $recetteRepository->connection = new DatabaseConnection();
             $success = $recetteRepository->createRecette($titre, $contenu, $resume, $tags, $lien_image, $categorie_id);
             if (!$success) {
-                throw new Exception('Impossible d\'ajouter le commentaire !');
+                throw new Exception('Impossible d\'ajouter la recette !');
             } else {
                 header('Location: index.php?action=liste_recette');
             }
