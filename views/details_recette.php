@@ -92,13 +92,31 @@ echo
                     "</div>" .
                 "</div>" .
 
-                "<button class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>" .
-                    "<p type='submit'>Publier</p>" .
+                "<button type='submit' id='submit_btn' class='font-permanent_marker p-2.5 mt-3 flex justify-center rounded-md px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair' disabled>" .
+                    "<p>Publier</p>" .
                 "</button>" .
             "</form>" .
         "</div>";
     }
 ?>
+
+<script>
+    let commentaire = document.querySelector('#ajout_comm');
+    let submitBtn = document.querySelector('#submit_btn');
+
+    commentaire.addEventListener("input", function () {
+        let commentaire_value = commentaire.value;
+       
+        if (commentaire_value == '') {
+            submitBtn.disabled = true;
+            submitBtn.className = 'font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce';
+        } else {
+            submitBtn.disabled = false;
+            submitBtn.className = 'font-permanent_marker p-2.5 mt-3 flex justify-center rounded-md px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair';
+        }
+    });
+
+</script>
 
 <?php $content = ob_get_clean();
 require_once('template.php'); ?>
