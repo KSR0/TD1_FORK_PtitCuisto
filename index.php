@@ -45,6 +45,9 @@ try {
 		else if ($_GET['action'] === 'suppression_recette') {
 			suppression_recette($_GET['id']);
 		}
+		else if($_GET['action'] === 'modification_recette') {
+			requete_modification_recette($_GET['id']);
+		}
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
 		}
@@ -52,6 +55,9 @@ try {
 			connexion_compte();
 		}
 		else if ($_GET['action'] === 'gestion_recette') {
+			if(isset($_GET['id'])) {
+				modification_recette($_POST, $_GET['id']);
+			}
 			gestion_recette($_SESSION['user_id']);
 		}
 		else if ($_GET['action'] === 'requete_connexion_compte') {

@@ -337,7 +337,25 @@ class RecetteRepository {
         $requeteDeleteRecette->execute([$rec_id]);
         return true;
     }
+
+    public function updateRecette($rec_id, $contenu, $resume) {
+        $requeteUpdateRecette = $this->connection->getConnection()->prepare(
+            "
+            UPDATE FORK_RECETTE SET
+            REC_CONTENU = ?,
+            REC_RESUME = ?,
+            REC_DATE_MODIF = NOW()
+            WHERE REC_ID = ?;
+            "
+        );
+        $requeteUpdateRecette->execute([
+            $contenu,
+            $resume,
+            $rec_id
+        ]);
+        return true;
     
+    }
 }
 
 ?>

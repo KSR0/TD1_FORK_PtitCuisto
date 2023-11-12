@@ -106,5 +106,30 @@ function suppression_recette($id) {
     }
 }
 
+function requete_modification_recette($id) {
+    $recetteRepository = new RecetteRepository();
+    $recetteRepository->connection = new DatabaseConnection();
+    $recette = $recetteRepository->getRecette($id);
+    require('views/modification_recette.php');
+}
+
+function modification_recette(array $input, $id) {
+    if (!empty($input['contenu']) && !empty($input['resume'])) {
+            $contenu = $input['contenu'];
+            $resume = $input['resume'];
+
+            $recetteRepository = new RecetteRepository();
+            $recetteRepository->connection = new DatabaseConnection();
+            $success = $recetteRepository->updateRecette($id,$contenu, $resume);
+            if (!$success) {
+                throw new Exception('Impossible de modifier la recette !');
+            } else {
+                header('Location: index.php?action=gestion_recette');
+            }
+    } else {
+    	throw new Exception('Les données du formulaire sont invalides.');
+    }
+}
+
 
 ?>
