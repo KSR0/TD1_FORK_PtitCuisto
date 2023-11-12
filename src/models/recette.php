@@ -323,10 +323,19 @@ class RecetteRepository {
     }
 
     public function deleteRecette($rec_id) {
+        $requeteDeleteRecetteMention = $this->connection->getConnection()->prepare(
+            "
+            DELETE FROM FORK_MENTIONNER WHERE REC_ID = ?;
+            "
+        );
+        $requeteDeleteRecetteMention->execute([$rec_id]);
         $requeteDeleteRecette = $this->connection->getConnection()->prepare(
-            "DELETE FROM FORK_RECETTE WHERE REC_ID = ?"
+            "
+            DELETE FROM FORK_RECETTE WHERE REC_ID = ?;
+            "
         );
         $requeteDeleteRecette->execute([$rec_id]);
+        return true;
     }
     
 }
