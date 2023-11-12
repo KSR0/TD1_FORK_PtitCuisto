@@ -78,7 +78,7 @@
 
                     <button class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce">
                         <i class="bi bi-box-arrow-right"></i>
-                        <p type="submit" class="text-[15px] ml-2">S'inscrire</p>
+                        <p type="submit" class="ml-2">S'inscrire</p>
                     </button>
                     
                     <div class="flex justify-center">
