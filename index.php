@@ -34,6 +34,9 @@ try {
 				details_recette($_GET['id']);
 			}
 		}
+		else if ($_GET['action'] === 'suppression_recette') {
+			suppression_recette($_GET['id']);
+		}
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
 		}

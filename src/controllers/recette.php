@@ -90,5 +90,16 @@ function requete_creation_recette(array $input) {
 
 }
 
+function suppression_recette($id) {
+    $recetteRepository = new RecetteRepository();
+    $recetteRepository->connection = new DatabaseConnection();
+    $success = $recetteRepository->deleteRecette($id);
+    if (!$success) {
+        throw new Exception('Impossible de supprimer la recette !');
+    } else {
+        header('Location: index.php?action=gestion_recette');
+    }
+}
+
 
 ?>

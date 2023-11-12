@@ -66,6 +66,8 @@
                             "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
                             "<p class='text-3xl'>Catégorie : " + recettes[i].cat_intitule + "</p><br>" +
                             "<p class='text-2xl'>Résumé : <br>" + recettes[i].rec_resume + "</p><br>" +
+                            "<a href='index.php?action=suppression_recette&id=" + recettes[i].rec_id + "'><button class='text-2xl mr-4'> Supprimer </button></a>" +
+                            "<a href='index.php?action=modification_recette&id=" + recettes[i].rec_id + "'><button class='text-2xl'> Modifier </button></a>" +
                         "</div>" +
 
                     "</div>";
