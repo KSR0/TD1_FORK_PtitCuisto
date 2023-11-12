@@ -40,7 +40,7 @@
                     "<p class='text-center font-permanent_marker text-charte_bleu_fonce'>Recette n°" + compteur + "/" + (nbRecetteAfficher + 10) + "</p>" +
                     "<div class='border-2 border-charte_bleu_clair rounded-lg max-h-div_recette flex py-2 px-4 mb-4 mr-2'>" + 
                         "<div id='div_gauche' class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
-                            "<a class='text-center' href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" +
+                            "<a class='text-center' href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" +
                                 "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
                             "</a><br>";
 
@@ -63,7 +63,7 @@
                         "</div>" +
 
                         "<div id='div_droite' class='text-charte_bleu_clair max-h-div_recette overflow-y-auto w-1/2 py-2 px-4 ml-2'>" +
-                            "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
+                            "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
                             "<p class='text-3xl'>Catégorie : " + recettes[i].cat_intitule + "</p><br>" +
                             "<p class='text-2xl'>Résumé : <br>" + recettes[i].rec_resume + "</p><br>" +
                             "<a href='index.php?action=suppression_recette&id=" + recettes[i].rec_id + "'><button class='text-2xl mr-4'> Supprimer </button></a>" +
