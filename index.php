@@ -4,17 +4,8 @@ session_start();
 
 
 require_once('src/controllers/edito.php');
-require_once('src/controllers/liste_recette.php');
-require_once('src/controllers/liste_recette_categorie.php');
-require_once('src/controllers/liste_recette_titre.php');
-require_once('src/controllers/liste_recette_ingredients.php');
-require_once('src/controllers/creation_recette.php');
-require_once('src/controllers/requete_creation_recette.php');
-require_once('src/controllers/details_recette.php');
-require_once('src/controllers/connexion_compte.php');
-require_once('src/controllers/requete_connexion_compte.php');
-require_once('src/controllers/requette_creation_compte.php');
-require_once('src/controllers/creation_compte.php');
+require_once('src/controllers/recette.php');
+require_once('src/controllers/compte.php');
 require_once('src/controllers/pannel.php');
 
 
@@ -32,7 +23,7 @@ try {
 				recettes_ingredients($_GET['ingredients']);
 			}
 			else {
-				recettes();
+				liste_recettes();
 			}
 		}
 		else if ($_GET['action'] === 'pannel') {
@@ -40,7 +31,7 @@ try {
 		}
 		else if ($_GET['action'] === 'details_recette') {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
-				recette($_GET['id']);
+				details_recette($_GET['id']);
 			}
 		}
 		else if ($_GET['action'] === 'creation_compte') {
@@ -71,8 +62,16 @@ try {
 		else if ($_GET['action'] === 'requete_creation_recette') {
 			requete_creation_recette($_POST);
 		}
+		else if ($_GET['action'] === 'gerer_compte') {
+			gerer_compte();
+		}
+		else if ($_GET['action'] === 'requete_changement_mdp') {
+			changer_mdp($_POST);
+		}
+		
 		else {
-			echo "Erreur 404 : la page que vous recherchez n'existe pas.";
+			header("Location: views/error_page.php");
+			die();
 		}
 	} else {
 		edito();
