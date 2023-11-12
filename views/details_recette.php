@@ -39,7 +39,7 @@
 <hr class="my-2 mt-3">
 <p class="text-3xl text-charte_bleu_clair">Ajouter un commentaire</p>
 
-<form action="index.php?action=requete_creation_commentaire&com_id=<?= $commentaire->com_id + 1?>&rec_id=<?= $recette->rec_id ?>" method="post">
+<form action="index.php?action=requete_creation_commentaire&rec_id=<?= $recette->rec_id ?>" method="post">
    <div>
   	<label for="commentaire">Commentaire</label><br />
   	<textarea id="commentaire" name="commentaire" placeholder="..."></textarea>

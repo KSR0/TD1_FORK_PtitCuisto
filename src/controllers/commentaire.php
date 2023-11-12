@@ -10,10 +10,10 @@ function liste_commentaires(string $rec_id) {
 	return $commentaires;
 }
 
-function requete_creation_commentaire($com_id, $rec_id, $input) {
+function requete_creation_commentaire($rec_id, $input) {
 	$commentaireRepository = new CommentaireRepository();
 	$commentaireRepository->connection = new DatabaseConnection();
-	$success = $commentaireRepository->addCommentaire($com_id, $rec_id, $input);
+	$success = $commentaireRepository->addCommentaire($rec_id, $input);
 	if (!$success) {
 		throw new Exception('Impossible d\'ajouter le commentaire !');
 	} else {

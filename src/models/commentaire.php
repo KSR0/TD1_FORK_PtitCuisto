@@ -32,22 +32,23 @@ class CommentaireRepository {
         return $commentaires;
     }
 
-    public function addCommentaire($com_id, $rec_id, $array) {
-        
+    public function addCommentaire($rec_id, $array) {
+        $requeteNewIdCommentaire = $this->connection->getConnection()->query("SELECT MAX(com_id) + 1 as com_id FROM FORK_COMMENTAIRE");
+        $IdCommentaire = $requeteNewIdCommentaire->fetch();
+        $IdCommentaire = $IdCommentaire['com_id'];
         
         
         //INSERTION DANS FORK_RECETTE
         $requeteCreeCommentaire = $this->connection->getConnection()->prepare(
             "INSERT INTO FORK_COMMENTAIRE(com_id, rec_id, user_id, com_description, com_date_crea) VALUES (
-                ?,
+                $IdCommentaire,
                 ?,
                 ?,
                 ?,
                 NOW())"
         );
 
-        $commentaireRequestAffectedLines = $requeteCreeCommentaire->execute([
-            $com_id, 
+        $commentaireRequestAffectedLines = $requeteCreeCommentaire->execute([ 
             $rec_id, 
             $_SESSION['user_id'],
             $array['commentaire']
