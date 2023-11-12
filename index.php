@@ -40,6 +40,9 @@ try {
 		else if ($_GET['action'] === 'connexion_compte') {
 			connexion_compte();
 		}
+		else if ($_GET['action'] === 'gestion_recette') {
+			gestion_recette($_SESSION['user_id']);
+		}
 		else if ($_GET['action'] === 'requete_connexion_compte') {
 			requete_connexion_compte($_POST);
 		}

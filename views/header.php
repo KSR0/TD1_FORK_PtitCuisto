@@ -146,10 +146,10 @@
                             </a>";
 
                             echo "
-                            <a href='index.php?action=creation_recette'>
+                            <a href='index.php?action=gestion_recette'>
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
                                     <i class='bi bi-egg-fried'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
+                                    <p class='text-[15px] ml-4 text-gray-200'>Gestion recettes</p>
                                 </div>
                             </a>";
                         }
@@ -160,6 +160,14 @@
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
                                     <i class='bi bi-egg-fried'></i>
                                     <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
+                                </div>
+                            </a>";
+
+                            echo "
+                            <a href='index.php?action=gestion_recette'>
+                                <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
+                                    <i class='bi bi-egg-fried'></i>
+                                    <p class='text-[15px] ml-4 text-gray-200'>Gestion recettes</p>
                                 </div>
                             </a>";
                             

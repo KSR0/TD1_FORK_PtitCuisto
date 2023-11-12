@@ -48,6 +48,13 @@ function creation_recette() {
 	require('views/creation_recette.php');
 }
 
+function gestion_recette($user_id) {
+    $recetteRepository = new RecetteRepository();
+    $recetteRepository->connection = new DatabaseConnection();
+    $recettes = $recetteRepository->getRecettesUser($user_id);
+    require('views/gestion_recette.php');
+}
+
 function requete_creation_recette(array $input) {
     if (!empty($input['titre']) && !empty($input['categorie']) && 
         !empty($input['contenu']) && !empty($input['resume']) && 
