@@ -62,10 +62,10 @@
                 content +=
                         "</div>" +
 
-                        "<div class='text-charte_bleu_clair max-h-div_recette overflow-y-auto w-1/2 py-2 px-4 ml-2'>" +
+                        "<div id='div_droite' class='text-charte_bleu_clair max-h-div_recette overflow-y-auto w-1/2 py-2 px-4 ml-2'>" +
                             "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
                             "<p class='text-3xl'>Catégorie : " + recettes[i].cat_intitule + "</p><br>" +
-                            "<p>Résumé : <br>" + recettes[i].rec_resume + "</p><br>" +
+                            "<p class='text-2xl'>Résumé : <br>" + recettes[i].rec_resume + "</p><br>" +
                         "</div>" +
 
                     "</div>";

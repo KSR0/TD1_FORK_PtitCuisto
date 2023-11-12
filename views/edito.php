@@ -68,7 +68,7 @@
                 content +=
                         "</div>" +
 
-                        "<div class='text-charte_bleu_clair w-1/2 pt-2 px-4 -mb-5 ml-2'>" +
+                        "<div id='div_droite' class='text-charte_bleu_clair w-1/2 pt-2 px-4 -mb-5 ml-2'>" +
                             "<p class='font-permanent_marker text-center text-2xl'>" + (recettes[i].rec_titre).toUpperCase() + "</p><br>" +
                             "<p class='text-xl'>Catégorie : " + recettes[i].cat_intitule + "</p><br>" +
                             "<p class='text-xl'>Auteur : " + recettes[i].user_pseudo + "</p><br>" +
