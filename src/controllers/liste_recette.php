@@ -8,7 +8,6 @@ function recettes() {
 	$recetteRepository->connection = new DatabaseConnection();
 	$recettes = $recetteRepository->getRecettes();
 	require('views/liste_recette.php');
-	require('views/edito.php');
 }
 
 ?>

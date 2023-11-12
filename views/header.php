@@ -5,6 +5,8 @@
     require_once 'views/modale_ingredients.php';
 ?>
 
+
+
 <!-- Appel des fichiers où sont rédigées les fonctions JS -->
 
 <script>
@@ -53,10 +55,8 @@
 
                 <a href="index.php?action=liste_recette">
                     <div class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
-                        
                         <i class="bi bi-bookmark-fill"></i>
                         <p class="text-[15px] ml-4 text-gray-200">Recettes</p>
-                        
                     </div>
                 </a>
 
@@ -100,15 +100,72 @@
 
                 </div>
 
+                
+
+                <?php 
+                if(!isset($_SESSION['user_id'])) {
+                    if (!(isset($_GET['action']) && $_GET['action'] === 'connexion_compte')) {
+                        echo "<a href='index.php?action=connexion_compte'>
+                                <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
+                                    <i class='bi bi-box-arrow-in-right'></i>
+                                    <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se connecter</p>
+                                </div>
+                            </a>";
+                    }
+                }
+                ?>
+
+                <?php if(isset($_SESSION['user_pseudo'])) {
+                    echo "<a href='index.php?action=edito&deconnexion=true'>
+                    <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
+                        <i class='bi bi-box-arrow-in-right'></i>
+                        <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se deconnecter</p>
+                    </div>
+                    </a>";
+                }
+                ?>
+
                 <hr class="my-4 text-gray-600">
 
-                <a href="index.php?action=connexion_compte">
-                <div class="element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    <p class="modal-open2 text-[15px] ml-4 text-gray-200">Se connecter</p>
-                </div>
-                </a>
+                <?php 
+                    if(isset($_SESSION['typ_id'])) {
+                        if($_SESSION['typ_id'] == 1) {
+                            echo "
+                                <a href='index.php?action=pannel'>
+                                    <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
+                                        <i class='bi bi-person-lines-fill'></i>
+                                        <p class='text-[15px] ml-4 text-gray-200'>Panneau Admin</p>
+                                    </div>
+                                </a>";
 
+                            echo "
+                                <a href='index.php?action=creation_recette'>
+                                    <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
+                                        <i class='bi bi-egg-fried'></i>
+                                        <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
+                                    </div>
+                                </a>";
+                        }
+
+                        if($_SESSION['typ_id'] == 2) {
+                            echo "
+                                <a href='index.php?action=creation_recette'>
+                                    <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
+                                        <i class='bi bi-egg-fried'></i>
+                                        <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
+                                    </div>
+                                </a>";
+                        }
+                    }
+
+                    if (isset($_SESSION['user_pseudo'])) {
+                        echo "<hr class='my-4 text-gray-600'>";
+                        echo "<div class='element_menu p-2.5 mt-2 flex items-center rounded-md px-4 duration-300'>
+                            <i class='bi bi-info-square-fill'></i>
+                            <p class='text-[15px] ml-4 text-gray-200'>Connecté en tant que : " . $_SESSION['user_pseudo'] . "</p>
+                        </div>";
+                    }
+                ?>
             </div>
         </div>
     </div>
@@ -128,11 +185,6 @@
     <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
     onclick="bouton_detail_recette()">Détails de la recette</button>
 
-    <a href="index.php?action=creation_recette">
-    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
-    >Création d'une recette</button>
-    </a>
-
     <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
     onclick="bouton_modification_recette()">Modifier ma recette</button>
 
@@ -145,4 +197,9 @@
     <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
     onclick="bouton_modification_compte()">Modifier mon compte</button>
 
+    
+
 </div>
+=========
+</script>
+>>>>>>>>> Temporary merge branch 2

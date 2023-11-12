@@ -219,7 +219,7 @@ class RecetteRepository {
     }
 
 
-    public function createRecette($titre, $contenu, $resume, $tags, $lien_image, $pseudo, $categorie_id) {
+    public function createRecette($titre, $contenu, $resume, $tags, $lien_image, $categorie_id) {
         $requeteNewIdRecette = $this->connection->getConnection()->query("SELECT MAX(rec_id) + 1 as rec_id FROM FORK_RECETTE");
         $IdRecette = $requeteNewIdRecette->fetch();
         $IdRecette = $IdRecette['rec_id'];
@@ -231,7 +231,7 @@ class RecetteRepository {
             rec_contenu, rec_resume, rec_image, rec_date_crea, rec_date_modif) VALUES (
                 $IdRecette,
                 ?,
-                1,
+                ?,
                 ?,
                 ?,
                 ?,
@@ -242,22 +242,12 @@ class RecetteRepository {
 
         $recetteRequestAffectedLines = $requeteCreeRecette->execute([
             $categorie_id, 
+            $_SESSION['user_id'],
             $titre, 
             $contenu, 
             $resume, 
             $lien_image
         ]);
-        
-        /* REQUETE LORSQUE CONNEXION SERA FAITE
-        $recetteRequestAffectedLines = $requeteCreeRecette->execute([
-            $categorie_id, 
-            $_SESSION('userid'),
-            $titre, 
-            $contenu, 
-            $resume, 
-            $lien_image
-        ]);
-        */
         
 
         //INSERTION DANS FORK_TAGS

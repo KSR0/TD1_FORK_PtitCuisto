@@ -2,3 +2,4 @@ all_secret_variables.env
 tailwind/tailwind.css
 node_modules
 .dcignore
+node_modules
