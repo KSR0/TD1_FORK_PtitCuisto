@@ -11,7 +11,7 @@ echo
         "<div class='border-2 border-charte_bleu_clair h-fit rounded-lg pt-2 px-4 mb-4 mr-2'>" .
             "<div class='flex'>" .
 
-                "<div id='tag_image' class='w-1/2 max-h-div_recette text-center p-2 mr-2'>" .
+                "<div id='tag_image' class='w-1/2 max-h-div_recette overflow-x-auto text-center p-2 mr-2'>" .
                     "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" . $recette->rec_image . "' alt='Image recette " . $recette->rec_titre . "' width='500px'/>" . "<br><br>" .
                     "<br>" .
 
