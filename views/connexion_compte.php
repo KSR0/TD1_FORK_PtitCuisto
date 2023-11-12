@@ -55,10 +55,7 @@
                             <p class="text-[15px] ml-2">Se connecter</p>
                     </button>
 
-<<<<<<< HEAD
-=======
                     
->>>>>>> 3f49935049dc78a5a35a4404d8be24bf0b52e71d
                     <div class="flex justify-center">
 
                         <div class="flex items-start">
