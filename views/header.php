@@ -39,13 +39,6 @@
             <hr class="my-2 text-charte_blanc">
 
             <div>
-                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 bg-charte_gris border-2 border-charte_bleu_fonce">
-                    <i class="bi bi-search text-sm"></i>
-                    <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="Rechercher">
-                </div>
-
-                <hr class="my-2 mt-3 text-charte_blanc">
-
                 <a href="index.php">
                     <div class="element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce">
                         <i class="bi bi-house-door-fill"></i>
@@ -100,31 +93,7 @@
 
                 </div>
 
-                <hr class="my-2 mt-3 text-charte_blanc">
-
-                <?php 
-                if(!isset($_SESSION['user_id'])) {
-                    if (!(isset($_GET['action']) && $_GET['action'] === 'connexion_compte')) {
-                        echo "
-                        <a href='index.php?action=connexion_compte'>
-                            <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
-                                <i class='bi bi-box-arrow-in-right'></i>
-                                <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se connecter</p>
-                            </div>
-                        </a>";
-                    }
-                }
-                ?>
-
-                <?php if(isset($_SESSION['user_pseudo'])) {
-                    echo "<a href='index.php?action=edito&deconnexion=true'>
-                    <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
-                        <i class='bi bi-box-arrow-in-right'></i>
-                        <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se deconnecter</p>
-                    </div>
-                    </a>";
-                }
-                ?>
+                <hr class="my-2 mt-3 text-charte_blanc"> 
 
                 <?php 
                     if(isset($_SESSION['typ_id'])) {
@@ -142,14 +111,6 @@
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
                                     <i class='bi bi-egg-fried'></i>
                                     <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
-                                </div>
-                            </a>";
-
-                            echo "
-                            <a href='index.php?action=gestion_recette'>
-                                <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
-                                    <i class='bi bi-egg-fried'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Gestion recettes</p>
                                 </div>
                             </a>";
                         }
@@ -170,25 +131,44 @@
                                     <p class='text-[15px] ml-4 text-gray-200'>Gestion recettes</p>
                                 </div>
                             </a>";
-                            
-                            echo "
-                            <a href='index.php?action=gerer_compte'>
-                                <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
-                                    <i class='bi bi-person-circle'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Mon Compte</p>
-                                </div>
-                            </a>
-                            ";
                         }
                     }
 
                     if (isset($_SESSION['user_pseudo'])) {
                         echo "
-                        <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce bg-charte_bleu_clair hover:border-charte_blanc hover:bg-charte_bleu_fonce'>
-                            <i class='bi bi-info-square-fill'></i>
-                            <p class='text-[15px] ml-4 text-gray-200'>Connecté en tant que : " . $_SESSION['user_pseudo'] . "</p>
-                        </div>";
+                        <hr class='my-2 mt-3 text-charte_blanc'>" .
+                        "
+                        <a href='index.php?action=gerer_compte'>
+                            <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce bg-charte_bleu_clair hover:border-charte_blanc hover:bg-charte_bleu_fonce'>
+                                <i class='bi bi-person-circle'></i>
+                                <p class='text-[15px] ml-4 text-gray-200'>Mon compte : " . $_SESSION['user_pseudo'] . "</p>
+                            </div>
+                        </a>";
                     }
+                    ?>
+
+                     
+                    <?php if(!isset($_SESSION['user_id'])) {
+                    if (!(isset($_GET['action']) && $_GET['action'] === 'connexion_compte')) {
+                        echo "
+                        <a href='index.php?action=connexion_compte'>
+                            <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
+                                <i class='bi bi-box-arrow-in-right'></i>
+                                <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se connecter</p>
+                            </div>
+                        </a>";
+                    }
+                }
+                ?>
+
+                <?php if(isset($_SESSION['user_pseudo'])) {
+                    echo "<a href='index.php?action=edito&deconnexion=true'>
+                    <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
+                        <i class='bi bi-box-arrow-in-right'></i>
+                        <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se deconnecter</p>
+                    </div>
+                    </a>";
+                }
                 ?>
             </div>
         </div>
