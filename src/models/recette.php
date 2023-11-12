@@ -287,7 +287,7 @@ class RecetteRepository {
         return ($recetteRequestAffectedLines > 0 && $tagsAddedInMENTIONNERAffectedLines > 0);
     }
 
-    
+
     
 }
 

@@ -33,7 +33,7 @@ class CompteRepository {
         return $infosUser;
     }
 
-    public function editeurChangerMdp($old_password, $new_password) {
+    public function editeurChangePassword($old_password, $new_password) {
         $old_password = hash('sha512', $old_password);
         $new_password = hash('sha512', $new_password);
         
@@ -59,6 +59,13 @@ class CompteRepository {
         return $requeteUpdateEditeurMdp->rowCount() > 0;
     }
 
+    public function editeurDeleteAccount() {
+        $deleteUserAccount = "DELETE FROM USER_ID WHERE USER_ID = ?";
 
+        $requeteDeleteUserAccount = $this->connection->getConnection()->prepare($deleteUserAccount);
+        $requeteDeleteUserAccount->execute($_SESSION['user_id']);
+
+        return $requeteDeleteUserAccount->rowCount() > 0;
+    }
 
 }

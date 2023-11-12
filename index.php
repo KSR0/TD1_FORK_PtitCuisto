@@ -2,12 +2,10 @@
 	
 session_start();
 
-
 require_once('src/controllers/edito.php');
 require_once('src/controllers/recette.php');
 require_once('src/controllers/compte.php');
 require_once('src/controllers/pannel.php');
-
 
 
 try {
@@ -65,7 +63,9 @@ try {
 		else if ($_GET['action'] === 'requete_changement_mdp') {
 			changer_mdp($_POST);
 		}
-		
+		else if ($_GET['action'] === 'requete_suppression_compte') {
+			supprCompte();
+		}
 		else {
 			header("Location: views/error_page.php");
 			die();
