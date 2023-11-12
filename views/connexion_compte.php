@@ -54,41 +54,6 @@
                             <i class="bi bi-box-arrow-in-right"></i>
                             <p class="text-[15px] ml-2">Se connecter</p>
                     </button>
-                    
-                    <!-- <script>
-                        document.getElementById("loginForm").addEventListener("submit", function (event) {
-                            event.preventDefault();
-
-                            let email = document.getElementById("email").value;
-                            let password = document.getElementById("password").value;
-
-                            /*
-                            $.post("views/traitement_login.php", { email: email, password: password }, function (data) {
-                                let donnes = JSON.parse(data);
-                                alert(donnes['user_id']);
-                                $_SESSION['user_id'] = data.user_id;
-                                $_SESSION['typ_id'] = data.user_id;
-                                $_SESSION['user_pseudo'] = data.user_id;
-
-                                if(donnes.error) {
-                                    alert(donnes.error);
-                                    return;
-                                }
-                            });
-                            */
-
-                            $.ajax
-                                ({ 
-                                    url: 'views/traitement_login.php',  //replace with your own url
-                                    data: {email: email, password: password},
-                                    type: 'POST',
-                                    success: function(result)
-                                    {
-                                        window.location.href = "index.php";
-                                    }
-                                });
-                        });    
-                    </script> -->
 
                     <div class="flex justify-center">
 

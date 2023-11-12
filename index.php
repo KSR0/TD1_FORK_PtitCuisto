@@ -13,6 +13,7 @@ require_once('src/controllers/requete_creation_recette.php');
 require_once('src/controllers/details_recette.php');
 require_once('src/controllers/connexion_compte.php');
 require_once('src/controllers/requete_connexion_compte.php');
+require_once('src/controllers/requette_creation_compte.php');
 require_once('src/controllers/creation_compte.php');
 require_once('src/controllers/pannel.php');
 
@@ -49,6 +50,9 @@ try {
 			connexion_compte();
 		}
 		else if ($_GET['action'] === 'requete_connexion_compte') {
+			requete_connexion_compte($_POST);
+		}
+		else if ($_GET['action'] === 'requete_creation_compte') {
 			requete_creation_compte($_POST);
 		}
 		else if ($_GET['action'] === 'edito') {

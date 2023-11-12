@@ -3,7 +3,7 @@
 require_once('src/models/connexion_compte.php');
 require_once('src/lib/database.php');
 
-function requete_creation_compte(array $input) {
+function requete_connexion_compte(array $input) {
     if (!empty($input['email']) && !empty($input['password'])) {
             $email = $input['email'];
             $password = $input['password'];
