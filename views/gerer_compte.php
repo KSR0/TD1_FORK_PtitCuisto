@@ -5,7 +5,7 @@
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
 <h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Gerer votre compte</h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Changez votre mot de passe et supprimer votre compte</p><br>
+<p class="text-3xl text-center text-charte_bleu_clair">Changez votre mot de passe / supprimer votre compte</p><br>
 
 <form action="index.php?action=requete_changement_mdp" method="post">
 
