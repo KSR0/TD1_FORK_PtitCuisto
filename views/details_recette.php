@@ -73,7 +73,7 @@ echo
     if (isset($_SESSION['user_id'])) {
         echo "<hr class='my-2 mt-3'>";
         echo "<p class='text-3xl text-charte_bleu_clair'>Ajouter un commentaire</p>";
-        echo '<form action="index.php?action=requete_creation_commentaire&rec_id=<?= $recette->rec_id ?>" method="post">
+        echo '<form action="index.php?action=requete_creation_commentaire&rec_id=' . $recette->rec_id .  '" method="post">
         <div>
            <label for="commentaire">Commentaire</label><br />
            <textarea id="commentaire" name="commentaire" placeholder="..."></textarea>

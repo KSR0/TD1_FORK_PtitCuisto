@@ -56,6 +56,7 @@ class CommentaireRepository {
             $array['commentaire']
         ]);
 
+        echo 'value' . $commentaireRequestAffectedLines;
         return $commentaireRequestAffectedLines > 0;
     }
 

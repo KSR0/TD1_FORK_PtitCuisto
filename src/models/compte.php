@@ -98,9 +98,6 @@ class CompteRepository {
         $requeteUpdateEditeurMdp = $this->connection->getConnection()->prepare($updateEditeurMdp);
         $requeteUpdateEditeurMdp->execute([$new_password, $_SESSION['user_id']]);
 
-        //echo $new_password . ' ';
-        //throw new Exception('RIEN');
-        
         return $requeteUpdateEditeurMdp->rowCount() > 0;
     }
 
