@@ -99,18 +99,27 @@
                     if(isset($_SESSION['typ_id'])) {
                         if($_SESSION['typ_id'] == 1) {
                             echo "
-                            <a href='index.php?action=pannel'>
+                            <a href='index.php?action=creation_recette'>
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
-                                    <i class='bi bi-person-lines-fill'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Panneau Admin</p>
+                                    <i class='bi bi-egg-fried'></i>
+                                    <p class='text-[15px] ml-4 text-gray-200'>Créer une recette</p>
                                 </div>
                             </a>";
 
                             echo "
-                            <a href='index.php?action=creation_recette'>
+                            <a href='index.php?action=gestion_recette'>
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
                                     <i class='bi bi-egg-fried'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
+                                    <p class='text-[15px] ml-4 text-gray-200'>Gérer mes recettes</p>
+                                </div>
+                            </a>";
+
+                            echo "
+                            <hr class='my-2 mt-3 text-charte_blanc'>
+                            <a href='index.php?action=pannel'>
+                                <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
+                                    <i class='bi bi-person-lines-fill'></i>
+                                    <p class='text-[15px] ml-4 text-gray-200'>Panneau Admin</p>
                                 </div>
                             </a>";
                         }
@@ -120,7 +129,7 @@
                             <a href='index.php?action=creation_recette'>
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
                                     <i class='bi bi-egg-fried'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Creer recette</p>
+                                    <p class='text-[15px] ml-4 text-gray-200'>Créer une recette</p>
                                 </div>
                             </a>";
 
@@ -128,7 +137,7 @@
                             <a href='index.php?action=gestion_recette'>
                                 <div class='element_menu cursor-pointer p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 hover:bg-charte_bleu_fonce'>
                                     <i class='bi bi-egg-fried'></i>
-                                    <p class='text-[15px] ml-4 text-gray-200'>Gestion recettes</p>
+                                    <p class='text-[15px] ml-4 text-gray-200'>Gérer mes recettes</p>
                                 </div>
                             </a>";
                         }
@@ -136,8 +145,7 @@
 
                     if (isset($_SESSION['user_pseudo'])) {
                         echo "
-                        <hr class='my-2 mt-3 text-charte_blanc'>" .
-                        "
+                        <hr class='my-2 mt-3 text-charte_blanc'>
                         <a href='index.php?action=gerer_compte'>
                             <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce bg-charte_bleu_clair hover:border-charte_blanc hover:bg-charte_bleu_fonce'>
                                 <i class='bi bi-person-circle'></i>
@@ -182,25 +190,3 @@
     }
     dropDown()
 </script>
-
-<!-- Permet de passer d'une page à une autre facilement pour faire des tests sans passer par le menu -->
-<div class="text-center lg:pl-80 lg:pt-5 min-[320px]:pt-20 md:pt-20 pr-5 pt-5">
-
-    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
-    onclick="bouton_detail_recette()">Détails de la recette</button>
-
-    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
-    onclick="bouton_modification_recette()">Modifier ma recette</button>
-
-    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
-    onclick="bouton_creation_compte()">Création d'un compte</button>
-
-    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
-    onclick="bouton_mon_compte()">Mon compte</button>
-
-    <button class="ml-5 text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" 
-    onclick="bouton_modification_compte()">Modifier mon compte</button>
-
-    
-
-</div>
