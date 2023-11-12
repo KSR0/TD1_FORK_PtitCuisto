@@ -46,7 +46,7 @@ try {
 			suppression_recette($_GET['id']);
 		}
 		else if($_GET['action'] === 'modification_recette') {
-			requete_modification_recette($_GET['id']);
+			modification_recette($_GET['id']);
 		}
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
@@ -56,7 +56,7 @@ try {
 		}
 		else if ($_GET['action'] === 'gestion_recette') {
 			if(isset($_GET['id'])) {
-				modification_recette($_POST, $_GET['id']);
+				requete_modification_recette($_POST, $_GET['id']);
 			}
 			gestion_recette($_SESSION['user_id']);
 		}

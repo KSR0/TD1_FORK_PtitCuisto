@@ -338,7 +338,7 @@ class RecetteRepository {
         return true;
     }
 
-    public function updateRecette($rec_id, $contenu, $resume,$categorie_id) {
+    public function updateRecette($rec_id, $contenu, $resume, $categorie_id) {
         $requeteUpdateRecette = $this->connection->getConnection()->prepare(
             "
             UPDATE FORK_RECETTE SET
@@ -349,14 +349,14 @@ class RecetteRepository {
             WHERE REC_ID = ?;
             "
         );
-        $requeteUpdateRecette->execute([
+        $recetteUpdateAffectedLines = $requeteUpdateRecette->execute([
             $contenu,
             $resume,
             $categorie_id,
             $rec_id
         ]);
-        return true;
-    
+
+        return $recetteUpdateAffectedLines > 0;
     }
 }
 
