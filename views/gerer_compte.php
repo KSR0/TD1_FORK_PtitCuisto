@@ -25,7 +25,7 @@
    </div>
    
    <br>
-   <div id="erreurs" class="text-red-600"></div>
+   <div id="erreur" class="text-red-600"></div>
    <br>
    <div>
   	<input type="submit" id="submit_btn" class="text-charte_bleu_clair border border-charte_bleu_fonce focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2 opacity-50" disabled/>
@@ -40,7 +40,7 @@
     let new_password = document.querySelector('#new_password');
     let new_password_conf = document.querySelector('#new_password_conf');
     let btnSubmit = document.querySelector('#submit_btn');
-    let erreursDiv = document.querySelector("#erreurs");
+    let erreursDiv = document.querySelector("#erreur");
     erreursDiv.innerHTML = "L'ancien mot de passe ne peut pas etre vide.";
 
     old_password.addEventListener("input", function () {
@@ -87,20 +87,6 @@
         }
     });
 
-    /*
-    while (true) {
-        let old_password = document.querySelector('#old_password');
-        let new_password = document.querySelector('#new_password');
-        let old_password_conf = document.querySelector('#old_password_conf');
-        let btnSubmit = document.querySelector('#submit_btn');
-        
-        if (old_password.textContent != new_password.textContent != new_password_conf.textContent) {
-            btnSubmit.style.disabled = true;
-        } else {
-            btnSubmit.style.disabled = false;
-        }
-    }
-    */
 </script>
 
 
