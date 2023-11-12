@@ -1,13 +1,3 @@
-<?php 
-        $db_host = parse_ini_file('all_secret_variables.env')["DB_HOST"];
-        $db_name = parse_ini_file('all_secret_variables.env')["DB_NAME"];
-        $db_encode = parse_ini_file('all_secret_variables.env')["DB_ENCODE"];
-        $db_username = parse_ini_file('all_secret_variables.env')["DB_USERNAME"];
-        $db_password = parse_ini_file('all_secret_variables.env')["DB_PASSWORD"];
-
-        $bdd = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=' . $db_encode, $db_username, $db_password);
-?>
-
 <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="lg:pl-80 modal3 opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
     <div id="modal3-test" class="modal3-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>                                
     <div class="modal3-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
