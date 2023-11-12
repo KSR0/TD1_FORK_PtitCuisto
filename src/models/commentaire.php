@@ -14,9 +14,11 @@ class CommentaireRepository {
 
     public function getCommentaires($rec_id): array 
     {
-        $requeteCommentaires = $this->connection->getConnection()->query(
-            "SELECT COM_ID, REC_ID, USER_PSEUDO, COM_DESCRIPTION, COM_DATE_CREA FROM FORK_COMMENTAIRE JOIN FORK_UTILISATEUR USING(USER_ID) ORDER BY COM_DATE_CREA DESC;"
+        $requeteCommentaires = $this->connection->getConnection()->prepare(
+            "SELECT COM_ID, REC_ID, USER_PSEUDO, COM_DESCRIPTION, COM_DATE_CREA FROM FORK_COMMENTAIRE JOIN FORK_UTILISATEUR USING(USER_ID) WHERE REC_ID = ? ORDER BY COM_DATE_CREA DESC;"
         );
+        $requeteCommentaires->execute([$rec_id]);
+
         $commentaires = [];
         while (($row = $requeteCommentaires->fetch())) {
             $commentaire = new Commentaire();

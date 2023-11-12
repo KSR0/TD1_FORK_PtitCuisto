@@ -36,7 +36,7 @@
         for (let i = 0; i < 3; i++) {
             compteur++;
             content +=
-                "<a href='index.php?action=details_recette&id=" + recettes[i].rec_id + "'>" +
+                "<a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" +
                     "<div class='border-2 border-charte_bleu_clair h-fit rounded-lg max-h-div_recette flex pt-2 px-4 mb-4 mr-2'>" + 
                         "<div id='div_gauche' class='w-1/2 text-center p-2 mr-2'>" +
                             "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +

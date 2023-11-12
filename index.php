@@ -29,8 +29,8 @@ try {
 			pannel();
 		}
 		else if ($_GET['action'] === 'details_recette') {
-			if (isset($_GET['id']) && $_GET['id'] > 0) {
-				details_recette($_GET['id']);
+			if (isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
+				details_recette($_GET['rec_id']);
 			}
 		}
 		else if ($_GET['action'] === 'requete_creation_commentaire') {
