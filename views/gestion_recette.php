@@ -38,38 +38,55 @@
             if (i < recettes.length && recettes[i].length != 0) {
                 content +=
                     "<p class='text-center font-permanent_marker text-charte_bleu_fonce'>Recette n°" + compteur + "/" + (nbRecetteAfficher + 10) + "</p>" +
-                    "<div class='border-2 border-charte_bleu_clair rounded-lg max-h-div_recette flex py-2 px-4 mb-4 mr-2'>" + 
-                        "<div id='div_gauche' class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
-                            "<a class='text-center' href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" +
-                                "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
-                            "</a><br>";
+                    "<div class='border-2 border-charte_bleu_clair rounded-lg py-2 px-4 mb-4 mr-2'>" + 
+                        "<div class='flex'>" +
+                            "<div id='div_gauche' class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
+                                "<a class='text-center' href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" +
+                                    "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
+                                "</a><br>";
 
-                // Div pour les tags
-                content += "<div class='grid grid-cols-2 gap-2'>"; // Utilisation des classes 'grid' et 'grid-cols-2'
+                    // Div pour les tags
+                    content += "<div class='grid grid-cols-2 gap-2'>"; // Utilisation des classes 'grid' et 'grid-cols-2'
 
-                // Divs pour chaque tag
-                let tags = recettes[i].tags_intitule.split('#');
-                for (let j = 1; j < tags.length; j++) {
+                    // Divs pour chaque tag
+                    let tags = recettes[i].tags_intitule.split('#');
+                    for (let j = 1; j < tags.length; j++) {
+                        content +=
+                            "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>" +
+                                "<p>" + tags[j] + "</p>" +
+                            "</div>";
+                    }
+
+                    content += 
+                            "</div>";
+
                     content +=
-                        "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>" +
-                            "<p>" + tags[j] + "</p>" +
-                        "</div>";
-                }
+                            "</div>" +
 
-                content += 
-                        "</div>";
-
-                content +=
+                            "<div id='div_droite' class='text-charte_bleu_clair max-h-div_recette overflow-y-auto w-1/2 py-2 px-4 ml-2'>" +
+                                "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
+                                "<p class='text-3xl'>Catégorie : " + recettes[i].cat_intitule + "</p><br>" +
+                                "<p class='text-2xl'>Résumé : <br>" + recettes[i].rec_resume + "</p><br>" +
+                            "</div>" +
                         "</div>" +
 
-                        "<div id='div_droite' class='text-charte_bleu_clair max-h-div_recette overflow-y-auto w-1/2 py-2 px-4 ml-2'>" +
-                            "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
-                            "<p class='text-3xl'>Catégorie : " + recettes[i].cat_intitule + "</p><br>" +
-                            "<p class='text-2xl'>Résumé : <br>" + recettes[i].rec_resume + "</p><br>" +
-                            "<a href='index.php?action=suppression_recette&id=" + recettes[i].rec_id + "'><button class='text-2xl mr-4'> Supprimer </button></a>" +
-                            "<a href='index.php?action=modification_recette&id=" + recettes[i].rec_id + "'><button class='text-2xl'> Modifier </button></a>" +
-                        "</div>" +
+                        "<hr class='border-2 border-charte_bleu_fonce my-4 mx-auto'>" +
 
+                        "<div class='text-center'>" +
+                            "<div class='flex'>" +
+                                "<button class='font-permanent_marker cursor-pointer p-1 flex justify-center rounded-lg px-4 border-2 border-charte_bleu_fonce text-charte_bleu_clair mx-auto bg-charte_blanc hover:text-charte_blanc hover:border-4 hover:bg-charte_bleu_clair'>" +
+                                    "<a href='index.php?action=suppression_recette&id=" + recettes[i].rec_id + "'>" +
+                                        "<p>Supprimer la recette</p>" +
+                                    "</a>" +
+                                "</button>" +
+
+                                "<button class='font-permanent_marker cursor-pointer p-1 flex justify-center rounded-lg px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:border-4 hover:bg-charte_bleu_fonce'>" +
+                                    "<a href='index.php?action=modification_recette&id=" + recettes[i].rec_id + "'>" +
+                                        "<p>Modifier la recette</p>" +
+                                    "</a>" +
+                                "</button>" +
+                            "</div>" +
+                        "</div>" +
                     "</div>";
             } else {
                 document.getElementById('btnPlus').style.display = 'none';

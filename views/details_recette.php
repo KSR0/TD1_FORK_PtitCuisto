@@ -92,8 +92,10 @@ echo
                     "</div>" .
                 "</div>" .
 
-                "<button type='submit' id='submit_btn' class='font-permanent_marker p-2.5 mt-3 flex justify-center rounded-md px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair' disabled>" .
-                    "<p>Publier</p>" .
+                "<div id='error' class='text-center text-red'></div>" .
+
+                "<button id='submit_btn' class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce hover:border-4 hover:border-charte_bleu_clair'>" .
+                    "<p type='submit'>Publier</p>" .
                 "</button>" .
             "</form>" .
         "</div>";
@@ -102,20 +104,23 @@ echo
 
 <script>
     let commentaire = document.querySelector('#ajout_comm');
-    let submitBtn = document.querySelector('#submit_btn');
+    let message_erreur = document.querySelector('#error');
+    let submit_btn = document.querySelector('#submit_btn');
+    let comment_form = document.querySelector('#comment_form');
 
-    commentaire.addEventListener("input", function () {
+    submit_btn.addEventListener("click", function () {
         let commentaire_value = commentaire.value;
-       
-        if (commentaire_value == '') {
-            submitBtn.disabled = true;
-            submitBtn.className = 'font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce';
+
+        if (commentaire_value === '') {
+            message_erreur.innerHTML = "<p class='text-charte_bleu_fonce'><span class='font-permanent_marker'>Erreur :</span> le commentaire ne peut pas être vide.</p>";
+            // Annuler l'envoi du formulaire
+            event.preventDefault();
         } else {
-            submitBtn.disabled = false;
-            submitBtn.className = 'font-permanent_marker p-2.5 mt-3 flex justify-center rounded-md px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair';
+            message_erreur.innerHTML = ''; 
+            // Soumettre le formulaire
+            comment_form.submit();
         }
     });
-
 </script>
 
 <?php $content = ob_get_clean();
