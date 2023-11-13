@@ -3,7 +3,7 @@
 // ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ //
 
 echo
-"<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Recette : . $recette->rec_titre . </h1>
+"<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Recette : $recette->rec_titre </h1>
 <form action='index.php?action=requete_creation_recette' method='post'>
     <div id='recette'>
         <div class='border-2 border-charte_bleu_clair h-fit rounded-lg pt-2 px-4 mb-2 mr-2'>
