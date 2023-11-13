@@ -88,7 +88,9 @@ try {
 		else if ($_GET['action'] === 'mon_compte') {
 			afficherInfosCompte();
 		}
-		
+		else if ($_GET['action'] === 'modification_compte') {
+			afficherInfosModifCompte();
+		}
 		else if ($_GET['action'] === 'requete_changement_mdp') {
 			changer_mdp($_POST);
 		}

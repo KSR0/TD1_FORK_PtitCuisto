@@ -12,7 +12,7 @@ echo
             "<div class='flex'>" .
 
                 "<div id='tag_image' class='w-1/2 max-h-div_recette overflow-y-auto overflow-x-hidden text-center p-2 mr-2'>" .
-                    "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" . $recette->rec_image . "' alt='Image recette " . $recette->rec_titre . "' width='500px'/>" . "<br><br>" .
+                    "<img class='h-auto w-full' src='" . $recette->rec_image . "' alt='Image recette " . $recette->rec_titre . "' width='500px'/>" . "<br><br>" .
                     "<br>" .
 
                     "<div class='-mt-20 grid grid-cols-2 gap-2'>";
@@ -31,21 +31,21 @@ echo
                 "</div>" .
 
                 "<div id='div_infos' class='text-charte_bleu_clair border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>" .
-                    "<p class='text-3xl'>
-                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>
+                    "<p class='text-2xl'>
+                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>
                     <br>" . $recette->cat_intitule . "</p><br>" .
 
-                    "<p class='text-3xl'>
-                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Auteur : </span>
+                    "<p class='text-2xl'>
+                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Auteur : </span>
                     <br>"  . $recette->user_pseudo . "</p><br>" .
 
-                    "<p class='text-3xl'>
-                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Recette créée le :</span>
-                    <br>" . $recette->rec_date_crea . "</p><br>" .
+                    "<p class='text-2xl'>
+                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Recette créée :</span>
+                    <br>le " . date("d/m/Y à H:i", strtotime($recette->rec_date_crea)) . "</p><br>" .
                     
-                    "<p class='text-3xl'>
-                        <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Recette modifiée le :</span>
-                    <br>" . $recette->rec_date_modif . "</p><br>" .
+                    "<p class='text-2xl'>
+                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Dernière modification le :</span>
+                        <br>le " . date("d/m/Y à H:i", strtotime($recette->rec_date_modif)) . "</p><br>" .
                 "</div>".
             "</div>".
 
@@ -71,8 +71,8 @@ echo
     <?php
     foreach ($commentaires as $commentaire) {
     ?>
-        <p class="text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc mb-1"><span class="font-permanent_marker"><?= htmlspecialchars($commentaire->user_pseudo) ?></span> a commenté le <?= date("d/m/Y à H:i", strtotime($commentaire->com_date_crea)) . " :" ?></p>
-        <p class="text-2xl"><?= nl2br(htmlspecialchars($commentaire->com_description)) ?></p>
+        <p class="text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc mb-1"><span class="font-permanent_marker text-charte_bleu_fonce"><?= htmlspecialchars($commentaire->user_pseudo) ?></span> a commenté le <?= date("d/m/Y à H:i", strtotime($commentaire->com_date_crea)) . " :" ?></p>
+        <p class="text-xl"><?= nl2br(htmlspecialchars($commentaire->com_description)) ?></p>
         <hr class='border border-charte_bleu_fonce my-4 mx-auto'>
     <?php
     }
@@ -86,9 +86,9 @@ echo
         "<div class='border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2' id='ajout_commentaires'>" .
             "<form action='index.php?action=requete_creation_commentaire&rec_id=" . $recette->rec_id .  "' method='post'>" .
                 "<div id='contenu' class='text-charte_bleu_clair pt-2 -mb-2'>" .
-                    "<label class='font-permanent_marker text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc' for='commentaire'>Écrivez un commentaire : </label><br>" .
+                    "<label class='font-permanent_marker text-2xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc' for='commentaire'>Écrivez un commentaire : </label><br>" .
                     "<div class='mb-2 mt-4'>" .
-                        "<textarea class='text-charte_bleu_gris border border-charte_bleu_fonce rounded-lg p-2 w-full' id='ajout_comm' name='commentaire' placeholder='Exemple : Pour avoir essayer de faire votre recette, elle est excellente !'></textarea>" .
+                        "<textarea class='text-charte_bleu_gris text-xl border border-charte_bleu_fonce rounded-lg p-2 w-full' id='ajout_comm' name='commentaire' placeholder='Exemple : Pour avoir essayer de faire votre recette, elle est excellente !'></textarea>" .
                     "</div>" .
                 "</div>" .
 

@@ -3,13 +3,16 @@
 
 class Compte {
     public int $user_id;
+    public int $typ_id;
+    public int $sta_id;
+    public string $sta_intitule;
     public string $user_pseudo;
     public string $user_email;
     public string $user_prenom;
     public string $user_nom;
     public string $user_date_ins;
     public string $user_date_modif;
-    //public string $user_mdp;
+    public string $user_mdp;
 }
 
 class CompteRepository {
@@ -106,7 +109,7 @@ class CompteRepository {
     }
 
     public function displayAccountData() {
-        $fetchUserData = "SELECT * FROM FORK_UTILISATEUR WHERE USER_ID = ?";
+        $fetchUserData = "SELECT * FROM FORK_UTILISATEUR JOIN FORK_STATUT USING(STA_ID) WHERE USER_ID = ?";
 
         $requete = $this->connection->getConnection()->prepare($fetchUserData);
         $requete->execute([$_SESSION['user_id']]);
@@ -114,6 +117,9 @@ class CompteRepository {
         $row = $requete->fetch();
         $compte = new Compte();
         $compte->user_id = $row['USER_ID'];
+        $compte->typ_id = $row['TYP_ID'];
+        $compte->sta_id = $row['STA_ID'];
+        $compte->sta_intitule = $row['STA_INTITULE'];
         $compte->user_pseudo = $row['USER_PSEUDO'];
         $compte->user_email = $row['USER_EMAIL'];
         $compte->user_prenom = $row['USER_PRENOM'];

@@ -142,7 +142,7 @@
                             </a>";
                             echo "
                             <hr class='my-2 mt-3 text-charte_blanc'>
-                            <a href='index.php?action=gerer_compte'>
+                            <a href='index.php?action=mon_compte'>
                                 <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce bg-charte_bleu_clair hover:border-charte_blanc hover:bg-charte_bleu_fonce'>
                                     <i class='bi bi-person-circle'></i>
                                     <p class='text-[15px] ml-4 text-gray-200'>Mon compte : " . $_SESSION['user_pseudo'] . "</p>

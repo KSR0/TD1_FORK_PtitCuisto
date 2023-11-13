@@ -40,11 +40,11 @@
                     "<div class='border-2 border-charte_bleu_clair rounded-lg max-h-div_recette flex py-2 px-4 mb-4 mr-2'>" + 
                         "<div id='div_gauche' class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
                             "<a class='text-center' href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" +
-                                "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
+                                "<img class='h-auto w-full' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
                             "</a><br>";
 
                 // Div pour les tags
-                content += "<div class='grid grid-cols-2 gap-2'>"; // Utilisation des classes 'grid' et 'grid-cols-2'
+                content += "<div class='-mt-2 grid grid-cols-2 gap-2'>";
 
                 // Divs pour chaque tag
                 let tags = recettes[i].tags_intitule.split('#');
@@ -61,10 +61,10 @@
                 content +=
                         "</div>" +
 
-                        "<div id='div_droite' class='text-charte_bleu_clair max-h-div_recette overflow-y-auto w-1/2 py-2 px-4 ml-2'>" +
-                            "<p class='font-permanent_marker text-center text-5xl'><a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
-                            "<p class='text-3xl'>Catégorie : " + recettes[i].cat_intitule + "</p><br>" +
-                            "<p class='text-2xl'>Résumé : <br>" + recettes[i].rec_resume + "</p><br>" +
+                        "<div id='div_droite' class='border-l-2 border-charte_bleu_fonce text-charte_bleu_clair max-h-div_recette overflow-y-auto w-1/2 py-2 px-4 ml-2'>" +
+                            "<p class='font-permanent_marker text-charte_bleu_fonce text-center text-5xl'><a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
+                            "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>" + recettes[i].cat_intitule + "</p><br>" +
+                            "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Résumé :  </span><br>" + recettes[i].rec_resume + "</p><br>" +
                         "</div>" +
 
                     "</div>";

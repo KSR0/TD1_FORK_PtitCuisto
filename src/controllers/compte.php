@@ -87,11 +87,19 @@ function supprCompte() {
 	}
 }
 
-
 function afficherInfosCompte() {
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();
 	$compte = $CompteRepository->displayAccountData();
-	return $compte;
+
+	require('views/mon_compte.php');
+}
+
+function afficherInfosModifCompte() {
+	$CompteRepository = new CompteRepository();
+	$CompteRepository->connection = new DatabaseConnection();
+	$compte = $CompteRepository->displayAccountData();
+
+	require('views/modification_compte.php');
 }
 ?>
