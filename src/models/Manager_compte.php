@@ -116,10 +116,10 @@ class CompteRepository {
         $user_status = $requete->fetch();
         $user_status = $user_status['STA_INTITULE'];
 
-        if ($user_status === 'actif') {
-            $updateUserStatus = "UPDATE fork_utilisateur SET STA_ID = 2 WHERE USER_ID = ?";
+        if (strtolower($user_status) === 'actif') {
+            $updateUserStatus = "UPDATE FORK_UTILISATEUR SET STA_ID = 2 WHERE USER_ID = ?";
         } else {
-            $updateUserStatus = "UPDATE fork_utilisateur SET STA_ID = 1 WHERE USER_ID = ?";
+            $updateUserStatus = "UPDATE FORK_UTILISATEUR SET STA_ID = 1 WHERE USER_ID = ?";
         }
 
         $requeteDeleteUserAccount = $this->connection->getConnection()->prepare($updateUserStatus);
