@@ -1,6 +1,6 @@
 <?php
 
-require_once('src/models/commentaire.php');
+require_once('src/models/Manager_commentaire.php');
 require_once('src/lib/database.php');
 
 function liste_commentaires(string $rec_id) {

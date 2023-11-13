@@ -1,6 +1,6 @@
 <?php
 
-require_once('src/models/recette.php');
+require_once('src/models/Manager_recette.php');
 require_once('src/controllers/commentaire.php');
 require_once('src/lib/database.php');
 

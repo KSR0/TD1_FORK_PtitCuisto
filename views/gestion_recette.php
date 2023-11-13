@@ -74,13 +74,13 @@
                         "<div class='text-center'>" +
                             "<div class='flex'>" +
                                 "<button class='font-permanent_marker cursor-pointer p-1 flex justify-center rounded-lg px-4 border-2 border-charte_bleu_fonce text-charte_bleu_clair mx-auto bg-charte_blanc hover:text-charte_blanc hover:border-4 hover:bg-charte_bleu_clair'>" +
-                                    "<a href='index.php?action=suppression_recette&id=" + recettes[i].rec_id + "'>" +
+                                    "<a href='index.php?action=suppression_recette&rec_id=" + recettes[i].rec_id + "'>" +
                                         "<p>Supprimer la recette</p>" +
                                     "</a>" +
                                 "</button>" +
 
                                 "<button class='font-permanent_marker cursor-pointer p-1 flex justify-center rounded-lg px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:border-4 hover:bg-charte_bleu_fonce'>" +
-                                    "<a href='index.php?action=modification_recette&id=" + recettes[i].rec_id + "'>" +
+                                    "<a href='index.php?action=modification_recette&rec_id=" + recettes[i].rec_id + "'>" +
                                         "<p>Modifier la recette</p>" +
                                     "</a>" +
                                 "</button>" +
