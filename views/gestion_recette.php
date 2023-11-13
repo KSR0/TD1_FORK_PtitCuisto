@@ -31,12 +31,13 @@
     function afficherRecettes() {
         let recettes = <?php echo json_encode($recettes) ?>;
         let content = '';
+        let nbDeRecetteFetch = recettes.length;
 
         for (let i = nbRecetteAfficher; i < nbRecetteAfficher + 10; i++) {
             compteur++;
             if (i < recettes.length && recettes[i].length != 0) {
                 content +=
-                "<p class='text-center font-permanent_marker text-charte_bleu_fonce'>Recette n°" + compteur + "/" + (nbRecetteAfficher + 10) + "</p>" +
+                "<p class='text-center font-permanent_marker text-charte_bleu_fonce'>Recette n°" + compteur + "/" + nbDeRecetteFetch + "</p>" +
                     "<div class='border-2 border-charte_bleu_clair rounded-lg py-2 px-4 mb-4 mr-2'>" + 
                         "<div class='flex'>" +
                             "<div id='div_gauche' class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
