@@ -42,7 +42,7 @@
 
                     <a href="index.php?action=bannir_utilisateur&user_id=<?php echo $utilisateur->user_id ?>">
                         <button class="btn btn-outline-danger">
-                            <?php if ($utilisateur->sta_intitule === 'actif') {
+                            <?php if (strtolower($utilisateur->sta_intitule) === 'actif') {
                                 echo 'Bannir';
                             } else {
                                 echo 'Debannir';
