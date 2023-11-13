@@ -85,6 +85,10 @@ try {
 		else if ($_GET['action'] === 'gerer_compte') {
 			gerer_compte();
 		}
+		else if ($_GET['action'] === 'mon_compte') {
+			afficherInfosCompte();
+		}
+		
 		else if ($_GET['action'] === 'requete_changement_mdp') {
 			changer_mdp($_POST);
 		}
