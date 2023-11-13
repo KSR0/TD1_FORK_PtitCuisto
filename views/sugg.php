@@ -21,8 +21,8 @@
     $stmt = $bdd->prepare($requete);
     $stmt->execute();
     $resultats = $stmt->fetchAll();
-    echo '<select id="resultat_texte" name="resultat_texte" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500">';
-    echo '<option value="">Sélectionnez un titre</option>';
+    echo '<select id="resultat_texte" name="resultat_texte" class="block w-full p-2 text-xl text-charte_bleu_fonce bg-charte_gris">';
+    echo '<option class="text-charte_blanc" value="">-- Choisissez une recette (si votre recherche existe)--</option>';
     foreach($resultats as $resultat) {
         echo '<option value="'.$resultat['REC_TITRE'].'">'.$resultat['REC_TITRE'].'<br>';
     }

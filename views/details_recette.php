@@ -92,7 +92,7 @@ echo
                     "</div>" .
                 "</div>" .
 
-                "<div id='error'></div>" .
+                "<div id='error' class='text-center'></div>" .
 
                 "<button id='submit_btn' class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce hover:border-4 hover:border-charte_bleu_clair'>" .
                     "<p type='submit'>Publier</p>" .

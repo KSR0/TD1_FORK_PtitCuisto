@@ -27,14 +27,10 @@
                 </a>
             </div>
 
-            <div id="messageErreur" class="text-red-500 mt-2"></div>
-            
+            <div id="messageErreur" class="mt-2"></div>
 
-
-            <div id="resultat" class='bg-charte_gris border-2 cursor-pointer border-charte_bleu_fonce mt-2 rounded-md'>
-                <select id="resultat" class=" bg-charte_gris text-charte_blanc w-full p-2">
-                    <option class="text-charte_gris" value=""></option>
-                </select>
+            <div id="resultat" class='bg-charte_gris border-2 border-charte_bleu_fonce mt-2 rounded-md'>
+                <p class="text-charte_bleu_fonce text-center p-2 text-xl">Écrivez un nom de recette pour apparaître les choix.</p>
             </div>
 
             
