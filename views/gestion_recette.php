@@ -37,7 +37,7 @@
             if (i < recettes.length && recettes[i].length != 0) {
                 content +=
                 "<p class='text-center font-permanent_marker text-charte_bleu_fonce'>Recette n°" + compteur + "/" + (nbRecetteAfficher + 10) + "</p>" +
-                    "<div class='border-2 border-charte_bleu_clair rounded-lg max-h-div_recette py-2 px-4 mb-4 mr-2'>" + 
+                    "<div class='border-2 border-charte_bleu_clair rounded-lg py-2 px-4 mb-4 mr-2'>" + 
                         "<div class='flex'>" +
                             "<div id='div_gauche' class='w-1/2 max-h-div_recette overflow-y-auto text-center p-2 mr-2'>" +
                                 "<a class='text-center' href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" +
@@ -72,19 +72,11 @@
                         "<hr class='border-2 border-charte_bleu_fonce my-4 mx-auto'>" +
 
                         "<div class='text-center'>" +
-                            "<div class='flex'>" +
-                                "<button class='font-permanent_marker cursor-pointer p-1 flex justify-center rounded-lg px-4 border-2 border-charte_bleu_fonce text-charte_bleu_clair mx-auto bg-charte_blanc hover:text-charte_blanc hover:border-4 hover:bg-charte_bleu_clair'>" +
-                                    "<a href='index.php?action=suppression_recette&rec_id=" + recettes[i].rec_id + "'>" +
-                                        "<p>Supprimer la recette</p>" +
-                                    "</a>" +
-                                "</button>" +
-
-                                "<button class='font-permanent_marker cursor-pointer p-1 flex justify-center rounded-lg px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:border-4 hover:bg-charte_bleu_fonce'>" +
-                                    "<a href='index.php?action=modification_recette&rec_id=" + recettes[i].rec_id + "'>" +
-                                        "<p>Modifier la recette</p>" +
-                                    "</a>" +
-                                "</button>" +
-                            "</div>" +
+                            "<button class='font-permanent_marker cursor-pointer p-1 flex justify-center rounded-lg px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:border-4 hover:bg-charte_bleu_fonce'>" +
+                                "<a href='index.php?action=modification_recette&rec_id=" + recettes[i].rec_id + "'>" +
+                                    "<p>Modifier la recette</p>" +
+                                "</a>" +
+                            "</button>" +
                         "</div>" +
                     "</div>";
             } else {

@@ -33,7 +33,7 @@
                                 
                                 <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
                                     <i class='bi bi-person-check-fill'></i>
-                                    <p name='statut' id='statut' class='text-lg ml-2 focus:outline-none'>" . $compte->sta_intitule . "</p>
+                                    <p type='statut' name='statut' id='statut' class='text-lg ml-2 focus:outline-none'>" . $compte->sta_intitule . "</p>
                                 </div>
                             </div>
 

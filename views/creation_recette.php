@@ -11,29 +11,29 @@
 
                 <div id='tag_image' class='w-1/2 max-h-div_recette text-center p-4 mr-2'>
                     <div class='text-charte_bleu_fonce'>
-                        <label class='font-permanent_marker text-3xl' for='lien_image'>Entrez le lien de l'image : </label><br>
+                        <label for='lien_image' class='font-permanent_marker text-3xl' for='lien_image'>Entrez le lien de l'image : </label><br>
                         <div class="my-2">
-                            <textarea class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="lien_image" name="lien_image" placeholder="Exemple : https://le_lien_de_l_image_de_la_recette"></textarea><br>
+                            <textarea type='lien_image' name='lien_image' id='lien_image' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="lien_image" name="lien_image" placeholder="Exemple : https://le_lien_de_l_image_de_la_recette"></textarea><br>
                         </div>
                     </div>
 
                     <div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>
-                        <label class='font-permanent_marker text-3xl' for="tags">Entrez les tags (separés par une virgule) : </label>
+                        <label for='tags' class='font-permanent_marker text-3xl' for="tags">Entrez les tags (separés par une virgule) : </label>
                         <div class="my-2">
-                            <textarea class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="tags" name="tags" placeholder="Exemple : #Noel, #Hiver"></textarea>
+                            <textarea type='tags' name='tags' id='tags' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="tags" name="tags" placeholder="Exemple : #Noel, #Hiver"></textarea>
                         </div>
                     </div>
                 </div>
 
                 <div id='div_infos' class='text-charte_bleu_fonce border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>
-                    <label class="font-permanent_marker text-3xl" for="titre">Entrez le titre de votre recette: </label><br>
+                    <label for='titre' class="font-permanent_marker text-3xl" for="titre">Entrez le titre de votre recette: </label><br>
                     <div class="my-2">
-                        <input class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="titre" name="titre" placeholder="Exemple : Tarte aux pommes"/><br><br>
+                        <input type='titre' name='titre' id='titre' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="titre" name="titre" placeholder="Exemple : Tarte aux pommes"/><br><br>
                     </div>
 
-                    <label class="font-permanent_marker text-3xl" for="categorie">Sélectionnez la catégorie de la recette : </label>
+                    <label for='categorie' class="font-permanent_marker text-3xl" for="categorie">Sélectionnez la catégorie de la recette : </label>
                     <div class="my-2">
-                        <select class="text-charte_bleu_clair cursor-pointer border border-charte_bleu_fonce rounded-lg p-2 " name="categorie" id="categorie-select">
+                        <select type='categorie' name='categorie' id='categorie' class="text-charte_bleu_clair cursor-pointer border border-charte_bleu_fonce rounded-lg p-2 " name="categorie" id="categorie-select">
                             <option class="text-charte_gris" value="">-- Choisissez une catégorie --</option>
                             <option class="text-charte_bleu_clair" value="entree">Entrée</option>
                             <option class="text-charte_bleu_clair" value="plat">Plat</option>
@@ -46,18 +46,18 @@
             <hr class='border-2 border-charte_bleu_fonce my-4 mx-auto'>
 
             <div class='flex'>
-                <div id='resume' class='w-1/2 text-charte_bleu_fonce py-2 px-4'>
-                    <label class="font-permanent_marker text-3xl" for="resume">Entrez le résumé de la recette : </label><br>
+                <div id='div_resume' class='w-1/2 text-charte_bleu_fonce py-2 px-4'>
+                    <label for='resume' class="font-permanent_marker text-3xl" for="resume">Entrez le résumé de la recette : </label><br>
                     <div class="my-2">
-                        <textarea class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" id="resume" name="resume" placeholder="Exemple : Cette version de la tarte aux pommes est une spécialité normande..."></textarea>
+                        <textarea type='resume' name='resume' id='resume' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" id="resume" name="resume" placeholder="Exemple : Cette version de la tarte aux pommes est une spécialité normande..."></textarea>
                     </div>
                 </div>
 
                 <div class='w-1/2 border-l-2 border-charte_bleu_fonce mb-2'>
-                    <div id='contenu' class='text-charte_bleu_fonce pt-2 px-4'> 
-                        <label class="font-permanent_marker text-3xl" for="contenu">Entrez le contenu de la recette : </label><br>
+                    <div id='div_contenu' class='text-charte_bleu_fonce pt-2 px-4'> 
+                        <label for='contenu' class="font-permanent_marker text-3xl" for="contenu">Entrez le contenu de la recette : </label><br>
                         <div class="my-2">
-                            <textarea class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" id="contenu" name="contenu" placeholder="Exemple : Matériel : moule, couteau, four..."></textarea>
+                            <textarea type='contenu' name='contenu' id='contenu' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" id="contenu" name="contenu" placeholder="Exemple : Matériel : moule, couteau, four..."></textarea>
                         </div>
                     </div>
                 </div>

@@ -3,75 +3,84 @@
 // ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ //
 
 echo
-"<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Recette : " . $recette->rec_titre . "</h1>";
-?>
-<form class="text-center" action="index.php?action=gestion_recette&id=<?= $recette->rec_id ?>" method="post" enctype="multipart/form-data">
-    <div id="recette">
-        <?php
-        echo
-            "<div class='border-2 border-charte_bleu_clair h-fit rounded-lg pt-2 px-4 mb-4 mr-2'>" .
-                "<div class='flex'>" .
+"<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Recette : . $recette->rec_titre . </h1>
+<form action='index.php?action=requete_creation_recette' method='post'>
+    <div id='recette'>
+        <div class='border-2 border-charte_bleu_clair h-fit rounded-lg pt-2 px-4 mb-2 mr-2'>
+            <div class='flex'>
 
-                    "<div id='tag_image' class='w-1/2 max-h-div_recette overflow-y-auto overflow-x-hidden text-center p-2 mr-2'>" .
-                        "<img class='border-2 border-charte_bleu_clair rounded-lg h-auto w-full p-2 mr-2' src='" . $recette->rec_image . "' alt='Image recette " . $recette->rec_titre . "' width='500px'/>" . "<br><br>" .
-                        "<br>" .
+                <div id='tag_image' class='w-1/2 max-h-div_recette text-center p-4 mr-2'>
+                    <div class='text-charte_bleu_fonce'>
+                        <label for='lien_image' class='font-permanent_marker text-3xl' for='lien_image'>Entrez le lien de l'image : </label><br>
+                        <div class='my-2'>
+                            <textarea type='lien_image' name='lien_image' id='lien_image' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='lien_image' name='lien_image' placeholder='Exemple : https://le_lien_de_l_image_de_la_recette'>$recette->rec_image</textarea><br>
+                        </div>
+                    </div>
 
-                        "<div class='-mt-20 grid grid-cols-2 gap-2'>";
+                    <div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>
+                        <label for='tags' class='font-permanent_marker text-3xl' for='tags'>Entrez les tags (separés par une virgule) : </label>
+                        <div class='my-2'>
+                            <textarea type='tags' name='tags' id='tags' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='tags' name='tags' placeholder='Exemple : #Noel, #Hiver'>$recette->tags_intitule</textarea>
+                        </div>
+                    </div>
+                </div>
 
-                    // Divs pour chaque tag
-                    $tags = explode('#', $recette->tags_intitule);
-                    for ($j = 1; $j < count($tags); $j++) {
-                        echo
-                            "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>" .
-                                "<p>" . $tags[$j] . "</p>" .
-                            "</div>";
-                    }
+                <div id='div_infos' class='text-charte_bleu_fonce border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>
+                    <label for='titre' class='font-permanent_marker text-3xl' for='titre'>Entrez le titre de votre recette: </label><br>
+                    <div class='my-2'>
+                        <input value='$recette->rec_titre' type='titre' name='titre' id='titre' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='titre' name='titre' placeholder='Exemple : Tarte aux pommes'/><br><br>
+                    </div>
 
-                    echo
-                        "</div>" .
-                    "</div>" .
+                    <label for='categorie' class='font-permanent_marker text-3xl' for='categorie'>Sélectionnez la catégorie de la recette : </label>
+                    <div class='my-2'>
+                        <select type='categorie' name='categorie' id='categorie' class='text-charte_bleu_clair cursor-pointer border border-charte_bleu_fonce rounded-lg p-2 ' name='categorie' id='categorie-select'>
+                            <option class='text-charte_gris' value='$recette->cat_intitule'>-- Choisissez une catégorie --</option>
+                            <option class='text-charte_bleu_clair' value='entree'>Entrée</option>
+                            <option class='text-charte_bleu_clair' value='plat'>Plat</option>
+                            <option class='text-charte_bleu_clair' value='dessert'>Dessert</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-                    "<div id='div_infos' class='text-charte_bleu_clair border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>" .
-                        "<p class='text-3xl'>
-                            <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>
-                        <br><select class='bg-charte_bleu_clair border-2 border-charte_bleu_fonce rounded-lg p-2' name='categorie' id='categorie'>
-                            <option value='1'"; if ($recette->cat_id == 1) { echo "selected"; } echo ">Entrée</option>
-                            <option value='2'"; if ($recette->cat_id == 2) { echo "selected"; } echo ">Plat</option>
-                            <option value='3'"; if ($recette->cat_id == 3) { echo "selected"; } echo ">Dessert</option>
-                        </select></p><br>" .
+            <hr class='border-2 border-charte_bleu_fonce my-4 mx-auto'>
 
-                        "<p class='text-3xl'>
-                            <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Auteur : </span>
-                        <br>"  . $recette->user_pseudo . "</p><br>" .
+            <div class='flex'>
+                <div id='div_resume' class='w-1/2 text-charte_bleu_fonce py-2 px-4'>
+                    <label for='resume' class='font-permanent_marker text-3xl' for='resume'>Entrez le résumé de la recette : </label><br>
+                    <div class='my-2'>
+                        <textarea type='resume' name='resume' id='resume' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' id='resume' name='resume' placeholder='Exemple : Cette version de la tarte aux pommes est une spécialité normande...'>$recette->rec_resume</textarea>
+                    </div>
+                </div>
 
-                        "<p class='text-3xl'>
-                            <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Recette créée le :</span>
-                        <br>" . $recette->rec_date_crea . "</p><br>" .
-                        
-                        "<p class='text-3xl'>
-                            <span class='text-4xl text-charte_bleu_fonce font-permanent_marker'>Recette modifiée le :</span>
-                        <br>" . $recette->rec_date_modif . "</p><br>" .
-                    "</div>".
-                "</div>".
-
-                "<hr class='border-2 border-charte_bleu_fonce my-4 mx-auto'>" .
-
-                "<div class='flex'>" .
-                    "<div id='resume' class='w-1/2 text-charte_bleu_clair py-2 px-4'>" .
-                        "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Résumé :</span><br><textarea class='w-full bg-charte_bleu_clair border-2 border-charte_bleu_fonce rounded-lg p-2' name='resume' rows='10' cols='50'>" . $recette->rec_resume . "</textarea></p><br>" .
-                    "</div>" .
-
-                    "<div class='w-1/2 border-l-2 border-charte_bleu_fonce mb-2'>" .
-                        "<div id='contenu' class='text-charte_bleu_clair pt-2 px-4'>" .
-                            "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Contenu :</span><br><textarea class='w-full bg-charte_bleu_clair border-2 border-charte_bleu_fonce rounded-lg p-2' name='contenu' rows='10' cols='50'>" . $recette->rec_contenu . "</textarea></p><br>" .
-                        "</div>" .
-                    "</div>" .
-                "</div>" .
-            "</div>";
-        ?>
-        <button class="bg-charte_bleu_clair border-2 border-charte_bleu_fonce rounded-lg p-2 text-charte_bleu_fonce font-permanent_marker text-2xl hover:bg-charte_bleu_fonce hover:text-charte_bleu_clair" type="submit" name="submit">Modifier la recette</button>
+                <div class='w-1/2 border-l-2 border-charte_bleu_fonce mb-2'>
+                    <div id='div_contenu' class='text-charte_bleu_fonce pt-2 px-4'> 
+                        <label for='contenu' class='font-permanent_marker text-3xl' for='contenu'>Entrez le contenu de la recette : </label><br>
+                        <div class='my-2'>
+                            <textarea type='contenu' name='contenu' id='contenu' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' id='contenu' name='contenu' placeholder='Exemple : Matériel : moule, couteau, four...'>$recette->rec_contenu</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</form>
+
+    <div class='text-center'>
+    <div class='flex justify-center'>
+        <button class='font-permanent_marker cursor-pointer p-2.5 mt-3 justify-center rounded-lg px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_bleu_clair mx-auto hover:text-charte_bleu_fonce hover:bg-charte_bleu_clair'>
+            <a href='index.php?action=suppression_recette&rec_id=' + recettes[i].rec_id + '>
+                <p>Supprimer la recette</p>
+            </a>
+        </button>
+
+        <button class='font-permanent_marker cursor-pointer p-2.5 mt-3 justify-center rounded-lg px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>
+            <p type='submit'>Sauvegarder les changements</p>
+        </button>
+    </div>
+</div>
+
+</form>";
+?>
 
 <?php $content = ob_get_clean();
 require_once('template.php'); ?>
