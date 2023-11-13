@@ -10,7 +10,7 @@
             <div class='flex'>
 
                 <div id='tag_image' class='w-1/2 max-h-div_recette text-center p-4 mr-2'>
-                    <div class='text-charte_bleu_fonce border-2 border-charte_bleu_clair rounded-lg p-2 mb-2'>
+                    <div class='text-charte_bleu_fonce'>
                         <label class='font-permanent_marker text-3xl' for='lien_image'>Entrez le lien de l'image : </label><br>
                         <div class="my-2">
                             <textarea class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="lien_image" name="lien_image" placeholder="Exemple : https://le_lien_de_l_image_de_la_recette"></textarea><br>
