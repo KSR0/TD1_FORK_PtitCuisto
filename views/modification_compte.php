@@ -19,83 +19,76 @@
                 <div class='w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0'>
 
                     <div class='border-2 border-charte_bleu_fonce rounded-lg p-2 space-y-4 md:space-y-6 sm:p-8'>
-                        
+
                         <form action='index.php?action=requete_creation_compte' id='signupForm' method='post' class='space-y-4 md:space-y-6'>
 
                             <div>
-                                <label for='pseudo' class='text-charte_bleu_fonce block text-sm font-medium'>Status du compte :</label>
+                                <label for='statut' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Status du compte :</label>
                                 
-                                <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-person-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'>" . $compte->sta_intitule . "</p>
-                                </div>
-
-                            </div>
-
-                            <div>
-                                <label for='pseudo' class='text-charte_bleu_fonce block text-sm font-medium'>Pseudo :</label>
-                                
-                                <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-person-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_pseudo . "</p>
-                                </div>
-
-                            </div>
-
-                            <div>
-                                <label for='nom' class='text-charte_bleu_fonce block text-sm font-medium'>Nom :</label>
-                                
-                                <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-person-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_nom . "</p>
+                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-person-check-fill'></i>
+                                    <p name='statut' id='statut' class='text-lg ml-2 focus:outline-none'>" . $compte->sta_intitule . "</p>
                                 </div>
                             </div>
 
                             <div>
-                                <label for='prenom' class='text-charte_bleu_fonce block text-sm font-medium'>Prénom :</label>
+                                <label for='pseudo' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Pseudo :</label>
                                 
                                 <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
                                     <i class='bi bi-file-earmark-person-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_prenom . "</p>
+                                    <input type='pseudo' name='pseudo' id='pseudo' class='text-lg ml-2 focus:outline-none' value='$compte->user_pseudo' placeholder='Exemple : mon_pseudo' required=''/>
                                 </div>
+                            </div>
 
+                            <div>
+                                <label for='nom' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Nom :</label>
+                                
+                                <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-person-fill'></i>
+                                    <input type='nom' name='nom' id='nom' class='text-lg ml-2 focus:outline-none' value='$compte->user_nom' placeholder='Exemple : Cuisto' required=''/>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for='prenom' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Prénom :</label>
+                                
+                                <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-person-fill'></i>
+                                    <input type='prenom' name='prenom' id='prenom' class='text-lg ml-2 focus:outline-none' value='$compte->user_prenom' placeholder='Exemple : Ptit' required=''/>
+                                </div>
                             </div>
                             
                             <div>
-                                <label for='email' class='text-charte_bleu_fonce block text-sm font-medium'>Adresse mail :</label>
+                                <label for='email' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Adresse mail :</label>
                                 
                                 <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
                                     <i class='bi bi-envelope-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_email . "</p>
+                                    <input type='mail 'name='email' id='email' class='text-lg ml-2 focus:outline-none' value='$compte->user_email' placeholder='Exemple : votreemail@ptitcuisto.fr' required=''/>
                                 </div>
-
                             </div>
 
                             <div>
-                                <label for='password' class='text-charte_bleu_fonce block text-sm font-medium'>Date d'inscription :</label>
+                                <label for='date_insc' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Date d'inscription :</label>
                                 
-                                <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-backspace-reverse-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_date_ins . "</p>
+                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-calendar2-check-fill'></i>
+                                    <p class='text-lg ml-2 focus:outline-none'> le " . date("d/m/Y à H:i", strtotime($compte->user_date_ins)) . "</p>
                                 </div>
-
                             </div>
 
                             <div>
-                                <label for='confirm-password' class='text-charte_bleu_fonce block text-sm font-medium'>Date de dernière modification :</label>
+                                <label for='date_crea' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Date de dernière modification :</label>
                                 
-                                <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-check-circle-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_date_modif . "</p>
+                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-clock-history'></i>
+                                    <p class='text-lg ml-2 focus:outline-none'> le " . date("d/m/Y à H:i", strtotime($compte->user_date_modif)) . "</p>
                                 </div>
-
                             </div>
 
                             <button class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>
                                 <i class='bi bi-box-arrow-right'></i>
-                                <p class='ml-2'>Modifier mon compte</p>
+                                <p class='ml-2'>Sauvegarder les changements</p>
                             </button>
-                            
                         </form>
                     </div>
                 </div>

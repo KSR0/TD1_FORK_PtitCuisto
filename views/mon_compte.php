@@ -28,7 +28,7 @@
                                 <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Pseudo :</p>
                                 
                                 <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-person-rolodex'></i>
+                                    <i class='bi bi-file-earmark-person-fill'></i>
                                     <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_pseudo . "</p>
                                 </div>
 
@@ -47,7 +47,7 @@
                                 <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Prénom :</p>
                                 
                                 <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-file-earmark-person-fill'></i>
+                                    <i class='bi bi-person-fill'></i>
                                     <p class='text-lg ml-2 focus:outline-none'>" . $compte->user_prenom . "</p>
                                 </div>
 
@@ -83,15 +83,12 @@
 
                             </div>
                             
-                            <button class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce' onclick='redirigerVersModificationCompte()''>
-                                <p>Modifier mon compte</p>
-                            </button>
+                            <a class='-mb-2' href='index.php?action=modification_compte'>
+                                <button class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>
+                                    <p>Modifier mon compte</p>
+                                </button>
+                            </a>
 
-                            <script>
-                                function redirigerVersModificationCompte() {
-                                    window.location.href = 'index.php?action=modification_compte';
-                                }
-                            </script>
                     </div>
                 </div>
             </div>

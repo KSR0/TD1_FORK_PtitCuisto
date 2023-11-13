@@ -21,7 +21,7 @@
                         
                         <div class="text-charte_blanc py-1.5 flex items-center rounded-md px-4 duration-300 bg-charte_gris border-2 border-charte_bleu_fonce">
                             <i class='bi bi-person-rolodex'></i>
-                            <input type="text" name="pseudo" id="pseudo" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="700TT" required="">
+                            <input type="text" name="pseudo" id="pseudo" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="Exemple : mon_pseudo" required="">
                         </div>
 
                     </div>
@@ -31,7 +31,7 @@
                         
                         <div class="text-charte_blanc py-1.5 flex items-center rounded-md px-4 duration-300 bg-charte_gris border-2 border-charte_bleu_fonce">
                             <i class="bi bi-person-fill"></i>
-                            <input type="nom" name="nom" id="nom" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="Cuisto" required="">
+                            <input type="nom" name="nom" id="nom" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="Exemple : Cuisto" required="">
                         </div>
 
                     </div>
@@ -41,7 +41,7 @@
                         
                         <div class="text-charte_blanc py-1.5 flex items-center rounded-md px-4 duration-300 bg-charte_gris border-2 border-charte_bleu_fonce">
                             <i class="bi bi-file-earmark-person-fill"></i>
-                            <input type="prenom" name="prenom" id="prenom" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="Ptit" required="">
+                            <input type="prenom" name="prenom" id="prenom" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="Exemple : Ptit" required="">
                         </div>
 
                     </div>
@@ -51,7 +51,7 @@
                         
                         <div class="text-charte_blanc py-1.5 flex items-center rounded-md px-4 duration-300 bg-charte_gris border-2 border-charte_bleu_fonce">
                             <i class="bi bi-envelope-fill"></i>
-                            <input type="email" name="email" id="email" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="votreemail@ptitcuisto.fr" required="">
+                            <input type="email" name="email" id="email" class="text-[15px] ml-2 w-full bg-transparent focus:outline-none placeholder:text-charte_blanc" placeholder="Exemple : votreemail@ptitcuisto.fr" required="">
                         </div>
 
                     </div>

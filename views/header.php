@@ -159,7 +159,7 @@
                         <a href='index.php?action=connexion_compte'>
                             <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
                                 <i class='bi bi-box-arrow-in-right'></i>
-                                <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se connecter</p>
+                                <p class='text-[15px] ml-4 text-gray-200'>Se connecter</p>
                             </div>
                         </a>";
                     }
@@ -170,7 +170,7 @@
                     echo "<a href='index.php?action=edito&deconnexion=true'>
                     <div class='element_menu cursor-pointer p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 border-2 border-charte_blanc bg-charte_bleu_clair hover:bg-charte_bleu_fonce'>
                         <i class='bi bi-box-arrow-in-right'></i>
-                        <p class='modal-open2 text-[15px] ml-4 text-gray-200'>Se deconnecter</p>
+                        <p class='text-[15px] ml-4 text-gray-200'>Se deconnecter</p>
                     </div>
                     </a>";
                 }
