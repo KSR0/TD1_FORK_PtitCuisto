@@ -11,8 +11,7 @@
 
 
 
-<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Liste des <?php echo $type_plat . 's' ?></h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Page affichant la liste des <?php echo $type_plat . 's' ?> publiées.</p><br>
+<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Liste des <?php echo $type_plat . 's' ?> disponibles</h1>
 
 <div id="recettes">
         

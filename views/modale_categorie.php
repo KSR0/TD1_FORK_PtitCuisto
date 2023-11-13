@@ -1,5 +1,5 @@
 <div id="staticModal" data-modal-backdrop="static" aria-hidden="true" class="font-pacifico z-20 modal1 opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
-    <div class="marge modal1-overlay absolute w-full h-full opacity-50"></div>                                
+    <div class="marge modal1-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>                                
     <div class="marge modal1-container bg-white w-auto mx-auto rounded shadow-lg z-50 overflow-y-auto">
         
         <div class="marge modal1-content py-4 text-left px-6">

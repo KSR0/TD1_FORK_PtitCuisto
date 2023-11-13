@@ -1,14 +1,24 @@
-<div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="lg:pl-80 modal3 opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
-    <div id="modal3-test" class="modal3-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>                                
-    <div class="modal3-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-  
-        <div class="modal3-content py-4 text-left px-6">
+<?php 
+        $db_host = parse_ini_file('all_secret_variables.env')["DB_HOST"];
+        $db_name = parse_ini_file('all_secret_variables.env')["DB_NAME"];
+        $db_encode = parse_ini_file('all_secret_variables.env')["DB_ENCODE"];
+        $db_username = parse_ini_file('all_secret_variables.env')["DB_USERNAME"];
+        $db_password = parse_ini_file('all_secret_variables.env')["DB_PASSWORD"];
+
+        $bdd = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=' . $db_encode, $db_username, $db_password);
+?>
+
+<div id="staticModal" data-modal-backdrop="static" aria-hidden="true" class="font-pacifico z-20 modal3 opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+    <div class="marge modal3-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>                                
+    <div class="marge modal3-container bg-white w-auto mx-auto rounded shadow-lg z-50 overflow-y-auto">
+        
+        <div class="marge modal3-content py-4 text-left px-6">
             
             <div class="flex justify-between items-center pb-3">
-                <p class="text-2xl font-bold">Filtre par Ingredients</p>
-
+                <h1 class="text-charte_bleu_fonce font-permanent_marker pr-3 pb-3 text-4xl font-bold text-center leading-tight">Recherche par ingrédient(s)</h1>
+                
                 <div class="modal3-close cursor-pointer z-50">
-                    <button onclick="activer_sous_menu(); activer_sous_menu_deroulant(); activer_bouton_mobile(); activer_logo_menu(); fond_fonce(); fond_fonce_deroulant()">
+                    <button>
                         <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                             <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
                         </svg>
