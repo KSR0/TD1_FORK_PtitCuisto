@@ -24,11 +24,12 @@
                         <button class="text-[15px] ml-2">Gérer les recettes existantes - bientôt disponible</button>
                 </div>
 
-                <div class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
-                        <i class="bi bi-people"></i>
-                        <button class="text-[15px] ml-2">Gérer les comptes des utilisateurs - bientôt disponible</button>
-                </div>
-
+                <a href="index.php?action=gerer_utilisateurs">
+                    <div class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce">
+                            <i class="bi bi-people"></i>
+                            <button class="text-[15px] ml-2">Gérer les comptes des utilisateurs</button>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

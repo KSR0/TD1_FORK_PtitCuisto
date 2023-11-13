@@ -1,6 +1,6 @@
 <?php
 
-require_once('src/models/compte.php');
+require_once('src/models/Manager_compte.php');
 require_once('src/lib/database.php');
 
 
@@ -29,7 +29,7 @@ function requete_connexion_compte(array $input) {
 			$_SESSION['typ_id'] = $result['TYP_ID'];
 			$_SESSION['user_pseudo'] = $result['USER_PSEUDO'];
 				
-			header('Location: index.php');
+			header('Location: index.php?action=edito');
 		}
 	} else {
 		throw new Exception('Les données du formulaire sont invalides.');
@@ -50,7 +50,7 @@ function requete_creation_compte(array $input) {
             $creationCompteRepository->connection = new DatabaseConnection();
             $result = $creationCompteRepository->userSignUp($pseudo, $nom, $prenom, $email, $password, $confirm_password);
             
-            header('Location: index.php');
+            header('Location: index.php?action=edito');
 	} else {
     	throw new Exception('Les données du formulaire sont invalides.');
 	}
@@ -101,5 +101,13 @@ function afficherInfosModifCompte() {
 	$compte = $CompteRepository->displayAccountData();
 
 	require('views/modification_compte.php');
+}
+
+function gerer_utilisateurs() {
+	$CompteRepository = new CompteRepository();
+	$CompteRepository->connection = new DatabaseConnection();
+	$utilisateurs = $CompteRepository->affichertousLesUtilisateurs();
+
+	require('views/gerer_utilisateurs.php');
 }
 ?>

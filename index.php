@@ -25,9 +25,6 @@ try {
 				liste_recettes();
 			}
 		}
-		else if ($_GET['action'] === 'pannel') {
-			pannel();
-		}
 		else if ($_GET['action'] === 'details_recette') {
 			if (isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
 				details_recette($_GET['rec_id']);
@@ -46,7 +43,7 @@ try {
 			suppression_recette($_GET['id']);
 		}
 		else if($_GET['action'] === 'modification_recette') {
-			modification_recette($_GET['id']);
+			modification_recette($_GET['rec_id']);
 		}
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
@@ -55,8 +52,8 @@ try {
 			connexion_compte();
 		}
 		else if ($_GET['action'] === 'gestion_recette') {
-			if(isset($_GET['id'])) {
-				requete_modification_recette($_POST, $_GET['id']);
+			if(isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
+				requete_modification_recette($_POST, $_GET['rec_id']);
 			}
 			gestion_recette($_SESSION['user_id']);
 		}
@@ -96,6 +93,27 @@ try {
 		}
 		else if ($_GET['action'] === 'requete_suppression_compte') {
 			supprCompte();
+		}
+		else if ($_GET['action'] === 'pannel') {
+			pannel();
+		}
+		else if ($_GET['action'] === 'gerer_utilisateurs') {
+			gerer_utilisateurs();
+		}
+		else if ($_GET['action'] === 'supprimer_utilisateur') {
+			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
+				//supprimer_utilisateur($_GET['user_id']);
+			}
+		}
+		else if ($_GET['action'] === 'bannir_utilisateur') {
+			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
+				//bannir_utilisateur($_GET['user_id']);
+			}
+		}
+		else if ($_GET['action'] === 'modifier_utilisateur') {
+			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
+				//modifier_utilisateur($_GET['user_id']);
+			}
 		}
 		else {
 			header("Location: views/error_page.php");

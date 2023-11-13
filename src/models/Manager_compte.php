@@ -4,6 +4,7 @@
 class Compte {
     public int $user_id;
     public int $typ_id;
+    public string $typ_intitule;
     public int $sta_id;
     public string $sta_intitule;
     public string $user_pseudo;
@@ -12,7 +13,6 @@ class Compte {
     public string $user_nom;
     public string $user_date_ins;
     public string $user_date_modif;
-    public string $user_mdp;
 }
 
 class CompteRepository {
@@ -128,6 +128,28 @@ class CompteRepository {
         $compte->user_date_modif = $row['USER_DATE_MODIF'];
 
         return $compte;
+    }
+
+    public function affichertousLesUtilisateurs() {
+        $fetchUsersData = "SELECT * FROM FORK_UTILISATEUR JOIN FORK_STATUT USING(STA_ID) JOIN FORK_TYPE USING(TYP_ID) WHERE lower(TYP_INTITULE) != 'administrateur';";
+        $requete = $this->connection->getConnection()->query($fetchUsersData);
+
+        $utilisateurs = [];
+        while (($row = $requete->fetch())) {
+            $compte = new Compte();
+            $compte->user_id = $row['USER_ID'];
+            $compte->typ_intitule = $row['TYP_INTITULE'];
+            $compte->sta_intitule = $row['STA_INTITULE'];
+            $compte->user_pseudo = $row['USER_PSEUDO'];
+            $compte->user_email = $row['USER_EMAIL'];
+            $compte->user_prenom = $row['USER_PRENOM'];
+            $compte->user_nom = $row['USER_NOM'];
+            $compte->user_date_ins = $row['USER_DATE_INS'];
+            $compte->user_date_modif = $row['USER_DATE_MODIF'];
+
+            $utilisateurs[] = $compte;
+        }
+        return $utilisateurs;
     }
 
 }
