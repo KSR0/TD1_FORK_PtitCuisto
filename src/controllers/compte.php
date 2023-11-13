@@ -86,4 +86,12 @@ function supprCompte() {
 		header('Location: index.php?action=edito');
 	}
 }
+
+
+function afficherInfosCompte() {
+	$CompteRepository = new CompteRepository();
+	$CompteRepository->connection = new DatabaseConnection();
+	$compte = $CompteRepository->displayAccountData();
+	return $compte;
+}
 ?>

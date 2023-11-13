@@ -2,23 +2,18 @@
 
 
 class Compte {
-    public int $rec_id;
-    public int $cat_id;
     public int $user_id;
-    public string $rec_titre;
-    public string $rec_contenu;
-    public string $rec_resume;
-    public string $rec_image;
-    public string $cat_intitule;
-    public string $tags_intitule;
-    public string $rec_date_crea;
-    public string $rec_date_modif;
     public string $user_pseudo;
+    public string $user_email;
+    public string $user_prenom;
+    public string $user_nom;
+    public string $user_date_ins;
+    public string $user_date_modif;
+    //public string $user_mdp;
 }
 
 class CompteRepository {
     public DatabaseConnection $connection;
-
 
     public function userSignIn($email, $password) {
         $password = hash('sha512', $password);
@@ -108,6 +103,25 @@ class CompteRepository {
         $requeteDeleteUserAccount->execute($_SESSION['user_id']);
 
         return $requeteDeleteUserAccount->rowCount() > 0;
+    }
+
+    public function displayAccountData() {
+        $fetchUserData = "SELECT * FROM FORK_UTILISATEUR WHERE USER_ID = ?";
+
+        $requete = $this->connection->getConnection()->prepare($fetchUserData);
+        $requete->execute([$_SESSION['user_id']]);
+
+        $row = $requete->fetch();
+        $compte = new Compte();
+        $compte->user_id = $row['USER_ID'];
+        $compte->user_pseudo = $row['USER_PSEUDO'];
+        $compte->user_email = $row['USER_EMAIL'];
+        $compte->user_prenom = $row['USER_PRENOM'];
+        $compte->user_nom = $row['USER_NOM'];
+        $compte->user_date_ins = $row['USER_DATE_INS'];
+        $compte->user_date_modif = $row['USER_DATE_MODIF'];
+
+        return $compte;
     }
 
 }
