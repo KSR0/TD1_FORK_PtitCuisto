@@ -83,16 +83,16 @@ try {
 			gerer_compte();
 		}
 		else if ($_GET['action'] === 'mon_compte') {
-			afficherInfosCompte();
+			afficherInfosCompte($_SESSION['user_id']);
 		}
 		else if ($_GET['action'] === 'modification_compte') {
-			afficherInfosModifCompte();
+			afficherInfosModifCompte($_SESSION['user_id']);
 		}
 		else if ($_GET['action'] === 'requete_changement_mdp') {
 			changer_mdp($_POST);
 		}
 		else if ($_GET['action'] === 'requete_suppression_compte') {
-			supprCompte();
+			supprCompte($_SESSION['user_id']);
 		}
 		else if ($_GET['action'] === 'pannel') {
 			pannel();
@@ -102,17 +102,17 @@ try {
 		}
 		else if ($_GET['action'] === 'supprimer_utilisateur') {
 			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
-				//supprimer_utilisateur($_GET['user_id']);
+				supprCompte($_GET['user_id']);
 			}
 		}
 		else if ($_GET['action'] === 'bannir_utilisateur') {
 			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
-				//bannir_utilisateur($_GET['user_id']);
+				bannir_utilisateur($_GET['user_id']);
 			}
 		}
 		else if ($_GET['action'] === 'modifier_utilisateur') {
 			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
-				//modifier_utilisateur($_GET['user_id']);
+				afficherInfosModifCompte($_GET['user_id']);
 			}
 		}
 		else {

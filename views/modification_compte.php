@@ -4,16 +4,22 @@
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
-<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifier mon compte</h1>
-<p class="text-3xl text-center text-charte_bleu_clair">Changez votre mot de passe / supprimer votre compte</p><br>
+<?php
+    if ($_SESSION['typ_id'] != 1) { // L'utilisateur n'est pas un admin donc il doit pouvoir supprimer son compte
+        echo '<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifiez votre compte</h1>
+        <p class="text-3xl text-center text-charte_bleu_clair">Changez vos informations personnelles / supprimez votre compte</p><br>';
+    } else {
+        echo '<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifier un compte</h1>
+        <h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Compte de ' . $compte->user_pseudo . '</h1>';
+    }
+?>
+
 <!-- Appel des fichiers où sont rédigées les fonctions JS -->
 
 
 <!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 <?php
     echo "
-        <h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Mon compte</h1>
-
             <div class='flex flex-col items-center justify-center px-6 py-2 mx-auto lg:py-0'>
 
                 <div class='w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0'>
@@ -23,7 +29,16 @@
                         <form action='index.php?action=requete_creation_compte' id='signupForm' method='post' class='space-y-4 md:space-y-6'>
 
                             <div>
-                                <label for='pseudo' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Entrez votre pseudo :</label>
+                                <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Status du compte :</p>
+                                
+                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-person-check-fill'></i>
+                                    <p name='statut' id='statut' class='text-lg ml-2 focus:outline-none'>" . $compte->sta_intitule . "</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for='pseudo' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Pseudo :</label>
                                 
                                 <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
                                     <i class='bi bi-file-earmark-person-fill'></i>
@@ -58,6 +73,23 @@
                                 </div>
                             </div>
 
+                            <div>
+                                <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Date d'inscription :</p>
+                                
+                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-calendar2-check-fill'></i>
+                                    <p class='text-lg ml-2 focus:outline-none'> le " . date("d/m/Y à H:i", strtotime($compte->user_date_ins)) . "</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Date de dernière modification :</p>
+                                
+                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
+                                    <i class='bi bi-clock-history'></i>
+                                    <p class='text-lg ml-2 focus:outline-none'> le " . date("d/m/Y à H:i", strtotime($compte->user_date_modif)) . "</p>
+                                </div>
+                            </div>
                             <button class='font-permanent_marker cursor-pointer p-2.5 mt-5 flex justify-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>
                                 <i class='bi bi-box-arrow-right'></i>
                                 <p class='ml-2'>Sauvegarder les changements</p>
@@ -94,8 +126,13 @@
    </div>
 </form>
 
-<br> <!-- FAIRE AFFICHER UN POP-UP POUR CONFIRMATION -->
-<a href="index.php?action=suppr_compte" id="btn-suppr-compte-user" class="text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2" >Supprimer votre compte</a>
+<?php
+    if ($_SESSION['typ_id'] != 1) { // L'utilisateur n'est pas un admin donc il doit pouvoir supprimer son compte
+        echo '<br> <!-- FAIRE AFFICHER UN POP-UP POUR CONFIRMATION -->
+        <a href="index.php?action=suppr_compte" id="btn-suppr-compte-user" class="text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2" >Supprimer votre compte</a>
+        ';
+    }
+?>
 
 <script>
     let old_password = document.querySelector('#old_password');
