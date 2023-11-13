@@ -39,7 +39,18 @@
                 <td> <?php echo date("d/m/Y à H:i", strtotime($utilisateur->user_date_modif)) ?> </td>
                 <td>
                     <a href="index.php?action=supprimer_utilisateur&user_id=<?php echo $utilisateur->user_id ?>"><button class="btn btn-outline-danger">Suppr</button></a>
-                    <a href="index.php?action=bannir_utilisateur&user_id=<?php echo $utilisateur->user_id ?>"><button class="btn btn-outline-danger">Bannir</button></a>
+
+                    <a href="index.php?action=bannir_utilisateur&user_id=<?php echo $utilisateur->user_id ?>">
+                        <button class="btn btn-outline-danger">
+                            <?php if ($utilisateur->sta_intitule === 'actif') {
+                                echo 'Bannir';
+                            } else {
+                                echo 'Debannir';
+                            }
+                            ?>
+                        </button>
+                    </a>
+
                     <a href="index.php?action=modifier_utilisateur&user_id=<?php echo $utilisateur->user_id ?>"><button class="btn btn-outline-warning">Modifier</button></a>
                 </td>
             </tr>

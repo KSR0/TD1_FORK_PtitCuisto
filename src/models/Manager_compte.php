@@ -99,20 +99,40 @@ class CompteRepository {
         return $requeteUpdateEditeurMdp->rowCount() > 0;
     }
 
-    public function editeurDeleteAccount() {
-        $deleteUserAccount = "DELETE FROM USER_ID WHERE USER_ID = ?";
+    public function deleteAccount($user_id) {
+        $deleteUserAccount = "DELETE FROM FORK_UTILISATEUR WHERE USER_ID = ?";
 
         $requeteDeleteUserAccount = $this->connection->getConnection()->prepare($deleteUserAccount);
-        $requeteDeleteUserAccount->execute($_SESSION['user_id']);
+        $requeteDeleteUserAccount->execute([$user_id]);
 
         return $requeteDeleteUserAccount->rowCount() > 0;
     }
 
-    public function displayAccountData() {
+    public function banAccount($user_id) {
+        $fetchUserStatus = "SELECT STA_INTITULE FROM FORK_UTILISATEUR JOIN FORK_STATUT USING(STA_ID) WHERE USER_ID = ?";
+
+        $requete = $this->connection->getConnection()->prepare($fetchUserStatus);
+        $requete->execute([$user_id]);
+        $user_status = $requete->fetch();
+        $user_status = $user_status['STA_INTITULE'];
+
+        if ($user_status === 'actif') {
+            $updateUserStatus = "UPDATE fork_utilisateur SET STA_ID = 2 WHERE USER_ID = ?";
+        } else {
+            $updateUserStatus = "UPDATE fork_utilisateur SET STA_ID = 1 WHERE USER_ID = ?";
+        }
+
+        $requeteDeleteUserAccount = $this->connection->getConnection()->prepare($updateUserStatus);
+        $requeteDeleteUserAccount->execute([$user_id]);
+
+        return $requeteDeleteUserAccount->rowCount() > 0;
+    }
+
+    public function displayAccountData($user_id) {
         $fetchUserData = "SELECT * FROM FORK_UTILISATEUR JOIN FORK_STATUT USING(STA_ID) WHERE USER_ID = ?";
 
         $requete = $this->connection->getConnection()->prepare($fetchUserData);
-        $requete->execute([$_SESSION['user_id']]);
+        $requete->execute([$user_id]);
 
         $row = $requete->fetch();
         $compte = new Compte();
@@ -130,7 +150,7 @@ class CompteRepository {
         return $compte;
     }
 
-    public function affichertousLesUtilisateurs() {
+    public function displayAllUsers() {
         $fetchUsersData = "SELECT * FROM FORK_UTILISATEUR JOIN FORK_STATUT USING(STA_ID) JOIN FORK_TYPE USING(TYP_ID) WHERE lower(TYP_INTITULE) != 'administrateur';";
         $requete = $this->connection->getConnection()->query($fetchUsersData);
 

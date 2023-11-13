@@ -75,30 +75,31 @@ function changer_mdp($input) {
 	}
 }
 
-function supprCompte() {
+function supprCompte($user_id) {
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();
-	$result = $CompteRepository->editeurDeleteAccount();
+	$result = $CompteRepository->deleteAccount($user_id);
 
-	if ($result != 1) {
-		throw new Exception('Une erreur est survenu');
+	if ($user_id == $_SESSION['user_id']) {
+		require('views/mon_compte.php');
 	} else {
-		header('Location: index.php?action=edito');
+		gerer_utilisateurs(); // Recharge la liste d'utilisateurs après avoir (de)banni qql
+		require('views/gerer_utilisateurs.php');
 	}
 }
 
-function afficherInfosCompte() {
+function afficherInfosCompte($user_id) {
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();
-	$compte = $CompteRepository->displayAccountData();
+	$compte = $CompteRepository->displayAccountData($user_id);
 
 	require('views/mon_compte.php');
 }
 
-function afficherInfosModifCompte() {
+function afficherInfosModifCompte($user_id) {
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();
-	$compte = $CompteRepository->displayAccountData();
+	$compte = $CompteRepository->displayAccountData($user_id);
 
 	require('views/modification_compte.php');
 }
@@ -106,8 +107,20 @@ function afficherInfosModifCompte() {
 function gerer_utilisateurs() {
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();
-	$utilisateurs = $CompteRepository->affichertousLesUtilisateurs();
+	$utilisateurs = $CompteRepository->displayAllUsers();
 
+	require('views/gerer_utilisateurs.php');
+}
+
+function bannir_utilisateur($user_id) {
+	$CompteRepository = new CompteRepository();
+	$CompteRepository->connection = new DatabaseConnection();
+	$result = $CompteRepository->banAccount($user_id);
+
+	if ($result != 1) {
+		throw new Exception('Une erreur est survenu');
+	}
+	gerer_utilisateurs(); // Recharge la liste d'utilisateurs après avoir (de)banni qql
 	require('views/gerer_utilisateurs.php');
 }
 ?>
