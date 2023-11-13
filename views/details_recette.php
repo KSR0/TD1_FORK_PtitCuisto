@@ -66,18 +66,23 @@ echo
     ?>
 </div>
 
-<h2 class="text-4xl text-charte_bleu_fonce font-permanent_marker mb-2">Commentaires</h2>
-<div class="border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2 mb-2" id="commentaires">
-    <?php
+<?php
+if (count($commentaires) != 0) {
+    echo '<h2 class="text-4xl text-charte_bleu_fonce font-permanent_marker mb-2">Commentaires</h2>
+    <div class="border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2 mb-2" id="commentaires">';
+    
     foreach ($commentaires as $commentaire) {
-    ?>
-        <p class="text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc mb-1"><span class="font-permanent_marker text-charte_bleu_fonce"><?= htmlspecialchars($commentaire->user_pseudo) ?></span> a commenté le <?= date("d/m/Y à H:i", strtotime($commentaire->com_date_crea)) . " :" ?></p>
-        <p class="text-xl"><?= nl2br(htmlspecialchars($commentaire->com_description)) ?></p>
-        <hr class='border border-charte_bleu_fonce my-4 mx-auto'>
-    <?php
+        echo '
+            <p class="text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc mb-1"><span class="font-permanent_marker text-charte_bleu_fonce">' . htmlspecialchars($commentaire->user_pseudo) . '</span> a commenté le ' . date("d/m/Y à H:i", strtotime($commentaire->com_date_crea)) . ' :</p>
+            <p class="text-xl">' . nl2br(htmlspecialchars($commentaire->com_description)) . '</p>
+            <hr class="border border-charte_bleu_fonce my-4 mx-auto">';
     }
-    ?>
-</div>
+    
+    echo '</div>';
+}
+?>
+
+
 
 <?php
     if (isset($_SESSION['user_id'])) {
