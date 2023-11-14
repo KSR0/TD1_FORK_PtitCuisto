@@ -6,11 +6,9 @@
 
 <?php
     if ($_SESSION['typ_id'] != 1) { // L'utilisateur n'est pas un admin donc il doit pouvoir supprimer son compte
-        echo '<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifiez votre compte</h1>
-        <p class="text-3xl text-center text-charte_bleu_clair">Changez vos informations personnelles / supprimez votre compte</p><br>';
+        echo '<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifiez votre compte</h1>';
     } else {
-        echo '<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifier un compte</h1>
-        <h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Compte de ' . $compte->user_pseudo . '</h1>';
+        echo '<h1 class="text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5">Modifier le compte de ' . $compte->user_pseudo . '</h1>';
     }
 ?>
 
@@ -64,47 +62,54 @@
                                 </div>
                             </div>
 
-                            <button class='font-permanent_marker cursor-pointer p-2.5 mt-5 flex justify-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>
-                                <p>Sauvegarder les changements</p>
-                            </button>
+                            <form action='index.php?action=requete_changement_mdp' method='post'>
+
+                                <div>
+                                    <label for='old_password' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Votre ancien mot de passe : </label>
+                                    <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
+                                        <i class='bi bi-backspace-reverse-fill'></i>
+                                        <input type='password' id='old_password' name='old_password' class='text-lg w-full ml-2 focus:outline-none' value='' placeholder='Exemple : votre_mdp_1234' required=''/>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for='new_password' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Votre nouveau mot de passe : </label>
+                                    <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
+                                        <i class='bi bi-question-circle-fill'></i>
+                                        <input type='password' id='new_password' name='new_password' class='text-lg w-full ml-2 focus:outline-none' placeholder='Exemple : votre_nouveau_mdp_1234' required=''/>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for='new_password_conf' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Confirmez votre nouveau mot de passe : </label>
+                                    <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
+                                        <i class='bi bi-check-circle-fill'></i>
+                                        <input type='password' id='new_password_conf' name='new_password_conf' class='text-lg w-full ml-2 focus:outline-none' placeholder='Exemple : votre_nouveau_mdp_1234' required=''/>
+                                    </div>
+                                </div>
+
+                                <div id='erreur' class='text-center text-xl'></div>
+
+                                <div>
+                                    <button type='submit' id='submit_btn' class='font-permanent_marker w-full cursor-not-allowed p-2.5 -mb-3 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4' disabled>Modifier mon mot de passe</button>
+                                </div>
+                            </form>
+
+                            <div>
+                                <button class='font-permanent_marker cursor-pointer p-2.5 -mb-5 w-full flex justify-center rounded-md px-2 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce hover:border-4'>
+                                    <p>Sauvegarder les changements</p>
+                                </button>";
+                                if ($_SESSION['typ_id'] != 1) { 
+                                    echo "<br> <!-- FAIRE AFFICHER UN POP-UP POUR CONFIRMATION -->
+                                    <a href='index.php?action=suppr_compte' id='btn-suppr-compte-user' class='font-permanent_marker w-full cursor-pointer p-2.5 flex justify-center rounded-md px-2 border-2 text-charte_bleu_clair border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4'>Supprimer votre compte</a>";
+                                }
+                                echo "
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>";
-?>
-
-<form action="index.php?action=requete_changement_mdp" method="post">
-
-   <div>
-  	<label for="old_password">Votre ancien mot de passe : </label>
-  	<input type="password" id="old_password" name="old_password"/>
-   </div>
-
-   <div>
-  	<label for="new_password">Votre nouveau mot de passe : </label>
-  	<input type="password" id="new_password" name="new_password"/>
-   </div>
-
-   <div>
-  	<label for="new_password_conf">Confirmez votre nouveau mot de passe : </label>
-  	<input type="password" id="new_password_conf" name="new_password_conf"/>
-   </div>
-   
-   <br>
-   <div id="erreur" class="text-red-600"></div>
-   <br>
-   <div>
-  	<input type="submit" id="submit_btn" class="text-charte_bleu_clair border border-charte_bleu_fonce focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2 opacity-50" disabled/>
-   </div>
-</form>
-
-<?php
-    if ($_SESSION['typ_id'] != 1) { // L'utilisateur n'est pas un admin donc il doit pouvoir supprimer son compte
-        echo '<br> <!-- FAIRE AFFICHER UN POP-UP POUR CONFIRMATION -->
-        <a href="index.php?action=suppr_compte" id="btn-suppr-compte-user" class="text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2" >Supprimer votre compte</a>
-        ';
-    }
 ?>
 
 <script>
@@ -113,7 +118,6 @@
     let new_password_conf = document.querySelector('#new_password_conf');
     let btnSubmit = document.querySelector('#submit_btn');
     let erreursDiv = document.querySelector("#erreur");
-    erreursDiv.innerHTML = "L'ancien mot de passe ne peut pas etre vide.";
 
     old_password.addEventListener("input", function () {
         let old_password_value = document.querySelector('#old_password').value;
@@ -121,7 +125,7 @@
         let new_password_conf_value = document.querySelector('#new_password_conf').value;
 
         if (old_password_value == '') {
-            erreursDiv.innerHTML = "L'ancien mot de passe ne peut pas etre vide.";
+            erreursDiv.innerHTML = "<p class='text-charte_bleu_fonce'><span class='font-permanent_marker'>Erreur :</span> L'ancien mot de passe ne peut pas etre vide.</p>";
         } else {
             erreursDiv.innerHTML = "";
         }
@@ -134,12 +138,12 @@
 
         if (new_password_value == new_password_conf_value) {
             btnSubmit.disabled = false;
-            btnSubmit.className = "text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2";
+            btnSubmit.className = "font-permanent_marker w-full cursor-pointer p-2.5 -mb-3 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4";
             erreursDiv.innerHTML = "";
         } else {
             btnSubmit.disabled = true;
-            btnSubmit.className = "text-charte_bleu_clair border border-charte_bleu_fonce focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2 opacity-50";
-            erreursDiv.innerHTML = "Les deux mots de passe ne correspondent pas";
+            btnSubmit.className = "font-permanent_marker w-full cursor-not-allowed p-2.5 -mb-3 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4";
+            erreursDiv.innerHTML = "<p class='text-charte_bleu_fonce'><span class='font-permanent_marker'>Erreur :</span> Les deux mots de passe ne correspondent pas.</p>";
         }
     });
 
@@ -150,12 +154,12 @@
         
         if (new_password_conf_value == new_password_value) {
             btnSubmit.disabled = false;
-            btnSubmit.className = "text-charte_bleu_clair hover:text-charte_bleu_fonce border border-charte_bleu_fonce hover:bg-charte_bleu_clair focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2";
+            btnSubmit.className = "font-permanent_marker w-full cursor-pointer p-2.5 -mb-3 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4";
             erreursDiv.innerHTML = "";
         } else {
             btnSubmit.disabled = true;
-            btnSubmit.className = "text-charte_bleu_clair border border-charte_bleu_fonce focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2 opacity-50";
-            erreursDiv.innerHTML = "Les deux mots de passe ne correspondent pas";
+            btnSubmit.className = "font-permanent_marker w-full cursor-not-allowed p-2.5 -mb-3 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4";
+            erreursDiv.innerHTML = "<p class='text-charte_bleu_fonce'><span class='font-permanent_marker'>Erreur :</span> Les deux mots de passe ne correspondent pas.</p>";
         }
     });
 

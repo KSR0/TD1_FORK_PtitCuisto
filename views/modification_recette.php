@@ -13,14 +13,14 @@ echo
                     <div class='text-charte_bleu_fonce'>
                         <label for='lien_image' class='font-permanent_marker text-3xl' for='lien_image'>Entrez le lien de l'image : </label><br>
                         <div class='my-2'>
-                            <textarea type='lien_image' name='lien_image' id='lien_image' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='lien_image' name='lien_image' placeholder='Exemple : https://le_lien_de_l_image_de_la_recette'>$recette->rec_image</textarea><br>
+                            <textarea type='lien_image' name='lien_image' id='lien_image' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='lien_image' name='lien_image' placeholder='Exemple : https://le_lien_de_l_image_de_la_recette' required=''>$recette->rec_image</textarea><br>
                         </div>
                     </div>
 
                     <div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>
                         <label for='tags' class='font-permanent_marker text-3xl' for='tags'>Entrez les tags (separés par une virgule) : </label>
                         <div class='my-2'>
-                            <textarea type='tags' name='tags' id='tags' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='tags' name='tags' placeholder='Exemple : #Noel, #Hiver'>$recette->tags_intitule</textarea>
+                            <textarea type='tags' name='tags' id='tags' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='tags' name='tags' placeholder='Exemple : #Noel, #Hiver' required=''>$recette->tags_intitule</textarea>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ echo
                 <div id='div_infos' class='text-charte_bleu_fonce border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>
                     <label for='titre' class='font-permanent_marker text-3xl' for='titre'>Entrez le titre de votre recette: </label><br>
                     <div class='my-2'>
-                        <input value='$recette->rec_titre' type='titre' name='titre' id='titre' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='titre' name='titre' placeholder='Exemple : Tarte aux pommes'/><br><br>
+                        <input value='$recette->rec_titre' type='titre' name='titre' id='titre' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' type='text' id='titre' name='titre' placeholder='Exemple : Tarte aux pommes' required=''/><br><br>
                     </div>
 
                     <label for='categorie' class='font-permanent_marker text-3xl' for='categorie'>Sélectionnez la catégorie de la recette : </label>
@@ -49,7 +49,7 @@ echo
                 <div id='div_resume' class='w-1/2 text-charte_bleu_fonce py-2 px-4'>
                     <label for='resume' class='font-permanent_marker text-3xl' for='resume'>Entrez le résumé de la recette : </label><br>
                     <div class='my-2'>
-                        <textarea type='resume' name='resume' id='resume' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' id='resume' name='resume' placeholder='Exemple : Cette version de la tarte aux pommes est une spécialité normande...'>$recette->rec_resume</textarea>
+                        <textarea type='resume' name='resume' id='resume' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' id='resume' name='resume' placeholder='Exemple : Cette version de la tarte aux pommes est une spécialité normande...' required=''>$recette->rec_resume</textarea>
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@ echo
                     <div id='div_contenu' class='text-charte_bleu_fonce pt-2 px-4'> 
                         <label for='contenu' class='font-permanent_marker text-3xl' for='contenu'>Entrez le contenu de la recette : </label><br>
                         <div class='my-2'>
-                            <textarea type='contenu' name='contenu' id='contenu' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' id='contenu' name='contenu' placeholder='Exemple : Matériel : moule, couteau, four...'>$recette->rec_contenu</textarea>
+                            <textarea type='contenu' name='contenu' id='contenu' class='text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full' id='contenu' name='contenu' placeholder='Exemple : Matériel : moule, couteau, four...' required=''>$recette->rec_contenu</textarea>
                         </div>
                     </div>
                 </div>

@@ -90,7 +90,7 @@ function requete_creation_recette(array $input) {
                 header('Location: index.php?action=liste_recette');
             }
 	} else {
-    	throw new Exception('Les données du formulaire sont invalides.');
+    	throw new Exception('Sélectionnez une catégorie valide !');
 	}
 
 }
@@ -128,7 +128,7 @@ function requete_modification_recette(array $input, $id) {
                 header('Location: index.php?action=gestion_recette');
             }
     } else {
-    	throw new Exception('Les données du formulaire sont invalides.');
+    	throw new Exception('Sélectionnez une catégorie valide !');
     }
 }
 
