@@ -66,13 +66,13 @@ function requete_creation_recette(array $input) {
         !empty($input['lien_image']) && !empty($input['tags'])) {
             $titre = $input['titre'];
             switch ($input['categorie']) {
-                case 'entree': 
+                case 'Entrée': 
                     $categorie_id = 1;
                     break;
-                case 'plat':
+                case 'Plat':
                     $categorie_id = 2;
                     break;
-                case 'dessert':
+                case 'Dessert':
                     $categorie_id = 3;
                     break;
             }
@@ -89,16 +89,14 @@ function requete_creation_recette(array $input) {
             } else {
                 header('Location: index.php?action=liste_recette');
             }
-	} else {
-    	throw new Exception('Sélectionnez une catégorie valide !');
 	}
 
 }
 
-function suppression_recette($id) {
+function suppression_recette($rec_id) {
     $recetteRepository = new RecetteRepository();
     $recetteRepository->connection = new DatabaseConnection();
-    $success = $recetteRepository->deleteRecette($id);
+    $success = $recetteRepository->deleteRecette($rec_id);
     if (!$success) {
         throw new Exception('Impossible de supprimer la recette !');
     } else {
@@ -113,22 +111,35 @@ function modification_recette($id) {
     require('views/modification_recette.php');
 }
 
-function requete_modification_recette(array $input, $id) {
-    if (!empty($input['contenu']) && !empty($input['resume'])) {
+function requete_modification_recette(array $input, $rec_id) {
+    if (!empty($input['titre']) && !empty($input['categorie']) && 
+        !empty($input['contenu']) && !empty($input['resume']) && 
+        !empty($input['lien_image']) && !empty($input['tags'])) {
+            $titre = $input['titre'];
+            switch ($input['categorie']) {
+                case 'Entrée': 
+                    $cat_id = 1;
+                    break;
+                case 'Plat':
+                    $cat_id = 2;
+                    break;
+                case 'Dessert':
+                    $cat_id = 3;
+                    break;
+            }
             $contenu = $input['contenu'];
             $resume = $input['resume'];
-            $categorie_id = $input['categorie'];
+            $lien_image = $input['lien_image'];
+            $tags = $input['tags'];
 
             $recetteRepository = new RecetteRepository();
             $recetteRepository->connection = new DatabaseConnection();
-            $success = $recetteRepository->updateRecette($id, $contenu, $resume, $categorie_id);
+            $success = $recetteRepository->updateRecette($rec_id, $cat_id, $titre, $contenu, $resume, $tags, $lien_image);
             if (!$success) {
                 throw new Exception('Impossible de modifier la recette !');
             } else {
                 header('Location: index.php?action=gestion_recette');
             }
-    } else {
-    	throw new Exception('Sélectionnez une catégorie valide !');
     }
 }
 

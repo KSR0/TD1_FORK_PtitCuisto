@@ -54,7 +54,7 @@ class CompteRepository {
         $pseudoexiste = $pseudoexiste["COUNT(*)"];
 
 
-        $query = "INSERT INTO FORK_UTILISATEUR (USER_ID, TYP_ID, STA_ID, USER_EMAIL, USER_MDP, USER_NOM, USER_PRENOM, USER_PSEUDO, USER_DATE_INS, USER_DATE_MODF) VALUES (?, 2, 1, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
+        $query = "INSERT INTO FORK_UTILISATEUR (USER_ID, TYP_ID, STA_ID, USER_EMAIL, USER_MDP, USER_NOM, USER_PRENOM, USER_PSEUDO, USER_DATE_INS, USER_DATE_MODIF) VALUES (?, 2, 1, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
         $stmt = $this->connection->getConnection()->prepare($query);
 
         if(strtoupper($pseudo) == "ADMIN") {
@@ -70,7 +70,7 @@ class CompteRepository {
             throw new Exception('Email déjà utilisé');
         }
         
-        $stmt->execute([$maxid,$email, $passwordhash, $nom, $prenom, $pseudo]);
+        $stmt->execute([$maxid, $email, $passwordhash, $nom, $prenom, $pseudo]);
         $infosUser = $stmt->fetch();
 
         return $infosUser;

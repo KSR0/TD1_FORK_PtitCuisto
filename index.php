@@ -40,10 +40,28 @@ try {
 			
 		}
 		else if ($_GET['action'] === 'suppression_recette') {
-			suppression_recette($_GET['id']);
+			if(isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
+				suppression_recette($_GET['rec_id']);
+			} else {
+				echo 'Erreur : La recette n\'existe pas';
+				die;
+			}
 		}
 		else if($_GET['action'] === 'modification_recette') {
-			modification_recette($_GET['rec_id']);
+			if(isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
+				modification_recette($_GET['rec_id']);
+			} else {
+				echo 'Erreur : La recette n\'existe pas';
+				die;
+			}
+		}
+		else if($_GET['action'] === 'requete_modification_recette') {
+			if(isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
+				requete_modification_recette($_POST, $_GET['rec_id']);
+			} else {
+				echo 'Erreur : La recette n\'existe pas';
+				die;
+			}
 		}
 		else if ($_GET['action'] === 'creation_compte') {
 			creation_compte();
@@ -52,9 +70,9 @@ try {
 			connexion_compte();
 		}
 		else if ($_GET['action'] === 'gestion_recette') {
-			if(isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
+			/* if(isset($_GET['rec_id']) && $_GET['rec_id'] > 0) {
 				requete_modification_recette($_POST, $_GET['rec_id']);
-			}
+			} */
 			gestion_recette($_SESSION['user_id']);
 		}
 		else if ($_GET['action'] === 'requete_connexion_compte') {
@@ -106,16 +124,25 @@ try {
 		else if ($_GET['action'] === 'supprimer_utilisateur') {
 			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
 				supprCompte($_GET['user_id']);
+			} else {
+				echo 'Erreur : L\'utilisateur n\'existe pas';
+				die;
 			}
 		}
 		else if ($_GET['action'] === 'bannir_utilisateur') {
 			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
 				bannir_utilisateur($_GET['user_id']);
+			} else {
+				echo 'Erreur : L\'utilisateur n\'existe pas';
+				die;
 			}
 		}
 		else if ($_GET['action'] === 'modifier_utilisateur') {
 			if(isset($_GET['user_id']) && $_GET['user_id'] > 0) {
 				afficherInfosModifCompte($_GET['user_id']);
+			} else {
+				echo 'Erreur : L\'utilisateur n\'existe pas';
+				die;
 			}
 		}
 		else {

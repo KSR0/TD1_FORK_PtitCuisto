@@ -275,16 +275,16 @@ class RecetteRepository {
         $requeteFetchNewTags = $this->connection->getConnection()->query($strFetchTags);
 
         //INSERTION DANS FORK_MENTIONNER
-        $strInsertionMENTIONNER = "INSERT INTO FORK_MENTIONNER(rec_id, tag_id) VALUES ";
+        $strInsertionMentionner = "INSERT INTO FORK_MENTIONNER(rec_id, tag_id) VALUES ";
         while (($row = $requeteFetchNewTags->fetch())) {
-            $strInsertionMENTIONNER .= "($IdRecette, " . $row['tag_id'] . "), ";
+            $strInsertionMentionner .= "($IdRecette, " . $row['tag_id'] . "), ";
         }
-        $strInsertionMENTIONNER = substr($strInsertionMENTIONNER, 0, -2) . ";";
-        $tagsAddedInMENTIONNERAffectedLines = $this->connection->getConnection()->query($strInsertionMENTIONNER);
-        $tagsAddedInMENTIONNERAffectedLines = 1;
+        $strInsertionMentionner = substr($strInsertionMentionner, 0, -2) . ";";
+        $tagsAddedInMentionnerAffectedLines = $this->connection->getConnection()->query($strInsertionMentionner);
+        $tagsAddedInMentionnerAffectedLines = 1;
 
 
-        return ($recetteRequestAffectedLines > 0 && $tagsAddedInMENTIONNERAffectedLines > 0);
+        return ($recetteRequestAffectedLines > 0 && $tagsAddedInMentionnerAffectedLines > 0);
     }
 
     public function getRecettesUser($user_id) {
@@ -335,28 +335,65 @@ class RecetteRepository {
             "
         );
         $requeteDeleteRecette->execute([$rec_id]);
-        return true;
+        return $requeteDeleteRecette->rowCount() > 0;
     }
 
-    public function updateRecette($rec_id, $contenu, $resume, $categorie_id) {
+    public function updateRecette($rec_id, $categorie_id, $titre, $contenu, $resume, $tags, $lien_image) {
+        //UPDATE DANS FORK_RECETTE
         $requeteUpdateRecette = $this->connection->getConnection()->prepare(
             "
             UPDATE FORK_RECETTE SET
+            CAT_ID = ?,
+            REC_TITRE = ?,
             REC_CONTENU = ?,
             REC_RESUME = ?,
-            REC_DATE_MODIF = NOW(),
-            CAT_ID = ?
+            REC_IMAGE = ?,
+            REC_DATE_MODIF = NOW()
             WHERE REC_ID = ?;
             "
         );
         $recetteUpdateAffectedLines = $requeteUpdateRecette->execute([
+            $categorie_id,
+            $titre,
             $contenu,
             $resume,
-            $categorie_id,
+            $lien_image,
             $rec_id
         ]);
 
-        return $recetteUpdateAffectedLines > 0;
+        //INSERTION DANS FORK_TAGS
+        //Transformation de la requete pour insertion dans FORK_TAGS
+        $tagsArray = explode(', ', $tags);
+        $cmpt = 1;
+        $strInsertionTAGS = 'INSERT IGNORE INTO FORK_TAGS(tag_id, tag_intitule) ';
+        foreach ($tagsArray as $tag) {
+            $strInsertionTAGS .= "SELECT MAX(tag_id) + $cmpt, '$tag' FROM FORK_TAGS UNION ";
+            $cmpt++;
+        }
+        $strInsertionTAGS = substr($strInsertionTAGS, 0, -7) . ";";
+        $tagsRequestAffectedLines = $this->connection->getConnection()->query($strInsertionTAGS);
+        
+
+        //RECUPERATION DES ID DES TAGS VENANT D'ETRE CREE OU DEJA EXISTANT
+        $strFetchTags = "SELECT tag_id FROM FORK_TAGS WHERE TAG_INTITULE IN (";
+        foreach ($tagsArray as $tag) {
+            $strFetchTags .= "'$tag', ";
+        }
+        $strFetchTags = substr($strFetchTags, 0, -2) . ");";
+        $requeteFetchNewTags = $this->connection->getConnection()->query($strFetchTags);
+
+
+        //INSERTION DANS FORK_MENTIONNER
+        $strInsertionMentionner = "INSERT IGNORE INTO FORK_MENTIONNER(rec_id, tag_id) VALUES ";
+        while (($row = $requeteFetchNewTags->fetch())) {
+            $strInsertionMentionner .= "($rec_id, " . $row['tag_id'] . "), ";
+        }
+        $strInsertionMentionner = substr($strInsertionMentionner, 0, -2) . ";";
+        $tagsAddedInMentionnerAffectedLines = $this->connection->getConnection()->query($strInsertionMentionner);
+        $tagsAddedInMentionnerAffectedLines = 1;
+
+
+        return $recetteUpdateAffectedLines > 0 || $tagsRequestAffectedLines > 0;
     }
 }
 
