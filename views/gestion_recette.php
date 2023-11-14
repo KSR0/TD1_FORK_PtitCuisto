@@ -67,6 +67,9 @@
                                 "<p class='font-permanent_marker text-charte_bleu_fonce text-center text-5xl'><a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" + (recettes[i].rec_titre).toUpperCase() + "</a></p><br>" +
                                 "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>" + recettes[i].cat_intitule + "</p><br>" +
                                 "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Résumé :  </span><br>" + recettes[i].rec_resume + "</p><br>" +
+                                "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Dernière modification : </span>" +
+                                    "<br>le " + formatteDate(recettes[i].rec_date_modif) + 
+                                "</p>" +
                             "</div>" +
                         "</div>" +
 
@@ -87,6 +90,22 @@
 
         divRecettes.innerHTML += content;
         nbRecetteAfficher += 10;
+    }
+
+    function formatteDate(dateStr) {
+        let date = new Date(dateStr);
+        let formattedDate =
+            ("0" + date.getDate()).slice(-2) +
+            "/" +
+            ("0" + (date.getMonth() + 1)).slice(-2) +
+            "/" +
+            date.getFullYear() +
+            " à " +
+            ("0" + date.getHours()).slice(-2) +
+            ":" +
+            ("0" + date.getMinutes()).slice(-2);
+
+        return formattedDate;
     }
 
     afficherRecettes();

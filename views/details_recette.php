@@ -1,130 +1,90 @@
-<?php ob_start();
+<?php ob_start(); ?>
 
-// ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ //
+<!-- ↓----------------------------------------------------↓ Code de la page ↓----------------------------------------------------↓ -->
 
-echo
-"<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Recette : " . $recette->rec_titre . "</h1>";
-?>
-<div id="recette">
-    <?php
-    echo
-        "<div class='border-2 border-charte_bleu_clair h-fit rounded-lg pt-2 px-4 mb-4 mr-2'>" .
-            "<div class='flex'>" .
+<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Création d'une recette</h1>
 
-                "<div id='tag_image' class='w-1/2 max-h-div_recette overflow-y-auto overflow-x-hidden text-center p-2 mr-2'>" .
-                    "<img class='h-auto w-full' src='" . $recette->rec_image . "' alt='Image recette " . $recette->rec_titre . "' width='500px'/>" . "<br><br>" .
-                    "<br>" .
+<form id="recetteForm" action="index.php?action=requete_creation_recette" method="post">
+    <div id="recette">
+        <div class='border-2 border-charte_bleu_clair h-fit rounded-lg pt-2 px-4 mb-2 mr-2'>
+            <div class='flex'>
 
-                    "<div class='-mt-20 grid grid-cols-2 gap-2'>";
+                <div id='tag_image' class='w-1/2 max-h-div_recette text-center p-4 mr-2'>
+                    <div class='text-charte_bleu_fonce'>
+                        <label for='lien_image' class='font-permanent_marker text-3xl' for='lien_image'>Entrez le lien de l'image : </label><br>
+                        <div class="my-2">
+                            <textarea type='lien_image' name='lien_image' id='lien_image' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="lien_image" name="lien_image" placeholder="Exemple : https://le_lien_de_l_image_de_la_recette" required=""></textarea><br>
+                        </div>
+                    </div>
 
-                // Divs pour chaque tag
-                $tags = explode('#', $recette->tags_intitule);
-                for ($j = 1; $j < count($tags); $j++) {
-                    echo
-                        "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>" .
-                            "<p>" . $tags[$j] . "</p>" .
-                        "</div>";
-                }
+                    <div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mb-2'>
+                        <label for='tags' class='font-permanent_marker text-3xl' for="tags">Entrez les tags (separés par une virgule) : </label>
+                        <div class="my-2">
+                            <textarea type='tags' name='tags' id='tags' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="tags" name="tags" placeholder="Exemple : #Noel, #Hiver" required=""></textarea>
+                        </div>
+                    </div>
+                </div>
 
-                echo
-                    "</div>" .
-                "</div>" .
+                <div id='div_infos' class='text-charte_bleu_fonce border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>
+                    <label for='titre' class="font-permanent_marker text-3xl" for="titre">Entrez le titre de votre recette: </label><br>
+                    <div class="my-2">
+                        <input type='titre' name='titre' id='titre' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" type="text" id="titre" name="titre" placeholder="Exemple : Tarte aux pommes" required=""/><br><br>
+                    </div>
 
-                "<div id='div_infos' class='text-charte_bleu_clair border-l-2 border-charte_bleu_fonce w-1/2 py-2 px-4'>" .
-                    "<p class='text-2xl'>
-                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>
-                    <br>" . $recette->cat_intitule . "</p><br>" .
+                    <label for='categorie' class="font-permanent_marker text-3xl" for="categorie">Sélectionnez la catégorie de la recette : </label>
+                    <div class="my-2">
+                        <select type='categorie' name='categorie' id='categorie' class="text-charte_bleu_clair cursor-pointer border border-charte_bleu_fonce rounded-lg p-2 " name="categorie" id="categorie-select">
+                            <option class="text-charte_gris" value="">-- Choisissez une catégorie --</option>
+                            <option class="text-charte_bleu_clair" value="entree">Entrée</option>
+                            <option class="text-charte_bleu_clair" value="plat">Plat</option>
+                            <option class="text-charte_bleu_clair" value="dessert">Dessert</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-                    "<p class='text-2xl'>
-                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Auteur : </span>
-                    <br>"  . $recette->user_pseudo . "</p><br>" .
+            <hr class='border-2 border-charte_bleu_fonce my-4 mx-auto'>
 
-                    "<p class='text-2xl'>
-                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Recette créée :</span>
-                    <br>le " . date("d/m/Y à H:i", strtotime($recette->rec_date_crea)) . "</p><br>" .
-                    
-                    "<p class='text-2xl'>
-                        <span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Dernière modification le :</span>
-                        <br>le " . date("d/m/Y à H:i", strtotime($recette->rec_date_modif)) . "</p><br>" .
-                "</div>".
-            "</div>".
+            <div class='flex'>
+                <div id='div_resume' class='w-1/2 text-charte_bleu_fonce py-2 px-4'>
+                    <label for='resume' class="font-permanent_marker text-3xl" for="resume">Entrez le résumé de la recette : </label><br>
+                    <div class="my-2">
+                        <textarea type='resume' name='resume' id='resume' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" id="resume" name="resume" placeholder="Exemple : Cette version de la tarte aux pommes est une spécialité normande..." required=""></textarea>
+                    </div>
+                </div>
 
-            "<hr class='border-2 border-charte_bleu_fonce my-4 mx-auto'>" .
+                <div class='w-1/2 border-l-2 border-charte_bleu_fonce mb-2'>
+                    <div id='div_contenu' class='text-charte_bleu_fonce pt-2 px-4'> 
+                        <label for='contenu' class="font-permanent_marker text-3xl" for="contenu">Entrez le contenu de la recette : </label><br>
+                        <div class="my-2">
+                            <textarea type='contenu' name='contenu' id='contenu' class="text-charte_bleu_clair border border-charte_bleu_fonce rounded-lg p-2 w-full" id="contenu" name="contenu" placeholder="Exemple : Matériel : moule, couteau, four..." required=""></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            "<div class='flex'>" .
-                "<div id='resume' class='w-1/2 text-charte_bleu_clair py-2 px-4'>" .
-                    "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Résumé :</span><br>" . $recette->rec_resume . "</p><br>" . 
-                "</div>" .
+    <div id='error' class='text-center'></div>
 
-                "<div class='w-1/2 border-l-2 border-charte_bleu_fonce mb-2'>" .
-                    "<div id='contenu' class='text-charte_bleu_clair pt-2 px-4'>" .
-                        "<p class='text-2xl'><span class='text-3xl text-charte_bleu_fonce font-permanent_marker'>Contenu :</span><br>" . $recette->rec_contenu . "</p><br>" . 
-                    "</div>" .
-                "</div>" .
-            "</div>" .
-        "</div>";
-    ?>
-</div>
-
-<?php
-if (count($commentaires) != 0) {
-    echo '<h2 class="text-4xl text-charte_bleu_fonce font-permanent_marker mb-2">Commentaires</h2>
-    <div class="border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2 mb-2" id="commentaires">';
-    
-    foreach ($commentaires as $commentaire) {
-        echo '
-            <p class="text-3xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc mb-1"><span class="font-permanent_marker text-charte_bleu_fonce">' . htmlspecialchars($commentaire->user_pseudo) . '</span> a commenté le ' . date("d/m/Y à H:i", strtotime($commentaire->com_date_crea)) . ' :</p>
-            <p class="text-xl">' . nl2br(htmlspecialchars($commentaire->com_description)) . '</p>
-            <hr class="border border-charte_bleu_fonce my-4 mx-auto">';
-    }
-    
-    echo '</div>';
-}
-?>
-
-
-
-<?php
-    if (isset($_SESSION['user_id'])) {
-        echo "<hr class='border-2 border-charte_bleu_clair my-6 mx-auto'>" .
-        "<h2 class='text-4xl text-charte_bleu_fonce font-permanent_marker mb-2'>Ajouter un commentaire</h2>" .
-        "<div class='border-2 border-charte_bleu_fonce text-charte_bleu_clair rounded-lg p-2' id='ajout_commentaires'>" .
-            "<form action='index.php?action=requete_creation_commentaire&rec_id=" . $recette->rec_id .  "' method='post'>" .
-                "<div id='contenu' class='text-charte_bleu_clair pt-2 -mb-2'>" .
-                    "<label class='font-permanent_marker text-2xl p-2 rounded-lg bg-charte_bleu_clair text-charte_blanc' for='commentaire'>Écrivez un commentaire : </label><br>" .
-                    "<div class='mb-2 mt-4'>" .
-                        "<textarea class='text-charte_bleu_gris text-xl border border-charte_bleu_fonce rounded-lg p-2 w-full' id='ajout_comm' name='commentaire' placeholder='Exemple : Pour avoir essayer de faire votre recette, elle est excellente !'></textarea>" .
-                    "</div>" .
-                "</div>" .
-
-                "<div id='error' class='text-center'></div>" .
-
-                "<button id='submit_btn' class='font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:bg-charte_bleu_fonce hover:border-4 hover:border-charte_bleu_clair'>" .
-                    "<p type='submit'>Publier</p>" .
-                "</button>" .
-            "</form>" .
-        "</div>";
-    }
-?>
+    <button class="font-permanent_marker cursor-pointer p-2.5 mt-3 flex justify-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce">
+        <p type="submit">Créer une recette</p>
+    </button>
+</form>
 
 <script>
-    let commentaire = document.querySelector('#ajout_comm');
-    let message_erreur = document.querySelector('#error');
-    let submit_btn = document.querySelector('#submit_btn');
-    let comment_form = document.querySelector('#comment_form');
+    document.addEventListener("DOMContentLoaded", function () {
+        let recetteForm = document.querySelector('#recetteForm');
 
-    submit_btn.addEventListener("click", function () {
-        let commentaire_value = commentaire.value;
+        recetteForm.addEventListener("submit", function (event) {
+            let categorieSelect = document.querySelector('#categorie');
+            let errorDiv = document.querySelector('#error');
 
-        if (commentaire_value === '') {
-            message_erreur.innerHTML = "<p class='text-charte_bleu_fonce'><span class='font-permanent_marker'>Erreur :</span> le commentaire ne peut pas être vide.</p>";
-            // Annuler l'envoi du formulaire
-            event.preventDefault();
-        } else {
-            message_erreur.innerHTML = ''; 
-            // Soumettre le formulaire
-            comment_form.submit();
-        }
+            if (categorieSelect.value === '') {
+                errorDiv.innerHTML = "<p class='text-charte_bleu_fonce'><span class='font-permanent_marker'>Erreur :</span> Veuillez choisir une catégorie.</p>";
+                event.preventDefault(); // Annuler l'envoi du formulaire
+            }
+        });
     });
 </script>
 

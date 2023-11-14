@@ -36,45 +36,46 @@
             compteur++;
             content +=
                 "<a href='index.php?action=details_recette&rec_id=" + recettes[i].rec_id + "'>" +
-                "<div class='border-2 border-charte_bleu_clair h-fit rounded-lg max-h-div_recette flex pt-2 px-4 mb-4 mr-2'>" +
-                "<div id='div_gauche' class='w-1/2 text-center p-2 mr-2'>" +
-                "<img class='h-auto w-full' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
-                "<br>";
+                    "<div class='border-2 border-charte_bleu_clair h-fit rounded-lg max-h-div_recette flex pt-2 px-4 mb-4 mr-2'>" +
+                        "<div id='div_gauche' class='w-1/2 text-center p-2 mr-2'>" +
+                            "<img class='h-auto w-full' src='" + recettes[i].rec_image + "' alt='Image recette " + recettes[i].rec_titre + "'>" +
+                            "<br>";
 
-            content += "<div class='-mt-5 mb-2'>";
+                content += "<div class='-mt-5 mb-2'>";
 
-            let tags = recettes[i].tags_intitule.split('#');
-            if (tags.length < 3) {
-                for (let j = 1; j < tags.length; j++) {
+                    let tags = recettes[i].tags_intitule.split('#');
+                    if (tags.length < 3) {
+                        for (let j = 1; j < tags.length; j++) {
+                            content +=
+                                "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mt-2'>" +
+                                    "<p class='text-lg'>" + tags[j] + "</p>" +
+                                "</div>";
+                    }
+                    } else {
+                        for (let j = 1; j < 3; j++) {
+                            content +=
+                                "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mt-2'>" +
+                                    "<p class='text-lg'>" + tags[j] + "</p>" +
+                                "</div>";
+                        }
+                    }
+
+                        content +=
+                            "</div>";
+
                     content +=
-                        "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mt-2'>" +
-                        "<p class='text-lg'>" + tags[j] + "</p>" +
-                        "</div>";
-                }
-            } else {
-                for (let j = 1; j < 3; j++) {
-                    content +=
-                        "<div class='text-center text-charte_blanc border-2 border-charte_bleu_clair rounded-lg bg-charte_bleu_clair p-2 mt-2'>" +
-                        "<p class='text-lg'>" + tags[j] + "</p>" +
-                        "</div>";
-                }
-            }
+                        "</div>" +
 
-            content +=
-                "</div>";
+                        "<div id='div_droite' class='border-l-2 border-charte_bleu_fonce text-charte_bleu_clair w-1/2 pt-2 px-4 mb-2 ml-2'>" +
+                            "<p class='font-permanent_marker text-charte_bleu_fonce text-center text-xl py-2'>" + (recettes[i].rec_titre).toUpperCase() + "</p>" +
+                            "<p class='text-sm py-2'><span class='text-lg text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>" + recettes[i].cat_intitule + "</p>" +
+                            "<p class='text-sm py-2'><span class='text-lg text-charte_bleu_fonce font-permanent_marker'>Auteur : </span>" + recettes[i].user_pseudo + "</p>" +
+                            "<p class='text-sm pt-3'><span class='text-lg text-charte_bleu_fonce font-permanent_marker'>Dernière modification : </span>" +
+                                "<br>le " + formatteDate(recettes[i].rec_date_modif) + 
+                            "</p>" +
+                        "</div>" +
 
-            content +=
-                "</div>" +
-
-                "<div id='div_droite' class='border-l-2 border-charte_bleu_fonce text-charte_bleu_clair w-1/2 pt-2 px-4 mb-2 ml-2'>" +
-                "<p class='font-permanent_marker text-charte_bleu_fonce text-center text-xl py-2'>" + (recettes[i].rec_titre).toUpperCase() + "</p>" +
-                "<p class='text-sm py-2'><span class='text-lg text-charte_bleu_fonce font-permanent_marker'>Catégorie : </span>" + recettes[i].cat_intitule + "</p>" +
-                "<p class='text-sm py-2'><span class='text-lg text-charte_bleu_fonce font-permanent_marker'>Auteur : </span>" + recettes[i].user_pseudo + "</p>" +
-                "<p class='text-sm pt-3'><span class='text-lg text-charte_bleu_fonce font-permanent_marker'>Dernière modification : </span>" +
-                "<br>le " + formatteDate(recettes[i].rec_date_modif) + "</p>" +
-                "</div>" +
-
-                "</div>" +
+                    "</div>" +
                 "</a>";
         }
         divRecettes.innerHTML += content;

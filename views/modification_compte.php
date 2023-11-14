@@ -29,15 +29,6 @@
                         <form action='index.php?action=requete_creation_compte' id='signupForm' method='post' class='space-y-4 md:space-y-6'>
 
                             <div>
-                                <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Status du compte :</p>
-                                
-                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-person-check-fill'></i>
-                                    <p type='statut' name='statut' id='statut' class='text-lg ml-2 focus:outline-none'>" . $compte->sta_intitule . "</p>
-                                </div>
-                            </div>
-
-                            <div>
                                 <label for='pseudo' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Pseudo :</label>
                                 
                                 <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
@@ -73,26 +64,8 @@
                                 </div>
                             </div>
 
-                            <div>
-                                <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Date d'inscription :</p>
-                                
-                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-calendar2-check-fill'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'> le " . date("d/m/Y à H:i", strtotime($compte->user_date_ins)) . "</p>
-                                </div>
-                            </div>
-
-                            <div>
-                                <p class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Date de dernière modification :</p>
-                                
-                                <div class='text-charte_bleu_fonce cursor-not-allowed py-1.5 flex items-center rounded-md px-4 duration-300 border-2 border-charte_bleu_fonce'>
-                                    <i class='bi bi-clock-history'></i>
-                                    <p class='text-lg ml-2 focus:outline-none'> le " . date("d/m/Y à H:i", strtotime($compte->user_date_modif)) . "</p>
-                                </div>
-                            </div>
                             <button class='font-permanent_marker cursor-pointer p-2.5 mt-5 flex justify-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce'>
-                                <i class='bi bi-box-arrow-right'></i>
-                                <p class='ml-2'>Sauvegarder les changements</p>
+                                <p>Sauvegarder les changements</p>
                             </button>
                         </form>
                     </div>

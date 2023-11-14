@@ -38,9 +38,9 @@
                     </button>
 
                     
-                    <div class="flex justify-center">
+                    <div class="flex -mt-5 justify-center">
 
-                        <div class="flex -mt-3 items-start">
+                        <div class="flex items-start">
                             <a href="index.php?action=creation_compte" title="S'inscrire" class="text-charte_bleu_fonce text-sm font-medium hover:underline text-right">Je n'ai pas de compte</a>
                         </div>
 

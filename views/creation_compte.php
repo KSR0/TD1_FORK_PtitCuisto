@@ -17,7 +17,7 @@
                     <label for="pseudo" class="text-charte_bleu_fonce block font-permanent_marker text-xl font-medium">Entrez votre pseudo :</label>
                     
                     <div class="text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce">
-                        <i class='bi bi-person-rolodex'></i>
+                        <i class='bi bi-file-earmark-person-fill'></i>
                         <input type="text" name="pseudo" id="pseudo" class="text-lg w-full ml-2 focus:outline-none" placeholder="Exemple : mon_pseudo" required="">
                     </div>
 
@@ -37,7 +37,7 @@
                     <label for="prenom" class="text-charte_bleu_fonce block font-permanent_marker text-xl font-medium">Entrez votre prénom :</label>
                     
                     <div class="text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce">
-                        <i class="bi bi-file-earmark-person-fill"></i>
+                        <i class="bi bi-person-fill"></i>
                         <input type="prenom" name="prenom" id="prenom" class="text-lg w-full ml-2 focus:outline-none" placeholder="Exemple : Ptit" required="">
                     </div>
 
