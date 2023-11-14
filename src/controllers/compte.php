@@ -12,6 +12,10 @@ function creation_compte() {
 	require('views/creation_compte.php');
 }
 
+function modification_mdp() {
+	require('views/modification_mdp.php');
+}
+
 function requete_connexion_compte(array $input) {
 	if (!empty($input['email']) && !empty($input['password'])) {
 		$email = $input['email'];

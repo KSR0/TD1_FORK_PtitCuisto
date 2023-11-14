@@ -85,6 +85,9 @@ try {
 		else if ($_GET['action'] === 'mon_compte') {
 			afficherInfosCompte($_SESSION['user_id']);
 		}
+		else if ($_GET['action'] === 'modification_mdp') {
+			modification_mdp();
+		}
 		else if ($_GET['action'] === 'modification_compte') {
 			afficherInfosModifCompte($_SESSION['user_id']);
 		}

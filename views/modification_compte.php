@@ -51,50 +51,20 @@
                                 </div>
                             </div>
 
-                            <form action='index.php?action=requete_changement_mdp' method='post'>
-
-                                <div>
-                                    <label for='old_password' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Entrez votre ancien mot de passe : </label>
-                                    <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
-                                        <i class='bi bi-backspace-reverse-fill'></i>
-                                        <input type='password' id='old_password' name='old_password' class='text-lg w-full ml-2 focus:outline-none' value='' placeholder='Exemple : votre_mdp_1234' required=''/>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for='new_password' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Entrez votre nouveau mot de passe : </label>
-                                    <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
-                                        <i class='bi bi-question-circle-fill'></i>
-                                        <input type='password' id='new_password' name='new_password' class='text-lg w-full ml-2 focus:outline-none' placeholder='Exemple : votre_nouveau_mdp_1234' required=''/>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for='new_password_conf' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Confirmez votre nouveau mot de passe : </label>
-                                    <div class='text-charte_bleu_clair py-1.5 flex items-center rounded-md px-2 duration-300 border-2 border-charte_bleu_fonce'>
-                                        <i class='bi bi-check-circle-fill'></i>
-                                        <input type='password' id='new_password_conf' name='new_password_conf' class='text-lg w-full ml-2 focus:outline-none' placeholder='Exemple : votre_nouveau_mdp_1234' required=''/>
-                                    </div>
-                                </div>
-
-                                <div id='erreur' class='text-center text-xl'></div>
-
-                                <div>
-                                    <button type='submit' id='submit_btn' class='font-permanent_marker w-full cursor-not-allowed p-2.5 -mb-3 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4' disabled>Modifier mon mot de passe</button>
-                                </div>
-                            </form>
-
                             <div>
                                 <button class='font-permanent_marker cursor-pointer p-2.5 -mb-5 w-full flex justify-center rounded-md px-2 border-2 border-charte_bleu_fonce text-charte_blanc mx-auto bg-charte_bleu_clair hover:border-charte_bleu_clair hover:bg-charte_bleu_fonce hover:border-4'>
                                     <p>Sauvegarder les changements</p>
-                                </button><br> <!-- FAIRE AFFICHER UN POP-UP POUR CONFIRMATION -->
-                                <a href='index.php?action=suppr_compte' id='btn-suppr-compte-user' class='font-permanent_marker w-full cursor-pointer p-2.5 flex justify-center rounded-md px-2 border-2 text-charte_bleu_clair border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4'>Supprimer votre compte</a>
+                                </button><br>
                             </div>
+
                         </form>
+
+                        <div class='text-center'>
+                        <a href='index.php?action=modification_mdp' class='font-permanent_marker w-full cursor-pointer p-2.5 mb-2 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4'>Modifier mon mot de passe</a>
+                        <a href='index.php?action=suppr_compte' id='btn-suppr-compte-user' class='font-permanent_marker w-full cursor-pointer p-2.5 flex justify-center rounded-md px-2 border-2 text-charte_bleu_clair border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4'>Supprimer votre compte</a>
                     </div>
                 </div>
-            </div>
-        </div>";
+            </div>";
     } else {
         echo "<h1 class='text-center text-charte_bleu_fonce font-permanent_marker text-5xl mb-5'>Modifier le compte de $compte->user_pseudo</h1>
             <div class='flex flex-col items-center justify-center px-6 py-2 mx-auto lg:py-0'>
