@@ -119,6 +119,24 @@ function afficherInfosModifCompte($user_id) {
 	require('views/modification_compte.php');
 }
 
+function requete_modification_compte($input, $user_id) {
+	$CompteRepository = new CompteRepository();
+	$CompteRepository->connection = new DatabaseConnection();
+	$result = $CompteRepository->updateAccountData($input, $user_id);
+
+	if ($result != 1) {
+		throw new Exception('La suppression du compte n\'a pas fonctionné');
+	} else {
+		if ($user_id == $_SESSION['user_id']) {
+			afficherInfosCompte($user_id);
+			require('views/mon_compte.php');
+		} else {
+			gerer_utilisateurs(); // Recharge la liste d'utilisateurs après avoir (de)banni qql
+			require('views/gerer_utilisateurs.php');
+		}
+	}
+}
+
 function gerer_utilisateurs() {
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();

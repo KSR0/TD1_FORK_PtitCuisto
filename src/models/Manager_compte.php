@@ -172,4 +172,27 @@ class CompteRepository {
         return $utilisateurs;
     }
 
+    public function updateAccountData($input, $user_id) {
+        $requeteUpdateCompte = $this->connection->getConnection()->prepare(
+            "
+            UPDATE FORK_UTILISATEUR SET
+            USER_PSEUDO = ?,
+            USER_NOM = ?,
+            USER_PRENOM = ?,
+            USER_EMAIL = ?,
+            USER_DATE_MODIF = NOW()
+            WHERE USER_ID = ?;
+            "
+        );
+        $requeteUpdateCompte->execute([
+            $input['pseudo'],
+            $input['nom'],
+            $input['prenom'],
+            $input['email'],
+            $user_id
+        ]);
+
+        return $requeteUpdateCompte->rowCount() > 0;
+    }
+
 }

@@ -13,7 +13,7 @@
 
                     <div class='border-2 border-charte_bleu_fonce rounded-lg p-4 space-y-4 md:space-y-6 sm:p-8'>
 
-                        <form action='index.php?action=requete_creation_compte' id='signupForm' method='post' class='space-y-4 md:space-y-6'>
+                        <form action='index.php?action=requete_modifier_utilisateur&user_id=$compte->user_id' id='signupForm' method='post' class='space-y-4 md:space-y-6'>
 
                             <div>
                                 <label for='pseudo' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Modifier mon pseudo :</label>
@@ -73,7 +73,7 @@
 
                     <div class='border-2 border-charte_bleu_fonce rounded-lg p-4 space-y-4 md:space-y-6 sm:p-8'>
 
-                        <form action='index.php?action=requete_creation_compte' id='signupForm' method='post' class='space-y-4 md:space-y-6'>
+                        <form action='index.php?action=requete_modifier_utilisateur&user_id=$compte->user_id' id='signupForm' method='post' class='space-y-4 md:space-y-6'>
 
                             <div>
                                 <label for='pseudo' class='text-charte_bleu_fonce block font-permanent_marker text-xl font-medium'>Modifier le pseudo de l'utilisateur :</label>
