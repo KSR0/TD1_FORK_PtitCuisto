@@ -35,9 +35,9 @@
                     <div class="my-2">
                         <select type='categorie' name='categorie' id='categorie' class="text-charte_bleu_clair cursor-pointer border border-charte_bleu_fonce rounded-lg p-2 " name="categorie" id="categorie-select">
                             <option class="text-charte_gris" value="">-- Choisissez une catégorie --</option>
-                            <option class="text-charte_bleu_clair" value="entree">Entrée</option>
-                            <option class="text-charte_bleu_clair" value="plat">Plat</option>
-                            <option class="text-charte_bleu_clair" value="dessert">Dessert</option>
+                            <option class="text-charte_bleu_clair" value="Entrée">Entrée</option>
+                            <option class="text-charte_bleu_clair" value="Plat">Plat</option>
+                            <option class="text-charte_bleu_clair" value="Dessert">Dessert</option>
                         </select>
                     </div>
                 </div>
