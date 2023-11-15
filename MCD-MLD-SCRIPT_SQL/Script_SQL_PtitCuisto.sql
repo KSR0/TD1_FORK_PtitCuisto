@@ -103,7 +103,10 @@ INSERT INTO `FORK_INGREDIENT` (`ING_ID`, `ING_INTITULE`) VALUES
 ("5", "Fromage"),
 ("6", "Oeuf"),
 ("7", "Poireau"),
-("8", "Tomate");
+("8", "Tomate"),
+("9", "Champignon"),
+("10", "Carotte"),
+("11", "Huile");
 
 -- --------------------------------------------------------
 
