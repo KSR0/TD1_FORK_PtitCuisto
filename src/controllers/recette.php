@@ -143,5 +143,12 @@ function requete_modification_recette(array $input, $rec_id) {
     }
 }
 
+function gerer_recettes() {
+    $recetteRepository = new RecetteRepository();
+    $recetteRepository->connection = new DatabaseConnection();
+    $recettes = $recetteRepository->getRecettes();
+    require('views/gestion_recette.php');
+}
+
 
 ?>
