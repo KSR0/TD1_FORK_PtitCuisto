@@ -2,6 +2,8 @@
 
 require_once('src/models/Manager_compte.php');
 require_once('src/lib/database.php');
+require_once('src/controllers/edito.php');
+
 
 
 function connexion_compte() {
@@ -83,12 +85,21 @@ function supprCompte($user_id) {
 	$CompteRepository = new CompteRepository();
 	$CompteRepository->connection = new DatabaseConnection();
 	$result = $CompteRepository->deleteAccount($user_id);
+	
 
-	if ($user_id == $_SESSION['user_id']) {
-		require('views/mon_compte.php');
+	if ($result != 1) {
+		throw new Exception('La suppression du compte n\'a pas fonctionné');
 	} else {
-		gerer_utilisateurs(); // Recharge la liste d'utilisateurs après avoir (de)banni qql
-		require('views/gerer_utilisateurs.php');
+		if ($user_id == $_SESSION['user_id']) {
+			$_SESSION = array();
+			session_destroy();
+			session_write_close();
+			edito();
+			require('views/edito.php');
+		} else {
+			gerer_utilisateurs(); // Recharge la liste d'utilisateurs après avoir (de)banni qql
+			require('views/gerer_utilisateurs.php');
+		}
 	}
 }
 

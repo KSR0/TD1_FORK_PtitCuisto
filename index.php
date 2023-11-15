@@ -113,7 +113,13 @@ try {
 			changer_mdp($_POST);
 		}
 		else if ($_GET['action'] === 'requete_suppression_compte') {
-			supprCompte($_SESSION['user_id']);
+			if (isset($_GET['deconnexion'])) {
+				if(session_status () == PHP_SESSION_ACTIVE) {
+					supprCompte($_SESSION['user_id']);
+					
+				}
+			}
+			edito();
 		}
 		else if ($_GET['action'] === 'pannel') {
 			pannel();

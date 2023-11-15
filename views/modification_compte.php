@@ -61,7 +61,7 @@
 
                         <div class='text-center'>
                         <a href='index.php?action=modification_mdp' class='font-permanent_marker w-full cursor-pointer p-2.5 mb-2 flex justify-center rounded-md px-2 border-2 text-charte_bleu_fonce border-charte_bleu_clair hover:border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4'>Modifier mon mot de passe</a>
-                        <a href='index.php?action=suppr_compte' id='btn-suppr-compte-user' class='font-permanent_marker w-full cursor-pointer p-2.5 flex justify-center rounded-md px-2 border-2 text-charte_bleu_clair border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4'>Supprimer votre compte</a>
+                        <a href='index.php?action=requete_suppression_compte&deconnexion=true' id='btn-suppr-compte-user' class='font-permanent_marker w-full cursor-pointer p-2.5 flex justify-center rounded-md px-2 border-2 text-charte_bleu_clair border-charte_bleu_fonce hover:bg-charte_bleu_clair hover:text-charte_bleu_fonce hover:border-4'>Supprimer votre compte</a>
                     </div>
                 </div>
             </div>";

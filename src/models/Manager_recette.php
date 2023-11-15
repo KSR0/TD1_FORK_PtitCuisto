@@ -22,7 +22,7 @@ class RecetteRepository {
     public function getRecettes(): array 
     {
         $requeteRecettes = $this->connection->getConnection()->query(
-            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) ORDER BY rec_date_crea DESC;"
+            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) ORDER BY REC_DATE_CREA DESC;"
         );
         $recettes = [];
         while (($row = $requeteRecettes->fetch())) {
@@ -93,7 +93,7 @@ class RecetteRepository {
 
     public function getRecettesCategorie($type_filtre): array {
         $requeteRecettes = $this->connection->getConnection()->prepare(
-            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE CAT_INTITULE = ? ORDER BY REC_TITRE ASC;"
+            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE CAT_INTITULE = ? ORDER BY REC_DATE_CREA DESC;"
         );
         $requeteRecettes->execute([$type_filtre]);
         $recettes = [];
@@ -130,7 +130,7 @@ class RecetteRepository {
 
     public function getRecettesTitre($titre) {
         $requeteRecettes = $this->connection->getConnection()->prepare(
-            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE REC_TITRE LIKE ? ORDER BY REC_TITRE ASC;"
+            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE REC_TITRE LIKE ? ORDER BY REC_DATE_CREA DESC;"
         );
         $requeteRecettes->execute([$titre]);
 
@@ -183,7 +183,7 @@ class RecetteRepository {
             JOIN FORK_CATEGORIE USING(CAT_ID)
             JOIN FORK_UTILISATEUR USING(USER_ID)
             WHERE ($conditionCombinee)
-            ORDER BY REC_TITRE ASC;"
+            ORDER BY REC_DATE_CREA DESC;"
         );
         
         $requeteRecettes->execute($parametres);
@@ -289,7 +289,7 @@ class RecetteRepository {
 
     public function getRecettesUser($user_id) {
         $requeteRecettes = $this->connection->getConnection()->prepare(
-            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE USER_ID = ? ORDER BY REC_TITRE ASC;"
+            "SELECT REC_ID, CAT_ID, REC_IMAGE, REC_TITRE, REC_CONTENU, REC_RESUME, CAT_INTITULE, REC_DATE_CREA, REC_DATE_MODIF, USER_ID, USER_PSEUDO FROM FORK_RECETTE JOIN FORK_CATEGORIE USING(CAT_ID) JOIN FORK_UTILISATEUR USING(USER_ID) WHERE USER_ID = ? ORDER BY REC_DATE_MODIF DESC;"
         );
         $requeteRecettes->execute([$user_id]);
         $recettes = [];
