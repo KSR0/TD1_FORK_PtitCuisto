@@ -158,7 +158,9 @@ try {
 				die;
 			}
 		}
-		
+		else if ($_GET['action'] === 'gerer_recettes') {
+			gerer_recettes();
+		}
 		else {
 			header("Location: views/error_page.php");
 			die();
