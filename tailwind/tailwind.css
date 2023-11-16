@@ -1408,6 +1408,10 @@ video {
     padding-left: 20rem;
   }
 
+  .lg\:pl-menu {
+    padding-left: 300px;
+  }
+
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
