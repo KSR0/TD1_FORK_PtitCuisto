@@ -13,6 +13,17 @@ class Compte {
     public string $user_nom;
     public string $user_date_ins;
     public string $user_date_modif;
+
+    public int $rec_id;
+    public int $cat_id;
+    public string $rec_titre;
+    public string $rec_contenu;
+    public string $rec_resume;
+    public string $rec_image;
+    public string $cat_intitule;
+    public string $tags_intitule;
+    public string $rec_date_crea;
+    public string $rec_date_modif;
 }
 
 class CompteRepository {
@@ -101,11 +112,19 @@ class CompteRepository {
 
     public function deleteAccount($user_id) {
         $deleteUserAccount = "DELETE FROM FORK_UTILISATEUR WHERE USER_ID = ?";
+        $changeAuthorComm = "UPDATE FORK_COMMENTAIRE SET USER_ID = 1 WHERE USER_ID = ?";
+        $changeAuthorRecette = "UPDATE FORK_RECETTE SET USER_ID = 1 WHERE USER_ID = ?";
+
+        $requeteChangeAuthorComm = $this->connection->getConnection()->prepare($changeAuthorComm);
+        $requeteChangeAuthorComm->execute([$user_id]);
+
+        $requeteChangeAuthorRecette = $this->connection->getConnection()->prepare($changeAuthorRecette);
+        $requeteChangeAuthorRecette->execute([$user_id]);
 
         $requeteDeleteUserAccount = $this->connection->getConnection()->prepare($deleteUserAccount);
         $requeteDeleteUserAccount->execute([$user_id]);
 
-        return $requeteDeleteUserAccount->rowCount() > 0;
+        return $requeteChangeAuthorComm->rowCount() > 0 && $requeteChangeAuthorRecette->rowCount() > 0 && $requeteDeleteUserAccount->rowCount() > 0;
     }
 
     public function banAccount($user_id) {
