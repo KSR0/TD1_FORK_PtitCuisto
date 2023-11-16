@@ -1,4 +1,7 @@
 all_secret_variables.env
+bayon222_all_secret_variables.env
+
 tailwind/tailwind.css
 style/input.css
 node_modules
+.dcignore
