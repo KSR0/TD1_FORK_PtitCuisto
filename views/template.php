@@ -39,7 +39,7 @@
             <?= $content?>
         </main>
             
-        <footer class="lg:pl-80 w-full sticky bottom-0">
+        <footer class="lg:pl-menu w-full sticky bottom-0">
             <?php 
                 require_once('footer.php');
 	        ?>

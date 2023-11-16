@@ -3,6 +3,9 @@ module.exports = {
   content: ["views/*.{html,js,php}"],
   theme: {
     extend: {
+      padding: {
+        'menu': '300px',
+      },
       maxHeight: {
         'div_recette': '592px',
         'div_recette_mobile': '1200px',
