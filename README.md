@@ -12,7 +12,7 @@ It's a recipe blog containing various cooking recipes.
   - Enter in the created folder, right click and click on `Git Bash Here`.
   - Clone the project using the `git clone` command and the link of the project (https://github.com/KSR0/TD1_FORK_PtitCuisto.git).
   - Use Xampp / Lamp / Wamp to host it in local.
-  - Create a MySQL database, copy and paste the SQL code available in [edito_script.sql](https://github.com/KSR0/TD1_FORK_PtitCuisto/blob/main/MCD-MLD-SCRIPT_SQL/Script_SQL_PtitCuisto.sql).
+  - Create a MySQL database, copy and paste the SQL code available in [Script_SQL_PtitCuisto.sql](https://github.com/KSR0/TD1_FORK_PtitCuisto/blob/main/MCD-MLD-SCRIPT_SQL/Script_SQL_PtitCuisto.sql).
   - Fill in the blanks of the [all_secret_variables.env](https://github.com/KSR0/TD1_FORK_PtitCuisto/blob/main/all_secret_variables.env).
   - Open the [index.php](https://github.com/KSR0/TD1_FORK_PtitCuisto/blob/main/index.php) files in your web browser.
 
